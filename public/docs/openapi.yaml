@@ -1,0 +1,496 @@
+openapi: 3.0.3
+info:
+  title: 'Maria Hony Company'
+  description: 'API for Maria Hony Company'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/categories:
+    get:
+      summary: 'Get all categories'
+      operationId: getAllCategories
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    categories: []
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      categories:
+                        type: array
+                        example: []
+      tags:
+        - 'Categories management'
+      security: []
+    post:
+      summary: 'Create new category (Admin)'
+      operationId: createNewCategoryAdmin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Categories management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category_name:
+                  type: string
+                  description: ''
+                  example: eum
+                  nullable: false
+              required:
+                - category_name
+  '/api/categories/{category_id}':
+    get:
+      summary: 'Get specific category info.'
+      operationId: getSpecificCategoryInfo
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error_message: 'Category not found'
+                properties:
+                  error_message:
+                    type: string
+                    example: 'Category not found'
+      tags:
+        - 'Categories management'
+      security: []
+    post:
+      summary: 'Update specific category info.(Admin)'
+      operationId: updateSpecificCategoryInfoAdmin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Categories management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                new_category_name:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: false
+    delete:
+      summary: 'Delete category (Admin)'
+      operationId: deleteCategoryAdmin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Categories management'
+    parameters:
+      -
+        in: path
+        name: category_id
+        description: 'The ID of the category.'
+        example: 18
+        required: true
+        schema:
+          type: integer
+  /api/orders/make:
+    post:
+      summary: 'Create new order'
+      operationId: createNewOrder
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Order management'
+  /api/products:
+    get:
+      summary: 'Get all products'
+      operationId: getAllProducts
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    prodcuts: []
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      prodcuts:
+                        type: array
+                        example: []
+      tags:
+        - 'Products management'
+      security: []
+    post:
+      summary: 'Create new product (Admin).'
+      operationId: createNewProductAdmin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Products management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                product_name:
+                  type: string
+                  description: ''
+                  example: voluptas
+                  nullable: false
+                cost:
+                  type: integer
+                  description: ''
+                  example: 18
+                  nullable: false
+                description:
+                  type: string
+                  description: ''
+                  example: voluptatum
+                  nullable: false
+                discount:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: false
+                category_id:
+                  type: string
+                  description: ''
+                  example: provident
+                  nullable: false
+                product_image:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+              required:
+                - product_name
+                - cost
+                - description
+                - category_id
+  '/api/products/{product_id}':
+    get:
+      summary: 'Get a specific product info .'
+      operationId: getASpecificProductInfo
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error_message: 'Product not found'
+                properties:
+                  error_message:
+                    type: string
+                    example: 'Product not found'
+      tags:
+        - 'Products management'
+      security: []
+    post:
+      summary: 'Update specific product (Admin)'
+      operationId: updateSpecificProductAdmin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Products management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                new_product_name:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: false
+                new_cost:
+                  type: integer
+                  description: ''
+                  example: 11
+                  nullable: false
+                new_description:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: false
+                new_discount:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: false
+                new_category_id:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: false
+                new_product_image:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+    delete:
+      summary: 'Delete product (Admin)'
+      operationId: deleteProductAdmin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'Products management'
+    parameters:
+      -
+        in: path
+        name: product_id
+        description: 'The ID of the product.'
+        example: 18
+        required: true
+        schema:
+          type: integer
+  /api/users/login:
+    post:
+      summary: 'User login'
+      operationId: userLogin
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. The <code>email</code> of an existing record in the users table.'
+                  example: levi.ortiz@example.org
+                  nullable: false
+                password:
+                  type: string
+                  description: ''
+                  example: vero
+                  nullable: false
+              required:
+                - email
+                - password
+      security: []
+  /api/users/signup:
+    post:
+      summary: 'User sign up (Create new account)'
+      operationId: userSignUpCreateNewAccount
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: quae
+                  nullable: false
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: hand.brennon@example.net
+                  nullable: false
+                password:
+                  type: string
+                  description: ''
+                  example: consequatur
+                  nullable: false
+                role:
+                  type: string
+                  description: ''
+                  example: admin
+                  nullable: false
+                  enum:
+                    - user
+                    - admin
+                profile_image:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: false
+              required:
+                - name
+                - email
+                - password
+                - role
+      security: []
+  /api/users/request-otp-code:
+    post:
+      summary: 'Request OTP code to reset password'
+      operationId: requestOTPCodeToResetPassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address. The <code>email</code> of an existing record in the users table.'
+                  example: lratke@example.net
+                  nullable: false
+              required:
+                - email
+      security: []
+  /api/users/reset-password:
+    post:
+      summary: 'Reset password'
+      operationId: resetPassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User management'
+      security: []
+  /api/users:
+    get:
+      summary: 'Get all users (Just admin can do this request)'
+      operationId: getAllUsersJustAdminCanDoThisRequest
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'User management'
+  '/api/users/{user_id}':
+    get:
+      summary: 'Get specifc user info.'
+      operationId: getSpecifcUserInfo
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - 'User management'
+    post:
+      summary: 'Update user info'
+      operationId: updateUserInfo
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User management'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_new_name:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: false
+                profile_image:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+    delete:
+      summary: 'Delete user'
+      operationId: deleteUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'User management'
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: sequi
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: 'Categories management'
+    description: "\nAPIs for managing categories"
+  -
+    name: 'Order management'
+    description: "\nAPIs for managing orders"
+  -
+    name: 'Products management'
+    description: "\nAPIs for managing products"
+  -
+    name: 'User management'
+    description: "\nAPIs for managing users"

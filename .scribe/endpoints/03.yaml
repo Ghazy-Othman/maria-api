@@ -1,0 +1,37 @@
+name: 'Order management'
+description: |-
+
+  APIs for managing orders
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/orders/make
+    metadata:
+      groupName: 'Order management'
+      groupDescription: |-
+
+        APIs for managing orders
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create new order'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
