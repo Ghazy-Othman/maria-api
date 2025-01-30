@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "<h1>
+API for Maria Hony Company
+</h1>
+<br>
+<h1>
+Developed By : Ghazy 👾
+</h1>";
 });
