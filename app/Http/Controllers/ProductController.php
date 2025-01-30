@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Http\Resources\ProductCollection;
 use App\Http\Resources\ProductResource;
 use App\Http\Responses\CustomResponse;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Storage;
 
@@ -48,6 +49,11 @@ class ProductController extends Controller
         if (array_key_exists('product_image', $validData) && $validData['product_image'] != null) {
             $imageName = time() . '_' . $fixidProductName . '.' . $validData['product_image']->getClientOriginalExtension();
         }
+
+        if(array_key_exists('category_name' , $validData['category_name']) && Category::find($validData['category_name']) == null) { 
+            return CustomResponse::notFound("Category not found !!") ;
+        }
+
         //
         $input = [
             'product_name' => $validData['product_name'],
