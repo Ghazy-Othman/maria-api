@@ -32,7 +32,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address. The <code>email</code> of an existing record in the users table.'
         required: true
-        example: levi.ortiz@example.org
+        example: pturcotte@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -42,15 +42,15 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: vero
+        example: voluptatum
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      email: levi.ortiz@example.org
-      password: vero
+      email: pturcotte@example.org
+      password: voluptatum
     fileParameters: []
     responses: []
     responseFields: []
@@ -86,7 +86,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: quae
+        example: maxime
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -96,7 +96,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: hand.brennon@example.net
+        example: steuber.layne@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -106,7 +106,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: consequatur
+        example: fugiat
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -116,7 +116,7 @@ endpoints:
         name: role
         description: ''
         required: true
-        example: admin
+        example: user
         type: string
         enumValues:
           - user
@@ -135,10 +135,10 @@ endpoints:
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: quae
-      email: hand.brennon@example.net
-      password: consequatur
-      role: admin
+      name: maxime
+      email: steuber.layne@example.net
+      password: fugiat
+      role: user
     fileParameters: []
     responses: []
     responseFields: []
@@ -174,14 +174,14 @@ endpoints:
         name: email
         description: 'Must be a valid email address. The <code>email</code> of an existing record in the users table.'
         required: true
-        example: lratke@example.net
+        example: rhills@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      email: lratke@example.net
+      email: rhills@example.org
     fileParameters: []
     responses: []
     responseFields: []
@@ -286,14 +286,14 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: sequi
+        example: numquam
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      user_id: sequi
+      user_id: numquam
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -338,14 +338,14 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: id
+        example: perferendis
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      user_id: id
+      user_id: perferendis
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -401,14 +401,14 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: et
+        example: consequuntur
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      user_id: et
+      user_id: consequuntur
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

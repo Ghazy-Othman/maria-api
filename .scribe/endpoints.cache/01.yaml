@@ -33,7 +33,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"categories":[]}}'
+        content: '{"data":{"categories":[{"category_id":1,"category_name":"dolores"},{"category_id":2,"category_name":"porro"},{"category_id":3,"category_name":"et"},{"category_id":4,"category_name":"qui"},{"category_id":5,"category_name":"nobis"},{"category_id":6,"category_name":"eaque"},{"category_id":7,"category_name":"dolore"},{"category_id":8,"category_name":"numquam"},{"category_id":9,"category_name":"et"},{"category_id":10,"category_name":"consequuntur"},{"category_id":11,"category_name":"non"},{"category_id":12,"category_name":"asperiores"},{"category_id":13,"category_name":"voluptatem"},{"category_id":14,"category_name":"dolor"},{"category_id":15,"category_name":"molestiae"},{"category_id":16,"category_name":"aut"},{"category_id":17,"category_name":"neque"},{"category_id":18,"category_name":"non"},{"category_id":19,"category_name":"consequatur"},{"category_id":20,"category_name":"ipsam"},{"category_id":21,"category_name":"et"},{"category_id":22,"category_name":"accusamus"},{"category_id":23,"category_name":"accusamus"},{"category_id":24,"category_name":"voluptas"},{"category_id":25,"category_name":"dolor"}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -71,14 +71,14 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: 18
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      category_id: 18
+      category_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -86,8 +86,8 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 404
-        content: '{"error_message":"Category not found"}'
+        status: 200
+        content: '{"data":{"category_id":1,"category_name":"dolores","products":[{"product_id":1,"prodcut_name":"id","cost":34258,"description":"Cum vel dolorem praesentium incidunt. Ab libero aut deleniti ea molestias. Quidem porro necessitatibus nobis ut id nihil. Dolorem accusantium et aut quasi voluptatem animi quo.","discount":59.56,"category_id":1,"product_image":null},{"product_id":12,"prodcut_name":"quas","cost":5668,"description":"Illum animi optio est ipsa doloremque quo qui. Sapiente est ut officia. Molestias consequuntur consectetur quia.","discount":53.26,"category_id":1,"product_image":null},{"product_id":14,"prodcut_name":"quia","cost":61564,"description":"Dolorum autem qui dolorem voluptas quia. Expedita voluptas porro quaerat quia sint. Quis iste delectus nihil ratione. Harum ea debitis libero alias ut eum.","discount":32.6,"category_id":1,"product_image":null},{"product_id":47,"prodcut_name":"aut","cost":83328,"description":"Eligendi repellendus eos natus a expedita quod veritatis. In a dolores est eos doloremque molestias rem placeat. Sed repellat amet earum rerum repudiandae. Dolor neque quos repellendus voluptatem.","discount":8.71,"category_id":1,"product_image":null},{"product_id":80,"prodcut_name":"voluptate","cost":72273,"description":"Dolorum quod sequi molestiae deserunt totam repellat voluptate voluptatem. Pariatur sed natus odit ad earum. Impedit ab tempora autem laboriosam in vel error.","discount":73.48,"category_id":1,"product_image":null}]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -129,14 +129,14 @@ endpoints:
         name: category_name
         description: ''
         required: true
-        example: eum
+        example: ea
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      category_name: eum
+      category_name: ea
     fileParameters: []
     responses: []
     responseFields: []
@@ -168,14 +168,14 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: 7
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      category_id: 7
+      category_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -221,14 +221,14 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: 18
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      category_id: 18
+      category_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

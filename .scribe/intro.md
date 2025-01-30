@@ -3,7 +3,7 @@
 API for Maria Hony Company
 
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>https://maria-api-production.up.railway.app/</code>
 </aside>
 
 This documentation aims to provide all the information you need to work with our API.
