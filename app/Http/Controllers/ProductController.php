@@ -50,7 +50,7 @@ class ProductController extends Controller
             $imageName = time() . '_' . $fixidProductName . '.' . $validData['product_image']->getClientOriginalExtension();
         }
 
-        if(array_key_exists('category_id' , $validData['category_id']) && Category::find($validData['category_id']) == null) { 
+        if(array_key_exists('category_id' , $validData) && Category::find($validData['category_id']) == null) { 
             return CustomResponse::notFound("Category not found !!") ;
         }
 
