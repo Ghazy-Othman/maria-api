@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/public_docs', function () {
+    return view('scribe.index');
+});
+
 Route::get('/', function () {
     return "<h1>
 API for Maria Honey Company
