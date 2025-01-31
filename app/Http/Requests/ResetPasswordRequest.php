@@ -39,8 +39,8 @@ class ResetPasswordRequest extends FormRequest
             'email.email' => "Please enter a valid email !!",
             'code.required' => "Please enter OTP code  !!",
             'new_password.required' => "Please enter new password !!" , 
-            'confirm_new_password.required' => "Please enter confirmed password !!" , 
-            'confirm_new_password.confirmed' => "Password and confirmed password are not equal !!" , 
+            'new_password_confirmation.required' => "Please enter confirmed password !!" , 
+            'new_password_confirmation.confirmed' => "Password and confirmed password are not equal !!" , 
         ];
     }
 
