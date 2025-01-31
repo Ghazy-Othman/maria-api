@@ -26,6 +26,7 @@ class ResetPasswordRequest extends FormRequest
         return [
             //
             'email' => 'required|email' , 
+            'code' => 'required' , 
             'new_password' => 'required' , 
             'confirm_new_password' => 'required|confirmed:new_password'
         ];
@@ -36,6 +37,7 @@ class ResetPasswordRequest extends FormRequest
         return [
             'email.required' => "Please enter your email !!",
             'email.email' => "Please enter a valid email !!",
+            'code.required' => "Please enter OTP code  !!",
             'new_password.required' => "Please enter new password !!" , 
             'confirm_new_password.required' => "Please enter confirmed password !!" , 
             'confirm_new_password.confirmed' => "Password and confirmed password are not equal !!" , 

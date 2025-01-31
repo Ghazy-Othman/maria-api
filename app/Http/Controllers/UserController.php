@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OtpCodeRequest;
+use App\Http\Requests\ResetPasswordRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UserLoginRequest;
 use App\Http\Requests\UserSignupRequest;
@@ -195,7 +196,7 @@ class   UserController extends Controller
     /**
      * Reset password
      */
-    public function resetPassword(Request $request) { 
+    public function resetPassword(ResetPasswordRequest $request) { 
          
         $validData = $request->validated() ; 
 
