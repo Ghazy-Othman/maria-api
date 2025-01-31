@@ -8,8 +8,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
-    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+    <link rel="stylesheet" href="{{ asset("/vendor/scribe/css/theme-default.style.css") }}" media="screen">
+    <link rel="stylesheet" href="{{ asset("/vendor/scribe/css/theme-default.print.css") }}" media="print">
 
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 
@@ -30,9 +30,9 @@
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="../docs/js/tryitout-4.39.0.js"></script>
+    <script src="{{ asset("/vendor/scribe/js/tryitout-4.39.0.js") }}"></script>
 
-    <script src="../docs/js/theme-default-4.39.0.js"></script>
+    <script src="{{ asset("/vendor/scribe/js/theme-default-4.39.0.js") }}"></script>
 
 </head>
 
@@ -41,7 +41,7 @@
 <a href="#" id="nav-button">
     <span>
         MENU
-        <img src="../docs/images/navbar.png" alt="navbar-image"/>
+        <img src="{{ asset("/vendor/scribe/images/navbar.png") }}" alt="navbar-image"/>
     </span>
 </a>
 <div class="tocify-wrapper">
@@ -154,13 +154,13 @@
             </div>
 
     <ul class="toc-footer" id="toc-footer">
-                    <li style="padding-bottom: 5px;"><a href="../docs/collection.json">View Postman collection</a></li>
-                            <li style="padding-bottom: 5px;"><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                    <li style="padding-bottom: 5px;"><a href="{{ route("scribe.postman") }}">View Postman collection</a></li>
+                            <li style="padding-bottom: 5px;"><a href="{{ route("scribe.openapi") }}">View OpenAPI spec</a></li>
                 <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 30, 2025</li>
+        <li>Last updated: January 31, 2025</li>
     </ul>
 </div>
 
@@ -168,7 +168,7 @@
     <div class="dark-box"></div>
     <div class="content">
         <h1 id="introduction">Introduction</h1>
-<p>API for Maria Hony Company</p>
+<p>API for Maria Honey Company</p>
 <aside>
     <strong>Base URL</strong>: <code>https://maria-api-production.up.railway.app/</code>
 </aside>
@@ -237,16 +237,8 @@ access-control-allow-origin: *
     &quot;data&quot;: {
         &quot;categories&quot;: [
             {
-                &quot;category_id&quot;: 1,
-                &quot;category_name&quot;: &quot;dolores&quot;
-            },
-            {
                 &quot;category_id&quot;: 2,
                 &quot;category_name&quot;: &quot;porro&quot;
-            },
-            {
-                &quot;category_id&quot;: 3,
-                &quot;category_name&quot;: &quot;et&quot;
             },
             {
                 &quot;category_id&quot;: 4,
@@ -425,14 +417,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://maria-api-production.up.railway.app/api/categories/1" \
+    --get "https://maria-api-production.up.railway.app/api/categories/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/categories/1"
+    "https://maria-api-production.up.railway.app/api/categories/2"
 );
 
 const headers = {
@@ -464,52 +456,52 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;category_id&quot;: 1,
-        &quot;category_name&quot;: &quot;dolores&quot;,
+        &quot;category_id&quot;: 2,
+        &quot;category_name&quot;: &quot;porro&quot;,
         &quot;products&quot;: [
             {
-                &quot;product_id&quot;: 1,
-                &quot;prodcut_name&quot;: &quot;id&quot;,
-                &quot;cost&quot;: 34258,
-                &quot;description&quot;: &quot;Cum vel dolorem praesentium incidunt. Ab libero aut deleniti ea molestias. Quidem porro necessitatibus nobis ut id nihil. Dolorem accusantium et aut quasi voluptatem animi quo.&quot;,
-                &quot;discount&quot;: 59.56,
-                &quot;category_id&quot;: 1,
+                &quot;product_id&quot;: 19,
+                &quot;prodcut_name&quot;: &quot;repellendus&quot;,
+                &quot;cost&quot;: 88058,
+                &quot;description&quot;: &quot;Consequuntur voluptas et aspernatur sit. Magni qui doloremque possimus ut sequi. Totam a occaecati assumenda est. Veritatis voluptatum voluptatum earum quo. Placeat nihil a rem in.&quot;,
+                &quot;discount&quot;: 98.36,
+                &quot;category_id&quot;: 2,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 12,
-                &quot;prodcut_name&quot;: &quot;quas&quot;,
-                &quot;cost&quot;: 5668,
-                &quot;description&quot;: &quot;Illum animi optio est ipsa doloremque quo qui. Sapiente est ut officia. Molestias consequuntur consectetur quia.&quot;,
-                &quot;discount&quot;: 53.26,
-                &quot;category_id&quot;: 1,
+                &quot;product_id&quot;: 55,
+                &quot;prodcut_name&quot;: &quot;incidunt&quot;,
+                &quot;cost&quot;: 71021,
+                &quot;description&quot;: &quot;Nihil voluptates soluta maxime in sequi occaecati neque. Alias dolores earum est et molestiae omnis. Ut quis alias illum et libero. Qui sit ratione officiis consequatur commodi aut eum.&quot;,
+                &quot;discount&quot;: 74.39,
+                &quot;category_id&quot;: 2,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 14,
-                &quot;prodcut_name&quot;: &quot;quia&quot;,
-                &quot;cost&quot;: 61564,
-                &quot;description&quot;: &quot;Dolorum autem qui dolorem voluptas quia. Expedita voluptas porro quaerat quia sint. Quis iste delectus nihil ratione. Harum ea debitis libero alias ut eum.&quot;,
-                &quot;discount&quot;: 32.6,
-                &quot;category_id&quot;: 1,
+                &quot;product_id&quot;: 79,
+                &quot;prodcut_name&quot;: &quot;facilis&quot;,
+                &quot;cost&quot;: 55844,
+                &quot;description&quot;: &quot;Similique ipsa qui et quia. Aut officia voluptates reprehenderit repellat eum quia illo.&quot;,
+                &quot;discount&quot;: 92.04,
+                &quot;category_id&quot;: 2,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 47,
-                &quot;prodcut_name&quot;: &quot;aut&quot;,
-                &quot;cost&quot;: 83328,
-                &quot;description&quot;: &quot;Eligendi repellendus eos natus a expedita quod veritatis. In a dolores est eos doloremque molestias rem placeat. Sed repellat amet earum rerum repudiandae. Dolor neque quos repellendus voluptatem.&quot;,
-                &quot;discount&quot;: 8.71,
-                &quot;category_id&quot;: 1,
+                &quot;product_id&quot;: 92,
+                &quot;prodcut_name&quot;: &quot;officiis&quot;,
+                &quot;cost&quot;: 36881,
+                &quot;description&quot;: &quot;Ratione ab qui harum eos. Totam et eveniet eaque et eaque saepe possimus cupiditate. Dolores molestiae sunt sed incidunt.&quot;,
+                &quot;discount&quot;: 86.85,
+                &quot;category_id&quot;: 2,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 80,
-                &quot;prodcut_name&quot;: &quot;voluptate&quot;,
-                &quot;cost&quot;: 72273,
-                &quot;description&quot;: &quot;Dolorum quod sequi molestiae deserunt totam repellat voluptate voluptatem. Pariatur sed natus odit ad earum. Impedit ab tempora autem laboriosam in vel error.&quot;,
-                &quot;discount&quot;: 73.48,
-                &quot;category_id&quot;: 1,
+                &quot;product_id&quot;: 99,
+                &quot;prodcut_name&quot;: &quot;et&quot;,
+                &quot;cost&quot;: 11633,
+                &quot;description&quot;: &quot;Sed laboriosam eaque nihil vel dicta. Eos aut officia rerum consectetur. Sint et est eveniet et qui beatae. Aut sed et laudantium voluptas et ut.&quot;,
+                &quot;discount&quot;: 56.77,
+                &quot;category_id&quot;: 2,
                 &quot;product_image&quot;: null
             }
         ]
@@ -593,10 +585,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="GETapi-categories--category_id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>1</code></p>
+<p>The ID of the category. Example: <code>2</code></p>
             </div>
                     </form>
 
@@ -618,7 +610,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"category_name\": \"ea\"
+    \"category_name\": \"qui\"
 }"
 </code></pre></div>
 
@@ -634,7 +626,7 @@ const headers = {
 };
 
 let body = {
-    "category_name": "ea"
+    "category_name": "qui"
 };
 
 fetch(url, {
@@ -723,10 +715,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category_name"                data-endpoint="POSTapi-categories"
-               value="ea"
+               value="qui"
                data-component="body">
     <br>
-<p>Example: <code>ea</code></p>
+<p>Example: <code>qui</code></p>
         </div>
         </form>
 
@@ -744,7 +736,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://maria-api-production.up.railway.app/api/categories/1" \
+    "https://maria-api-production.up.railway.app/api/categories/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
 </code></pre></div>
@@ -752,7 +744,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/categories/1"
+    "https://maria-api-production.up.railway.app/api/categories/2"
 );
 
 const headers = {
@@ -845,10 +837,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="POSTapi-categories--category_id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>1</code></p>
+<p>The ID of the category. Example: <code>2</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -878,14 +870,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://maria-api-production.up.railway.app/api/categories/1" \
+    "https://maria-api-production.up.railway.app/api/categories/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/categories/1"
+    "https://maria-api-production.up.railway.app/api/categories/2"
 );
 
 const headers = {
@@ -978,10 +970,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="DELETEapi-categories--category_id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>1</code></p>
+<p>The ID of the category. Example: <code>2</code></p>
             </div>
                     </form>
 
@@ -1154,16 +1146,7 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;prodcuts&quot;: [
-            {
-                &quot;product_id&quot;: 1,
-                &quot;prodcut_name&quot;: &quot;id&quot;,
-                &quot;cost&quot;: 34258,
-                &quot;description&quot;: &quot;Cum vel dolorem praesentium incidunt. Ab libero aut deleniti ea molestias. Quidem porro necessitatibus nobis ut id nihil. Dolorem accusantium et aut quasi voluptatem animi quo.&quot;,
-                &quot;discount&quot;: 59.56,
-                &quot;category_id&quot;: 1,
-                &quot;product_image&quot;: null
-            },
+        &quot;products&quot;: [
             {
                 &quot;product_id&quot;: 2,
                 &quot;prodcut_name&quot;: &quot;cumque&quot;,
@@ -1255,30 +1238,12 @@ access-control-allow-origin: *
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 12,
-                &quot;prodcut_name&quot;: &quot;quas&quot;,
-                &quot;cost&quot;: 5668,
-                &quot;description&quot;: &quot;Illum animi optio est ipsa doloremque quo qui. Sapiente est ut officia. Molestias consequuntur consectetur quia.&quot;,
-                &quot;discount&quot;: 53.26,
-                &quot;category_id&quot;: 1,
-                &quot;product_image&quot;: null
-            },
-            {
                 &quot;product_id&quot;: 13,
                 &quot;prodcut_name&quot;: &quot;cupiditate&quot;,
                 &quot;cost&quot;: 87557,
                 &quot;description&quot;: &quot;Numquam excepturi harum distinctio similique. Dolorem ab voluptate accusamus molestiae voluptatem eos. Ut ea quibusdam consectetur omnis ex dolores voluptatem.&quot;,
                 &quot;discount&quot;: 41.45,
                 &quot;category_id&quot;: 10,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 14,
-                &quot;prodcut_name&quot;: &quot;quia&quot;,
-                &quot;cost&quot;: 61564,
-                &quot;description&quot;: &quot;Dolorum autem qui dolorem voluptas quia. Expedita voluptas porro quaerat quia sint. Quis iste delectus nihil ratione. Harum ea debitis libero alias ut eum.&quot;,
-                &quot;discount&quot;: 32.6,
-                &quot;category_id&quot;: 1,
                 &quot;product_image&quot;: null
             },
             {
@@ -1471,15 +1436,6 @@ access-control-allow-origin: *
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 36,
-                &quot;prodcut_name&quot;: &quot;cupiditate&quot;,
-                &quot;cost&quot;: 37164,
-                &quot;description&quot;: &quot;Ad excepturi beatae ut velit. Amet dolores et impedit vitae. Fugiat porro minima alias dicta aut. Id soluta aliquid blanditiis rerum. Voluptas rerum officia nihil nemo pariatur ullam.&quot;,
-                &quot;discount&quot;: 39.37,
-                &quot;category_id&quot;: 3,
-                &quot;product_image&quot;: null
-            },
-            {
                 &quot;product_id&quot;: 37,
                 &quot;prodcut_name&quot;: &quot;eum&quot;,
                 &quot;cost&quot;: 41757,
@@ -1534,24 +1490,6 @@ access-control-allow-origin: *
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 43,
-                &quot;prodcut_name&quot;: &quot;voluptatem&quot;,
-                &quot;cost&quot;: 99480,
-                &quot;description&quot;: &quot;Tempore non natus voluptates. Excepturi est repellendus molestiae mollitia sunt sunt nostrum qui. Eos at illo natus eos ducimus enim placeat.&quot;,
-                &quot;discount&quot;: 11,
-                &quot;category_id&quot;: 3,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 44,
-                &quot;prodcut_name&quot;: &quot;quas&quot;,
-                &quot;cost&quot;: 2968,
-                &quot;description&quot;: &quot;Itaque maxime suscipit itaque. Magnam quis ab est et odit est. Architecto nostrum itaque enim et ab quos cumque.&quot;,
-                &quot;discount&quot;: 46.01,
-                &quot;category_id&quot;: 3,
-                &quot;product_image&quot;: null
-            },
-            {
                 &quot;product_id&quot;: 45,
                 &quot;prodcut_name&quot;: &quot;quas&quot;,
                 &quot;cost&quot;: 2433,
@@ -1567,15 +1505,6 @@ access-control-allow-origin: *
                 &quot;description&quot;: &quot;Molestiae facere laudantium temporibus et nobis fugit aut. Sed sunt velit dolores placeat nihil. Numquam dolorem voluptatibus quaerat provident itaque enim qui blanditiis.&quot;,
                 &quot;discount&quot;: 89.44,
                 &quot;category_id&quot;: 11,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 47,
-                &quot;prodcut_name&quot;: &quot;aut&quot;,
-                &quot;cost&quot;: 83328,
-                &quot;description&quot;: &quot;Eligendi repellendus eos natus a expedita quod veritatis. In a dolores est eos doloremque molestias rem placeat. Sed repellat amet earum rerum repudiandae. Dolor neque quos repellendus voluptatem.&quot;,
-                &quot;discount&quot;: 8.71,
-                &quot;category_id&quot;: 1,
                 &quot;product_image&quot;: null
             },
             {
@@ -1693,15 +1622,6 @@ access-control-allow-origin: *
                 &quot;description&quot;: &quot;Dignissimos sunt adipisci molestiae dolores non aut. Dolor veniam eveniet quia neque eos nam quia. Eligendi ex placeat debitis.&quot;,
                 &quot;discount&quot;: 55.36,
                 &quot;category_id&quot;: 4,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 61,
-                &quot;prodcut_name&quot;: &quot;repellat&quot;,
-                &quot;cost&quot;: 21646,
-                &quot;description&quot;: &quot;Nostrum laudantium ratione aut quasi voluptatum odio officia. Quos et minus earum fugiat optio ex fuga. Odio quas cumque commodi omnis aut illum fugiat. Officiis dolore voluptas molestias.&quot;,
-                &quot;discount&quot;: 60.66,
-                &quot;category_id&quot;: 3,
                 &quot;product_image&quot;: null
             },
             {
@@ -1864,15 +1784,6 @@ access-control-allow-origin: *
                 &quot;description&quot;: &quot;Similique ipsa qui et quia. Aut officia voluptates reprehenderit repellat eum quia illo.&quot;,
                 &quot;discount&quot;: 92.04,
                 &quot;category_id&quot;: 2,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 80,
-                &quot;prodcut_name&quot;: &quot;voluptate&quot;,
-                &quot;cost&quot;: 72273,
-                &quot;description&quot;: &quot;Dolorum quod sequi molestiae deserunt totam repellat voluptate voluptatem. Pariatur sed natus odit ad earum. Impedit ab tempora autem laboriosam in vel error.&quot;,
-                &quot;discount&quot;: 73.48,
-                &quot;category_id&quot;: 1,
                 &quot;product_image&quot;: null
             },
             {
@@ -2054,6 +1965,24 @@ access-control-allow-origin: *
                 &quot;discount&quot;: 15.82,
                 &quot;category_id&quot;: 8,
                 &quot;product_image&quot;: null
+            },
+            {
+                &quot;product_id&quot;: 102,
+                &quot;prodcut_name&quot;: &quot;kabbar hon hony kabbar&quot;,
+                &quot;cost&quot;: 2230,
+                &quot;description&quot;: &quot;This is kabbar&quot;,
+                &quot;discount&quot;: null,
+                &quot;category_id&quot;: 6,
+                &quot;product_image&quot;: null
+            },
+            {
+                &quot;product_id&quot;: 103,
+                &quot;prodcut_name&quot;: &quot;kabbar hon hony kabbar&quot;,
+                &quot;cost&quot;: 2230,
+                &quot;description&quot;: &quot;This is kabbar&quot;,
+                &quot;discount&quot;: 26.6,
+                &quot;category_id&quot;: 10,
+                &quot;product_image&quot;: &quot;http://localhost/storage/images/products/1738314257_kabbar_hon_hony_kabbar.png&quot;
             }
         ]
     }
@@ -2144,14 +2073,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://maria-api-production.up.railway.app/api/products/1" \
+    --get "https://maria-api-production.up.railway.app/api/products/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/products/1"
+    "https://maria-api-production.up.railway.app/api/products/2"
 );
 
 const headers = {
@@ -2183,12 +2112,12 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;product_id&quot;: 1,
-        &quot;prodcut_name&quot;: &quot;id&quot;,
-        &quot;cost&quot;: 34258,
-        &quot;description&quot;: &quot;Cum vel dolorem praesentium incidunt. Ab libero aut deleniti ea molestias. Quidem porro necessitatibus nobis ut id nihil. Dolorem accusantium et aut quasi voluptatem animi quo.&quot;,
-        &quot;discount&quot;: 59.56,
-        &quot;category_id&quot;: 1,
+        &quot;product_id&quot;: 2,
+        &quot;prodcut_name&quot;: &quot;cumque&quot;,
+        &quot;cost&quot;: 87379,
+        &quot;description&quot;: &quot;Tempore illo possimus sunt sed placeat sed. Commodi velit amet labore ratione eos modi sit ea. Quo dignissimos sit provident tempore voluptatem et ut.&quot;,
+        &quot;discount&quot;: 35.07,
+        &quot;category_id&quot;: 8,
         &quot;product_image&quot;: null
     }
 }</code>
@@ -2270,10 +2199,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="product_id"                data-endpoint="GETapi-products--product_id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>1</code></p>
+<p>The ID of the product. Example: <code>2</code></p>
             </div>
                     </form>
 
@@ -2296,9 +2225,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"product_name\": \"quia\",
-    \"cost\": 17,
-    \"description\": \"illo\",
-    \"category_id\": \"odit\"
+    \"cost\": 2,
+    \"description\": \"accusamus\",
+    \"category_id\": \"a\"
 }"
 </code></pre></div>
 
@@ -2315,9 +2244,9 @@ const headers = {
 
 let body = {
     "product_name": "quia",
-    "cost": 17,
-    "description": "illo",
-    "category_id": "odit"
+    "cost": 2,
+    "description": "accusamus",
+    "category_id": "a"
 };
 
 fetch(url, {
@@ -2417,10 +2346,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cost"                data-endpoint="POSTapi-products"
-               value="17"
+               value="2"
                data-component="body">
     <br>
-<p>Example: <code>17</code></p>
+<p>Example: <code>2</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2428,10 +2357,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-products"
-               value="illo"
+               value="accusamus"
                data-component="body">
     <br>
-<p>Example: <code>illo</code></p>
+<p>Example: <code>accusamus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>discount</code></b>&nbsp;&nbsp;
@@ -2450,10 +2379,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category_id"                data-endpoint="POSTapi-products"
-               value="odit"
+               value="a"
                data-component="body">
     <br>
-<p>Example: <code>odit</code></p>
+<p>Example: <code>a</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>product_image</code></b>&nbsp;&nbsp;
@@ -2482,18 +2411,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://maria-api-production.up.railway.app/api/products/1" \
+    "https://maria-api-production.up.railway.app/api/products/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"new_cost\": 19
+    \"new_cost\": 8
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/products/1"
+    "https://maria-api-production.up.railway.app/api/products/2"
 );
 
 const headers = {
@@ -2502,7 +2431,7 @@ const headers = {
 };
 
 let body = {
-    "new_cost": 19
+    "new_cost": 8
 };
 
 fetch(url, {
@@ -2591,10 +2520,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="product_id"                data-endpoint="POSTapi-products--product_id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>1</code></p>
+<p>The ID of the product. Example: <code>2</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2614,10 +2543,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="new_cost"                data-endpoint="POSTapi-products--product_id-"
-               value="19"
+               value="8"
                data-component="body">
     <br>
-<p>Example: <code>19</code></p>
+<p>Example: <code>8</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>new_description</code></b>&nbsp;&nbsp;
@@ -2679,14 +2608,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://maria-api-production.up.railway.app/api/products/1" \
+    "https://maria-api-production.up.railway.app/api/products/2" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/products/1"
+    "https://maria-api-production.up.railway.app/api/products/2"
 );
 
 const headers = {
@@ -2779,10 +2708,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="product_id"                data-endpoint="DELETEapi-products--product_id-"
-               value="1"
+               value="2"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>1</code></p>
+<p>The ID of the product. Example: <code>2</code></p>
             </div>
                     </form>
 
@@ -2807,8 +2736,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"pturcotte@example.org\",
-    \"password\": \"voluptatum\"
+    \"email\": \"wdibbert@example.org\",
+    \"password\": \"dolor\"
 }"
 </code></pre></div>
 
@@ -2824,8 +2753,8 @@ const headers = {
 };
 
 let body = {
-    "email": "pturcotte@example.org",
-    "password": "voluptatum"
+    "email": "wdibbert@example.org",
+    "password": "dolor"
 };
 
 fetch(url, {
@@ -2914,10 +2843,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-users-login"
-               value="pturcotte@example.org"
+               value="wdibbert@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. The <code>email</code> of an existing record in the users table. Example: <code>pturcotte@example.org</code></p>
+<p>Must be a valid email address. The <code>email</code> of an existing record in the users table. Example: <code>wdibbert@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -2925,10 +2854,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-users-login"
-               value="voluptatum"
+               value="dolor"
                data-component="body">
     <br>
-<p>Example: <code>voluptatum</code></p>
+<p>Example: <code>dolor</code></p>
         </div>
         </form>
 
@@ -2949,10 +2878,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"maxime\",
-    \"email\": \"steuber.layne@example.net\",
-    \"password\": \"fugiat\",
-    \"role\": \"user\"
+    \"name\": \"facere\",
+    \"email\": \"lauren33@example.org\",
+    \"password\": \"officia\",
+    \"role\": \"admin\"
 }"
 </code></pre></div>
 
@@ -2968,10 +2897,10 @@ const headers = {
 };
 
 let body = {
-    "name": "maxime",
-    "email": "steuber.layne@example.net",
-    "password": "fugiat",
-    "role": "user"
+    "name": "facere",
+    "email": "lauren33@example.org",
+    "password": "officia",
+    "role": "admin"
 };
 
 fetch(url, {
@@ -3060,10 +2989,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-users-signup"
-               value="maxime"
+               value="facere"
                data-component="body">
     <br>
-<p>Example: <code>maxime</code></p>
+<p>Example: <code>facere</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -3071,10 +3000,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-users-signup"
-               value="steuber.layne@example.net"
+               value="lauren33@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>steuber.layne@example.net</code></p>
+<p>Must be a valid email address. Example: <code>lauren33@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -3082,10 +3011,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-users-signup"
-               value="fugiat"
+               value="officia"
                data-component="body">
     <br>
-<p>Example: <code>fugiat</code></p>
+<p>Example: <code>officia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
@@ -3093,10 +3022,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="role"                data-endpoint="POSTapi-users-signup"
-               value="user"
+               value="admin"
                data-component="body">
     <br>
-<p>Example: <code>user</code></p>
+<p>Example: <code>admin</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>user</code></li> <li><code>admin</code></li></ul>
         </div>
@@ -3130,7 +3059,7 @@ Must be one of:
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"rhills@example.org\"
+    \"email\": \"hillard31@example.org\"
 }"
 </code></pre></div>
 
@@ -3146,7 +3075,7 @@ const headers = {
 };
 
 let body = {
-    "email": "rhills@example.org"
+    "email": "hillard31@example.org"
 };
 
 fetch(url, {
@@ -3235,10 +3164,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-users-request-otp-code"
-               value="rhills@example.org"
+               value="hillard31@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. The <code>email</code> of an existing record in the users table. Example: <code>rhills@example.org</code></p>
+<p>Must be a valid email address. The <code>email</code> of an existing record in the users table. Example: <code>hillard31@example.org</code></p>
         </div>
         </form>
 
@@ -3489,14 +3418,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://maria-api-production.up.railway.app/api/users/numquam" \
+    --get "https://maria-api-production.up.railway.app/api/users/dignissimos" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/users/numquam"
+    "https://maria-api-production.up.railway.app/api/users/dignissimos"
 );
 
 const headers = {
@@ -3605,10 +3534,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="GETapi-users--user_id-"
-               value="numquam"
+               value="dignissimos"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>numquam</code></p>
+<p>The ID of the user. Example: <code>dignissimos</code></p>
             </div>
                     </form>
 
@@ -3626,7 +3555,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://maria-api-production.up.railway.app/api/users/perferendis" \
+    "https://maria-api-production.up.railway.app/api/users/laborum" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
 </code></pre></div>
@@ -3634,7 +3563,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/users/perferendis"
+    "https://maria-api-production.up.railway.app/api/users/laborum"
 );
 
 const headers = {
@@ -3727,10 +3656,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="POSTapi-users--user_id-"
-               value="perferendis"
+               value="laborum"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>perferendis</code></p>
+<p>The ID of the user. Example: <code>laborum</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3771,14 +3700,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://maria-api-production.up.railway.app/api/users/consequuntur" \
+    "https://maria-api-production.up.railway.app/api/users/ratione" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/users/consequuntur"
+    "https://maria-api-production.up.railway.app/api/users/ratione"
 );
 
 const headers = {
@@ -3871,10 +3800,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="DELETEapi-users--user_id-"
-               value="consequuntur"
+               value="ratione"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>consequuntur</code></p>
+<p>The ID of the user. Example: <code>ratione</code></p>
             </div>
                     </form>
 

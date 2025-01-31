@@ -1,6 +1,6 @@
 # Introduction
 
-API for Maria Hony Company
+API for Maria Honey Company
 
 <aside>
     <strong>Base URL</strong>: <code>https://maria-api-production.up.railway.app/</code>
