@@ -20,7 +20,7 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'role' => $this->role,
-            'profile_image' => $this->profile_image == null ? null : env('APP_URL') . ':8000' . Storage::url('images/users/' . $this->profile_image) // TODO : Remove port 
+            'profile_image' => $this->profile_image == null ? null : env('APP_URL') . Storage::url('images/users/' . $this->profile_image)
         ];
     }
 }

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return "<h1>
-API for Maria Hony Company
+API for Maria Honey Company
 </h1>
 <br>
 <h1>

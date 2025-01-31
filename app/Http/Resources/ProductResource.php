@@ -22,7 +22,7 @@ class ProductResource extends JsonResource
             'description' => $this->description,
             'discount' => $this->discount,
             'category_id' => $this->category_id,
-            'product_image' => $this->product_image == null ? null : env('APP_URL') . ':8000' . Storage::url('images/products/' . $this->product_image) // TODO : Remove port 
+            'product_image' => $this->product_image == null ? null : env('APP_URL') . Storage::url('images/products/' . $this->product_image)
         ];
     }
 }
