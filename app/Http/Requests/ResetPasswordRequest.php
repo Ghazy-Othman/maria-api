@@ -28,7 +28,7 @@ class ResetPasswordRequest extends FormRequest
             'email' => 'required|email' , 
             'code' => 'required' , 
             'new_password' => 'required' , 
-            'confirm_new_password' => 'required|confirmed:new_password'
+            'new_password_confirmation' => 'required|confirmed'
         ];
     }
 
