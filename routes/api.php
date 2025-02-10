@@ -24,81 +24,33 @@ use Illuminate\Support\Facades\Route;
 //===============================================
 
 Route::prefix('users')->group(function () {
-
-    Route::post('/login', [UserController::class, 'login']);
-    Route::post('/signup', [UserController::class, 'signup']);
-
-    Route::post('/request-otp-code' , [UserController::class , 'requestOTPCode']) ; 
-    Route::post('/reset-password' , [UserController::class , 'resetPassword']) ;
-    Route::middleware('auth:sanctum')->group(function () {
-
-        Route::get('/', [UserController::class, 'index'])->middleware('isAdmin');
-
-        Route::middleware('currentUser')->group(function () {
-
-            Route::get('/{user_id}', [UserController::class, 'show']);
-
-            Route::post('/{user_id}', [UserController::class, 'update']); //TODO : Find a way to use patch instead of post
-
-            Route::delete('/{user_id}', [UserController::class, 'destroy']);
-        });
+    Route::post('/login', [UserController::class, 'login'])->name('users.login');
+    Route::post('/signup', [UserController::class, 'signup'])->name('users.signup');
+    Route::post('/request-otp-code', [UserController::class, 'requestOtpCode'])->name('users.requestOtp');
+    Route::get('/', [UserController::class, 'index'])->middleware('auth:sanctum', 'isAdmin')->name('users.index');
+    
+    // User-specific routes with currentUser middleware
+    Route::middleware(['auth:sanctum', 'currentUser'])->group(function () {
+        Route::get('/{user_id}', [UserController::class, 'show'])->name('users.show');
+        Route::post('/{user_id}', [UserController::class, 'update'])->name('users.update');
+        Route::delete('/{user_id}', [UserController::class, 'destroy'])->name('users.delete');
     });
+
+    // Password reset routes
+    Route::post('/reset-password', [UserController::class, 'resetPassword'])->name('users.resetPassword');
 });
 
 
 //===============================================
-//                  Categories
+//            Categories & Prodcuts
 //===============================================
 
-Route::prefix('categories')->group(function () {
+Route::apiResource('categories', CategoryController::class)->only(['index', 'show']); // Public routes
+Route::apiResource('products', ProductController::class)->only(['index', 'show']); // Public routes
 
-    // Get all categories 
-    Route::get('/', [CategoryController::class, 'index']);
-
-    // Get specific category
-    Route::get('/{category_id}', [CategoryController::class, 'show']);
-
-    // Need auth
-    //TODO : Handle auth failed 
-    Route::middleware(['auth:sanctum', 'isAdmin'])->group(function () {
-
-        // Create new category
-        Route::post('/', [CategoryController::class, 'store']);
-
-        // Update specific controller
-        Route::post('/{category_id}', [CategoryController::class, 'update']); //TODO : Find a way to use patch instead of post
-
-        // Delete specific controller
-        Route::delete('/{category_id}', [CategoryController::class, 'destroy']);
-    });
-});
-
-
-//===============================================
-//                  Prodcuts
-//===============================================
-
-Route::prefix('products')->group(function () {
-
-    // Get all categories 
-    Route::get('/', [ProductController::class, 'index']);
-
-    // Get specific category
-    Route::get('/{product_id}', [ProductController::class, 'show']);
-
-    // Need auth
-    //TODO : Handle auth failed 
-    Route::middleware(['auth:sanctum', 'isAdmin'])->group(function () {
-
-        // Create new category
-        Route::post('/', [ProductController::class, 'store']);
-
-        // Update specific controller
-        Route::post('/{product_id}', [ProductController::class, 'update']); //TODO : Find a way to use patch instead of post
-
-        // Delete specific controller
-        Route::delete('/{product_id}', [ProductController::class, 'destroy']);
-    });
+Route::middleware(['auth:sanctum', 'isAdmin'])->group(function () {
+    Route::apiResource('categories', CategoryController::class)->except(['index', 'show']);
+    Route::apiResource('products', ProductController::class)->except(['index', 'show']);
 });
 
 
@@ -107,3 +59,13 @@ Route::prefix('orders')->group(function() {
 }) ; 
 
 Route::get('/payment' ,[MyFatoorahController::class, 'index']) ;
+
+///TODO
+// Route::middleware('auth:sanctum')->group(function () {
+//     Route::apiResource('orders', OrderController::class);
+    
+//     Route::prefix('payments')->group(function () {
+//         Route::post('/pay', [MyFatoorahController::class, 'pay'])->name('payments.pay');
+//         Route::post('/callback', [MyFatoorahController::class, 'callback'])->name('payments.callback');
+//     });
+// });
