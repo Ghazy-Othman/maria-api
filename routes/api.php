@@ -49,8 +49,15 @@ Route::prefix('users')->group(function () {
         Route::get('/{user_id}/payment/initiate/{orderId}', [PaymentController::class, 'initiate'])->name('payment.initiate');
         Route::get('/{user_id}/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
         Route::get('/{user_id}/payment/failed', [PaymentController::class, 'failed'])->name('payment.failed');
-    });
 
+    });
+    
+    // AI Chatbot
+    Route::get('/{user_id}/chat' , [ChatbotController::class , 'show']) ;
+    Route::post('/{user_id}/chat' , [ChatbotController::class , 'sendMessage']) ;
+    Route::delete('/{user_id}/chat' , [ChatbotController::class , 'deleteChat']) ;
+       
+    
 });
 
 
@@ -68,3 +75,8 @@ Route::middleware(['auth:sanctum', 'isAdmin'])->group(function () {
 
 
 Route::get('/chatbot' , [ChatbotController::class, 'chat']) ; 
+
+//===============================================
+//                 AI Chatbot
+//===============================================
+Route::get('/chatbot' , [ChatbotController::class, 'get_initial_info']) ; 
