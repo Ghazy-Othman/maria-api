@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id('payment_id');
-            $table->string('invoice_id') ; 
-            $table->string('status') ;  
-            $table->string('payment_gateway') ;
-            $table->unsignedBigInteger('order_id') ; 
-            $table->foreign('order_id')->references('order_id')->on('orders')->cascadeOnDelete() ;  
+            $table->foreignId('order_id')->constrained('orders' , 'order_id')->onDelete('cascade') ; 
+            $table->string('invoice_id') ;
+            $table->enum('status' , ['paid' , 'failed']) ;  
             $table->timestamps();
         });
     }

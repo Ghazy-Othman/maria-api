@@ -5,33 +5,29 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Order extends Model
+class CartItem extends Model
 {
+    /** @use HasFactory<\Database\Factories\CartItemFactory> */
     use HasFactory;
 
     //
-    protected $primaryKey = 'order_id';
+    protected $primaryKey = "cart_item_id";
 
     //
     protected $fillable = [
-        'user_id',
-        'total',
+        "cart_id",
+        "product_id",
+        "quantity",
+        "price",
     ];
 
-    //
-    public function total(): Attribute
+
+    public function price(): Attribute
     {
         return Attribute::make(
             get: fn($value) => $value / 100,
-            set: fn($value) => $value * 100
+            set: fn($value) => $value * 100,
         );
-    }
-
-    //
-    public function payment(): HasOne
-    {
-        return $this->hasOne(Payment::class);
     }
 }

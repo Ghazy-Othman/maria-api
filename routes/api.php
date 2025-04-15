@@ -1,22 +1,13 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\MyFatoorahController;
+use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
 
 
 //===============================================
@@ -24,20 +15,42 @@ use Illuminate\Support\Facades\Route;
 //===============================================
 
 Route::prefix('users')->group(function () {
+
+    // Get all user (Admin endpoint)
+    Route::get('/', [UserController::class, 'index'])->middleware('auth:sanctum', 'isAdmin')->name('users.index');
+
+    // Auth endpoints 
     Route::post('/login', [UserController::class, 'login'])->name('users.login');
     Route::post('/signup', [UserController::class, 'signup'])->name('users.signup');
     Route::post('/request-otp-code', [UserController::class, 'requestOtpCode'])->name('users.requestOtp');
-    Route::get('/', [UserController::class, 'index'])->middleware('auth:sanctum', 'isAdmin')->name('users.index');
-    
+
+    // Password reset 
+    Route::post('/reset-password', [UserController::class, 'resetPassword']);
+
     // User-specific routes with currentUser middleware
     Route::middleware(['auth:sanctum', 'currentUser'])->group(function () {
-        Route::get('/{user_id}', [UserController::class, 'show'])->name('users.show');
-        Route::post('/{user_id}', [UserController::class, 'update'])->name('users.update');
-        Route::delete('/{user_id}', [UserController::class, 'destroy'])->name('users.delete');
+
+        // User info
+        Route::get('/{user_id}', [UserController::class, 'show']);
+        Route::post('/{user_id}', [UserController::class, 'update']);
+        Route::delete('/{user_id}', [UserController::class, 'destroy']);
+
+        // User cart
+        Route::get('/{user_id}/cart', [CartController::class, 'show']);
+        Route::post('/{user_id}/cart/add', [CartController::class, 'add']);
+        Route::post('/{user_id}/cart/remove', [CartController::class, 'remove']);
+
+        // User orders
+        Route::get('/{user_id}/orders', [OrderController::class, 'index']);
+        Route::get('/{user_id}/orders/{order_id}', [OrderController::class, 'show']);
+        Route::post('/{user_id}/orders/', [OrderController::class, 'store']);
+
+        // Payment
+        Route::get('/{user_id}/payment/initiate/{orderId}', [PaymentController::class, 'initiate'])->name('payment.initiate');
+        Route::get('/{user_id}/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
+        Route::get('/{user_id}/payment/failed', [PaymentController::class, 'failed'])->name('payment.failed');
     });
 
-    // Password reset routes
-    Route::post('/reset-password', [UserController::class, 'resetPassword'])->name('users.resetPassword');
 });
 
 
@@ -54,18 +67,4 @@ Route::middleware(['auth:sanctum', 'isAdmin'])->group(function () {
 });
 
 
-Route::prefix('orders')->group(function() {
-    Route::post('/make' , [OrderController::class , 'makeOrder'])->middleware('auth:sanctum') ;
-}) ; 
-
-Route::get('/payment' ,[MyFatoorahController::class, 'index']) ;
-
-///TODO
-// Route::middleware('auth:sanctum')->group(function () {
-//     Route::apiResource('orders', OrderController::class);
-    
-//     Route::prefix('payments')->group(function () {
-//         Route::post('/pay', [MyFatoorahController::class, 'pay'])->name('payments.pay');
-//         Route::post('/callback', [MyFatoorahController::class, 'callback'])->name('payments.callback');
-//     });
-// });
+Route::get('/chatbot' , [ChatbotController::class, 'chat']) ; 

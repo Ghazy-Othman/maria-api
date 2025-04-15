@@ -9,12 +9,18 @@ class Payment extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'payment_id' ;
+    protected $primaryKey = 'payment_id';
 
-    protected $fillable = [ 
-        'invoice_id' , 
-        'status' , 
-        'order_id', 
-        'payment_gateway'
-    ] ; 
+    public $incrementing = false ; 
+
+    protected $fillable = [
+        'payment_id',
+        'order_id',
+        'invoice_id',
+        'status',
+    ];
+
+
+    //TODO : Check for response attribute needing
+    
 }

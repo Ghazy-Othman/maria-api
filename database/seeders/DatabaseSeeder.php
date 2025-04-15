@@ -3,6 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Cart;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,8 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(15)->create();
-        \App\Models\Category::factory(25)->create() ;
-        \App\Models\Product::factory(100)->create() ;
+        // User::factory(15)->create();
+        // Category::factory(25)->create() ;
+        // Product::factory(100)->create() ;
+        // Cart::factory(5)->create() ;
+        
     }
 }

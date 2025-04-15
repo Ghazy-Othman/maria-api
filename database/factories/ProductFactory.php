@@ -24,7 +24,10 @@ class ProductFactory extends Factory
             'description' => fake()->text() ,  
             'cost' => rand(1000, 100000),  
             'discount' => fake()->randomFloat(2 , 0,100) , 
-            'category_id' => $this->faker->randomElement(Category::pluck('category_id')) 
+            'category_id' => function(){
+                $ids = Category::pluck('category_id')->toArray() ; 
+                return $ids[rand(0 , count($ids) - 1 )] ; 
+            } , 
         ];
     }
 }

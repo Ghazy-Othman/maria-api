@@ -24,13 +24,6 @@ class CategoryController extends Controller
         return CustomResponse::ok(new CategoryCollection(Category::all())) ; 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Create new category (Admin)
@@ -58,13 +51,6 @@ class CategoryController extends Controller
         return CustomResponse::ok(new CategorytResource($category)) ;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Category $category)
-    {
-
-    }
 
     /**
      * Update specific category info.(Admin)

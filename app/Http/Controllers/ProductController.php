@@ -9,6 +9,7 @@ use App\Http\Resources\ProductResource;
 use App\Http\Responses\CustomResponse;
 use App\Models\Category;
 use App\Models\Product;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 /**
@@ -21,19 +22,25 @@ class ProductController extends Controller
     /**
      * Get all products
      */
-    public function index()
+    public function index(Request $request)
     {
+        // Add more filtering if needed
+        $prodcuts = Product::when($request->category_id, function ($query) use ($request) {
+            return $query->where("category_id", $request->category_id);
+        })
+            ->when($request->costFrom, function ($query) use ($request) {
+                return $query->where('cost', '>=', $request->costFrom);
+            })
+            ->when($request->costTo, function ($query) use ($request) {
+                return $query->where('cost', '<=', $request->costTo);
+            })
+            ->paginate(10)
+            ->withQueryString();
+
         //
         return CustomResponse::ok(new ProductCollection(Product::all()));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Create new product (Admin).
@@ -50,8 +57,8 @@ class ProductController extends Controller
             $imageName = time() . '_' . $fixidProductName . '.' . $validData['product_image']->getClientOriginalExtension();
         }
 
-        if(array_key_exists('category_id' , $validData) && Category::find($validData['category_id']) == null) { 
-            return CustomResponse::notFound("Category not found !!") ;
+        if (array_key_exists('category_id', $validData) && Category::find($validData['category_id']) == null) {
+            return CustomResponse::notFound("Category not found !!");
         }
 
         //
@@ -87,13 +94,6 @@ class ProductController extends Controller
         return CustomResponse::ok(new ProductResource($product));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
 
     /**
      * Update specific product (Admin)

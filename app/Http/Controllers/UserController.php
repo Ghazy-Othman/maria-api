@@ -13,7 +13,6 @@ use App\Http\Responses\CustomResponse;
 use App\Models\User;
 use App\Notifications\OTPRequestNotification;
 use Ichtrojan\Otp\Otp;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
