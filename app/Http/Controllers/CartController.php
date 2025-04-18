@@ -8,10 +8,19 @@ use App\Models\Cart;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+/**
+ * @group Cart management
+ * 
+ * Cart actions
+ */
 class CartController extends Controller
 {
-    //
+    /**
+     * Get user active cart (unchecked)
+     * @authenticated
+     * @param mixed $user_id
+     * @return CustomResponse
+     */
     public function show($user_id)
     {
         $cart = Cart::firstOrCreate(['user_id' => $user_id, 'status' => "active"]);
@@ -23,7 +32,13 @@ class CartController extends Controller
         return CustomResponse::ok($success);
     }
 
-    //
+    /**
+     * Add new product to current user cart 
+     * @authenticated
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $user_id
+     * @return CustomResponse
+     */
     public function add(Request $request , $user_id)
     {
         //
@@ -51,7 +66,13 @@ class CartController extends Controller
     }
 
 
-    //
+    /**
+     * Remove product from cart
+     * @authenticated
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $user_id
+     * @return CustomResponse
+     */
     public function remove(Request $request , $user_id)
     {
         //

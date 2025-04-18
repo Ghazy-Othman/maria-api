@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
  *
  * APIs for managing orders
  */
-
 class OrderController extends Controller
 {
 

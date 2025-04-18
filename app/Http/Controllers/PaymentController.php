@@ -7,7 +7,11 @@ use App\Models\Payment;
 use App\Services\PaymentService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-
+/**
+ * @group Payment management
+ * 
+ * APIs for payments
+ */
 class PaymentController extends Controller
 {
     //
@@ -18,7 +22,12 @@ class PaymentController extends Controller
         $this->payment_service = $payment_service;
     }
 
-
+    /**
+     * Start payment for specific order 
+     * @authenticated
+     * @param int $order_id
+     * @return \Illuminate\Routing\Redirector
+     */
     public function initiate($order_id)
     {
         $order = Order::findOrFail($order_id);

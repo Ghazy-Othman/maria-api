@@ -12,11 +12,20 @@ use Gemini\Enums\Role;
 use Illuminate\Http\Request;
 use Gemini\Laravel\Facades\Gemini;
 use Illuminate\Support\Str;
-
+/**
+ * @group AI chat bot
+ * 
+ * Chat actions with AI
+ */
 class ChatbotController extends Controller
 {
 
-    //
+    /**
+     * Get current user chat with AI
+     * @authenticated
+     * @param mixed $user_id
+     * @return CustomResponse
+     */
     public function show($user_id)
     {
         //
@@ -29,6 +38,13 @@ class ChatbotController extends Controller
         return CustomResponse::ok($response);
     }
 
+    /**
+     * Send new message for AI
+     * @authenticated
+     * @param \Illuminate\Http\Request $request
+     * @param mixed $user_id
+     * @return CustomResponse
+     */
     public function sendMessage(Request $request, $user_id)
     {
         // 
@@ -79,6 +95,12 @@ class ChatbotController extends Controller
     }
 
 
+    /**
+     * Delete chat with AI
+     * @authenticated
+     * @param mixed $user_id
+     * @return CustomResponse
+     */
     public function deleteChat($user_id)
     {
         $chat = chat::firstWhere('user_id', $user_id);
