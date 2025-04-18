@@ -1,20 +1,20 @@
-name: 'Payment management'
+name: 'AI chat bot'
 description: |-
 
-  APIs for payments
+  Chat actions with AI
 endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/users/payment/initiate/{order_id}'
+    uri: 'api/users/{user_id}/chatbot'
     metadata:
-      groupName: 'Payment management'
+      groupName: 'AI chat bot'
       groupDescription: |-
 
-        APIs for payments
+        Chat actions with AI
       subgroup: ''
       subgroupDescription: ''
-      title: 'Start payment for specific order'
+      title: 'Get current user chat with AI'
       description: ''
       authenticated: true
       custom: []
@@ -22,18 +22,18 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      order_id:
-        name: order_id
-        description: 'The ID of the order.'
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
         required: true
-        example: dignissimos
+        example: laborum
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      order_id: dignissimos
+      user_id: laborum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -57,39 +57,41 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
-    uri: api/users/payment/callback
+      - POST
+    uri: 'api/users/{user_id}/chatbot'
     metadata:
-      groupName: 'Payment management'
+      groupName: 'AI chat bot'
       groupDescription: |-
 
-        APIs for payments
+        Chat actions with AI
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Send new message for AI'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: fuga
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      user_id: fuga
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
+    responses: []
     responseFields: []
     auth: []
     controller: null
@@ -98,39 +100,41 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
-    uri: api/users/payment/failed
+      - DELETE
+    uri: 'api/users/{user_id}/chatbot'
     metadata:
-      groupName: 'Payment management'
+      groupName: 'AI chat bot'
       groupDescription: |-
 
-        APIs for payments
+        Chat actions with AI
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Delete chat with AI'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: possimus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      user_id: possimus
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
+    responses: []
     responseFields: []
     auth: []
     controller: null

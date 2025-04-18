@@ -1,0 +1,357 @@
+name: 'Products management'
+description: |-
+
+  APIs for managing products
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/products
+    metadata:
+      groupName: 'Products management'
+      groupDescription: |-
+
+        APIs for managing products
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get all products'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"products":[{"product_id":1,"prodcut_name":"ratione","cost":37180,"description":"Sequi voluptatem est reprehenderit labore veritatis hic. Cum officiis at adipisci dolores voluptatem corporis et. Cum ea molestias magnam in sequi est. Architecto minima rem est.","discount":65,"category_id":14,"product_image":null},{"product_id":2,"prodcut_name":"vel","cost":68872,"description":"Voluptas quia illum assumenda voluptas et ut. Ut ut dolor qui pariatur in. Adipisci perferendis aut eos vel. Aut quis fugiat vero. Velit nobis quaerat labore.","discount":29,"category_id":4,"product_image":null},{"product_id":3,"prodcut_name":"laudantium","cost":25686,"description":"Delectus qui tenetur odio iure excepturi. Quos est sapiente nemo quis.","discount":14,"category_id":5,"product_image":null},{"product_id":4,"prodcut_name":"et","cost":25777,"description":"Sed in beatae illo. Et et aut ut consectetur.","discount":13,"category_id":11,"product_image":null},{"product_id":5,"prodcut_name":"ipsam","cost":28515,"description":"Dolor dolores placeat et similique perspiciatis porro recusandae qui. Natus sit doloribus ad. Rerum maiores itaque autem et vel aspernatur voluptatibus.","discount":55,"category_id":11,"product_image":null},{"product_id":6,"prodcut_name":"quas","cost":46046,"description":"Atque ab quo soluta molestiae. Molestiae consequatur nostrum corrupti repudiandae. Nam incidunt enim quasi sed. Corrupti laboriosam consectetur enim dolores sapiente voluptatem vitae.","discount":98,"category_id":7,"product_image":null},{"product_id":7,"prodcut_name":"autem","cost":84937,"description":"Voluptatem ea eaque vel pariatur necessitatibus et aspernatur facilis. Sunt a molestiae voluptas sit et.","discount":63,"category_id":2,"product_image":null},{"product_id":8,"prodcut_name":"et","cost":93636,"description":"Dolore nihil ratione sed hic cupiditate eius laudantium. Aut id nemo qui quia excepturi est est.","discount":3,"category_id":15,"product_image":null},{"product_id":9,"prodcut_name":"qui","cost":30805,"description":"Corrupti ab qui eos aut dolor ut tempore. Praesentium qui doloremque qui dolores eligendi. Molestias dicta est quia non aut.","discount":67,"category_id":9,"product_image":null},{"product_id":10,"prodcut_name":"voluptatem","cost":6302,"description":"Dolores velit eos id repudiandae dolore reiciendis. Dolore est possimus non et est. Id sit culpa quo reiciendis commodi voluptatibus rerum.","discount":92,"category_id":8,"product_image":null},{"product_id":11,"prodcut_name":"similique","cost":70658,"description":"Quo non doloribus qui non. Necessitatibus dolor quibusdam repudiandae nesciunt cum blanditiis quisquam. Quia error delectus consectetur officia ullam ut aut ab.","discount":99,"category_id":19,"product_image":null},{"product_id":12,"prodcut_name":"eveniet","cost":70829,"description":"Amet nihil vel beatae fugiat amet. Id ipsa ut voluptatem et odit similique harum.","discount":58,"category_id":9,"product_image":null},{"product_id":13,"prodcut_name":"nemo","cost":43800,"description":"In molestias voluptatem ut. Non nam aliquam quasi deleniti occaecati est quia. Ipsa quia consectetur libero. Nulla unde est ullam eum dignissimos molestiae sint porro.","discount":78,"category_id":6,"product_image":null},{"product_id":14,"prodcut_name":"quod","cost":18891,"description":"Praesentium ut sed sunt libero saepe. Ex quasi eius nostrum quia corrupti in. Labore impedit eius velit.","discount":78,"category_id":10,"product_image":null},{"product_id":15,"prodcut_name":"veniam","cost":55591,"description":"Saepe voluptate beatae sit magnam. Ad eligendi culpa animi explicabo. Amet dolorem non modi qui consequatur. Enim sit quia unde quos velit cum. Alias dolorem rerum sit nulla.","discount":54,"category_id":15,"product_image":null},{"product_id":16,"prodcut_name":"et","cost":84462,"description":"Incidunt ut recusandae magni saepe provident officiis. Minus similique id et nihil consequatur qui.","discount":65,"category_id":19,"product_image":null},{"product_id":17,"prodcut_name":"labore","cost":16904,"description":"Qui assumenda aut voluptas voluptas eius sequi. Ipsam non omnis perferendis soluta ut sed placeat. Omnis id recusandae dolores autem aliquam qui neque.","discount":63,"category_id":18,"product_image":null},{"product_id":18,"prodcut_name":"soluta","cost":20948,"description":"Enim ad consequatur unde. Beatae rem tempore earum ad hic. Voluptate et quis voluptatem velit.","discount":76,"category_id":1,"product_image":null},{"product_id":19,"prodcut_name":"totam","cost":24788,"description":"Repellat atque eos doloribus quod ut. Modi eligendi dignissimos quae sunt in. Nobis dolorem aut beatae beatae consectetur odit temporibus.","discount":48,"category_id":9,"product_image":null},{"product_id":20,"prodcut_name":"ad","cost":1034,"description":"Provident beatae atque voluptatem non. Quas expedita voluptatum atque voluptas iure recusandae molestiae sed. Enim enim pariatur a.","discount":23,"category_id":15,"product_image":null},{"product_id":21,"prodcut_name":"eligendi","cost":58581,"description":"Id fugiat maxime fugiat qui dicta aut. Impedit eveniet amet natus aspernatur. Est neque voluptatem voluptas sit. Minima illo iusto quos facere.","discount":87,"category_id":12,"product_image":null},{"product_id":22,"prodcut_name":"accusantium","cost":95336,"description":"Quae cum doloremque cupiditate aliquam. Nisi sit animi pariatur veritatis ut minus est. Et explicabo delectus rerum.","discount":44,"category_id":18,"product_image":null},{"product_id":23,"prodcut_name":"inventore","cost":43493,"description":"Impedit voluptate architecto soluta corporis. Odit ut quam ut ex et non. Quia aut reprehenderit tempore aperiam quis aut in commodi.","discount":79,"category_id":13,"product_image":null},{"product_id":24,"prodcut_name":"aperiam","cost":44894,"description":"Explicabo pariatur soluta occaecati illum aut fugit voluptatem. Et adipisci amet rerum aliquid dolorum. Molestiae sapiente modi aut repellendus sapiente placeat.","discount":17,"category_id":16,"product_image":null},{"product_id":25,"prodcut_name":"ex","cost":2234,"description":"Unde temporibus eos ut non. Aut vero est omnis maxime deserunt aspernatur quod. Excepturi possimus molestiae recusandae id beatae modi id. Qui atque consequatur ut.","discount":65,"category_id":13,"product_image":null},{"product_id":26,"prodcut_name":"nemo","cost":70224,"description":"A saepe ducimus deleniti nihil. Voluptatem harum at deserunt fugit quo deleniti deserunt rem. Aut et laboriosam non expedita ea odio omnis et.","discount":71,"category_id":4,"product_image":null},{"product_id":27,"prodcut_name":"quibusdam","cost":99077,"description":"Voluptas quaerat aut expedita quasi et cum cupiditate. Aut praesentium qui culpa enim est. Nihil vel ea illum dolor. Ut aperiam minus ratione placeat ipsam exercitationem reprehenderit.","discount":65,"category_id":8,"product_image":null},{"product_id":28,"prodcut_name":"quo","cost":91640,"description":"Fugiat dolorum adipisci esse quo qui. Vitae exercitationem quia quia quia. Qui qui corrupti et quis recusandae aut sint. Et molestiae et qui impedit. Ipsa excepturi voluptatem animi.","discount":60,"category_id":5,"product_image":null},{"product_id":29,"prodcut_name":"nesciunt","cost":38041,"description":"Voluptatem autem architecto harum. Sit assumenda qui explicabo similique id enim. Enim eaque aperiam dolores accusantium temporibus modi corrupti.","discount":69,"category_id":6,"product_image":null},{"product_id":30,"prodcut_name":"laudantium","cost":51344,"description":"Molestiae praesentium sunt adipisci ut architecto cum. Dolor aut non eum quia culpa. Dolores reiciendis tempore consectetur eaque et voluptatem deleniti.","discount":82,"category_id":2,"product_image":null},{"product_id":31,"prodcut_name":"in","cost":1298,"description":"Aspernatur et enim quam. Voluptatem illum a quis ut. Dolor nostrum voluptatem repellendus velit eum et.","discount":80,"category_id":5,"product_image":null},{"product_id":32,"prodcut_name":"necessitatibus","cost":2314,"description":"Qui velit ipsum velit porro eveniet et. Reiciendis aperiam et et quos ut tenetur. Laborum sint deleniti maxime eaque.","discount":20,"category_id":18,"product_image":null},{"product_id":33,"prodcut_name":"et","cost":77295,"description":"Fugiat quia modi libero incidunt ipsa sed. Quo in pariatur expedita officia natus dolores quo placeat. Odit incidunt nihil eaque excepturi.","discount":18,"category_id":20,"product_image":null},{"product_id":34,"prodcut_name":"consequatur","cost":41274,"description":"Soluta ipsum velit corrupti sunt quis nostrum sint sed. Qui occaecati natus veritatis suscipit illum molestias.","discount":37,"category_id":14,"product_image":null},{"product_id":35,"prodcut_name":"occaecati","cost":94045,"description":"Facere voluptatem quas recusandae debitis voluptatum nisi. Neque vitae dolorem cum molestiae. Voluptatem consequuntur est ut corrupti possimus quod. Repudiandae ipsam earum veritatis.","discount":4,"category_id":15,"product_image":null},{"product_id":36,"prodcut_name":"facere","cost":8654,"description":"Veniam impedit omnis dolore at et eum. Officia aliquid consectetur esse aut nemo quasi eveniet. Qui dignissimos eius voluptas enim.","discount":69,"category_id":4,"product_image":null},{"product_id":37,"prodcut_name":"consequuntur","cost":76182,"description":"Sunt numquam quidem est officia illum. Consequatur minus quos esse explicabo. Voluptatem aut voluptatem laborum quo corporis doloribus.","discount":68,"category_id":5,"product_image":null},{"product_id":38,"prodcut_name":"aut","cost":1039,"description":"At et aut ipsa vitae harum esse. Iure laborum voluptas saepe quaerat. Consequuntur alias voluptatum ducimus accusamus et nam placeat.","discount":44,"category_id":8,"product_image":null},{"product_id":39,"prodcut_name":"non","cost":86004,"description":"Optio quis necessitatibus occaecati velit. Odio voluptatum nihil perspiciatis enim voluptas incidunt eligendi explicabo. Qui eum ut quidem voluptatem impedit veniam sequi quia.","discount":60,"category_id":12,"product_image":null},{"product_id":40,"prodcut_name":"ad","cost":86095,"description":"Aut neque sint est dolor fugit. Dicta nemo veritatis modi vitae ex natus. Omnis dolor ipsa cumque ipsam assumenda quod. Sed atque quaerat ipsam nihil enim voluptatem.","discount":87,"category_id":8,"product_image":null},{"product_id":41,"prodcut_name":"mollitia","cost":61499,"description":"Cumque pariatur consequatur sed. Sit voluptas officiis et eius rerum vel. Officia voluptatibus qui ipsam et dolore fugiat reiciendis nisi.","discount":94,"category_id":20,"product_image":null},{"product_id":42,"prodcut_name":"qui","cost":45690,"description":"Quam natus minima provident. Enim pariatur fugiat illo quasi omnis. Aut eum similique sint quas deleniti perferendis sunt architecto.","discount":87,"category_id":15,"product_image":null},{"product_id":43,"prodcut_name":"omnis","cost":69334,"description":"Laboriosam dolorem esse atque et neque. Quia vel est nemo est temporibus maxime. Quibusdam non nam esse id cumque sunt a.","discount":35,"category_id":12,"product_image":null},{"product_id":44,"prodcut_name":"veniam","cost":60541,"description":"Unde aut magni repellat magnam aut. Cupiditate distinctio iste unde dignissimos quis. Neque quasi et nobis qui excepturi id ut. Qui et sequi quod ut accusamus asperiores dolores.","discount":25,"category_id":7,"product_image":null},{"product_id":45,"prodcut_name":"voluptatem","cost":5677,"description":"Praesentium a pariatur nemo omnis natus doloribus et nemo. Necessitatibus voluptas rerum sint possimus. Tempore ducimus delectus sed tempore. Et odio ut illum ipsum sapiente.","discount":63,"category_id":18,"product_image":null},{"product_id":46,"prodcut_name":"necessitatibus","cost":51215,"description":"Quia sint laboriosam soluta eum. Et qui velit illo aut. Esse eum vel dolores repellat sed est recusandae. Provident tenetur porro illum corrupti dicta et maxime. Aut debitis aut repudiandae.","discount":15,"category_id":2,"product_image":null},{"product_id":47,"prodcut_name":"ex","cost":9749,"description":"Atque ex velit nam esse veniam laborum aliquid. Distinctio consectetur veritatis eaque quia laudantium eveniet rerum veniam. Enim qui odit sed minima iure ab et.","discount":77,"category_id":4,"product_image":null},{"product_id":48,"prodcut_name":"minima","cost":85496,"description":"Nemo consectetur molestiae rem eligendi. Rem ipsam quos ea suscipit in architecto aut.","discount":44,"category_id":16,"product_image":null},{"product_id":49,"prodcut_name":"expedita","cost":49163,"description":"Ab tenetur pariatur aut quia atque illo laudantium. Tempora sequi commodi est eum id dolores. Eaque expedita atque autem vero voluptatem.","discount":68,"category_id":9,"product_image":null},{"product_id":50,"prodcut_name":"amet","cost":89090,"description":"Et enim itaque perferendis deleniti dolor. Nihil cum totam omnis quisquam aut. Corrupti nostrum molestias saepe modi porro vel. Vero ea aut molestias consequatur qui soluta atque.","discount":11,"category_id":9,"product_image":null},{"product_id":51,"prodcut_name":"test product","cost":145,"description":"This is a f new product","discount":null,"category_id":14,"product_image":null},{"product_id":52,"prodcut_name":"new name","cost":5151,"description":"Something","discount":null,"category_id":10,"product_image":"http:\/\/127.0.0.1:8000\/storage\/images\/products\/1744971720_new_name.jpg"}]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/products/{id}'
+    metadata:
+      groupName: 'Products management'
+      groupDescription: |-
+
+        APIs for managing products
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get a specific product info .'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the product.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"product_id":1,"prodcut_name":"ratione","cost":37180,"description":"Sequi voluptatem est reprehenderit labore veritatis hic. Cum officiis at adipisci dolores voluptatem corporis et. Cum ea molestias magnam in sequi est. Architecto minima rem est.","discount":65,"category_id":14,"product_image":null}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '56'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/products
+    metadata:
+      groupName: 'Products management'
+      groupDescription: |-
+
+        APIs for managing products
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create new product (Admin).'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      product_name:
+        name: product_name
+        description: ''
+        required: true
+        example: quo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      cost:
+        name: cost
+        description: ''
+        required: true
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: optio
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      discount:
+        name: discount
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      category_id:
+        name: category_id
+        description: ''
+        required: true
+        example: suscipit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      product_image:
+        name: product_image
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      product_name: quo
+      cost: 10
+      description: optio
+      category_id: suscipit
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/products/{product_id}'
+    metadata:
+      groupName: 'Products management'
+      groupDescription: |-
+
+        APIs for managing products
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update specific product (Admin)'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      product_id:
+        name: product_id
+        description: 'The ID of the product.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      product_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      new_product_name:
+        name: new_product_name
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      new_cost:
+        name: new_cost
+        description: ''
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      new_description:
+        name: new_description
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      new_discount:
+        name: new_discount
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      new_category_id:
+        name: new_category_id
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      new_product_image:
+        name: new_product_image
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      no_image:
+        name: no_image
+        description: ''
+        required: false
+        example: 'true'
+        type: string
+        enumValues:
+          - 'true'
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      new_cost: 17
+      no_image: 'true'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/products/{product_id}'
+    metadata:
+      groupName: 'Products management'
+      groupDescription: |-
+
+        APIs for managing products
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete product (Admin)'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      product_id:
+        name: product_id
+        description: 'The ID of the product.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      product_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

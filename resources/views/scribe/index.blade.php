@@ -26,13 +26,13 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://localhost";
+        var tryItOutBaseUrl = "http://127.0.0.1:8000";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="{{ asset("/vendor/scribe/js/tryitout-4.39.0.js") }}"></script>
+    <script src="{{ asset("/vendor/scribe/js/tryitout-4.40.0.js") }}"></script>
 
-    <script src="{{ asset("/vendor/scribe/js/theme-default-4.39.0.js") }}"></script>
+    <script src="{{ asset("/vendor/scribe/js/theme-default-4.40.0.js") }}"></script>
 
 </head>
 
@@ -66,6 +66,38 @@
                     <a href="#authenticating-requests">Authenticating requests</a>
                 </li>
                             </ul>
+                    <ul id="tocify-header-ai-chat-bot" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="ai-chat-bot">
+                    <a href="#ai-chat-bot">AI chat bot</a>
+                </li>
+                                    <ul id="tocify-subheader-ai-chat-bot" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="ai-chat-bot-GETapi-users--user_id--chatbot">
+                                <a href="#ai-chat-bot-GETapi-users--user_id--chatbot">Get current user chat with AI</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="ai-chat-bot-POSTapi-users--user_id--chatbot">
+                                <a href="#ai-chat-bot-POSTapi-users--user_id--chatbot">Send new message for AI</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="ai-chat-bot-DELETEapi-users--user_id--chatbot">
+                                <a href="#ai-chat-bot-DELETEapi-users--user_id--chatbot">Delete chat with AI</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-cart-management" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="cart-management">
+                    <a href="#cart-management">Cart management</a>
+                </li>
+                                    <ul id="tocify-subheader-cart-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="cart-management-GETapi-users--user_id--cart">
+                                <a href="#cart-management-GETapi-users--user_id--cart">Get user active cart (unchecked)</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="cart-management-POSTapi-users--user_id--cart-add">
+                                <a href="#cart-management-POSTapi-users--user_id--cart-add">Add new product to current user cart</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="cart-management-POSTapi-users--user_id--cart-remove">
+                                <a href="#cart-management-POSTapi-users--user_id--cart-remove">Remove product from cart</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-categories-management" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="categories-management">
                     <a href="#categories-management">Categories management</a>
@@ -74,14 +106,14 @@
                                                     <li class="tocify-item level-2" data-unique="categories-management-GETapi-categories">
                                 <a href="#categories-management-GETapi-categories">Get all categories</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="categories-management-GETapi-categories--category_id-">
-                                <a href="#categories-management-GETapi-categories--category_id-">Get specific category info.</a>
+                                                                                <li class="tocify-item level-2" data-unique="categories-management-GETapi-categories--id-">
+                                <a href="#categories-management-GETapi-categories--id-">Get specific category info.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="categories-management-POSTapi-categories">
                                 <a href="#categories-management-POSTapi-categories">Create new category (Admin)</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="categories-management-POSTapi-categories--category_id-">
-                                <a href="#categories-management-POSTapi-categories--category_id-">Update specific category info.(Admin)</a>
+                                                                                <li class="tocify-item level-2" data-unique="categories-management-PUTapi-categories--category_id-">
+                                <a href="#categories-management-PUTapi-categories--category_id-">Update specific category info.(Admin)</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="categories-management-DELETEapi-categories--category_id-">
                                 <a href="#categories-management-DELETEapi-categories--category_id-">Delete category (Admin)</a>
@@ -93,8 +125,30 @@
                     <a href="#order-management">Order management</a>
                 </li>
                                     <ul id="tocify-subheader-order-management" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="order-management-POSTapi-orders-make">
-                                <a href="#order-management-POSTapi-orders-make">Create new order</a>
+                                                    <li class="tocify-item level-2" data-unique="order-management-GETapi-users--user_id--orders">
+                                <a href="#order-management-GETapi-users--user_id--orders">Get all orders for the current user</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="order-management-GETapi-users--user_id--orders--order_id-">
+                                <a href="#order-management-GETapi-users--user_id--orders--order_id-">Get a specific order</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="order-management-POSTapi-users--user_id--orders">
+                                <a href="#order-management-POSTapi-users--user_id--orders">Create new order</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-payment-management" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="payment-management">
+                    <a href="#payment-management">Payment management</a>
+                </li>
+                                    <ul id="tocify-subheader-payment-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="payment-management-GETapi-users-payment-initiate--order_id-">
+                                <a href="#payment-management-GETapi-users-payment-initiate--order_id-">Start payment for specific order</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="payment-management-GETapi-users-payment-callback">
+                                <a href="#payment-management-GETapi-users-payment-callback">GET api/users/payment/callback</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="payment-management-GETapi-users-payment-failed">
+                                <a href="#payment-management-GETapi-users-payment-failed">GET api/users/payment/failed</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -106,14 +160,14 @@
                                                     <li class="tocify-item level-2" data-unique="products-management-GETapi-products">
                                 <a href="#products-management-GETapi-products">Get all products</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="products-management-GETapi-products--product_id-">
-                                <a href="#products-management-GETapi-products--product_id-">Get a specific product info .</a>
+                                                                                <li class="tocify-item level-2" data-unique="products-management-GETapi-products--id-">
+                                <a href="#products-management-GETapi-products--id-">Get a specific product info .</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="products-management-POSTapi-products">
                                 <a href="#products-management-POSTapi-products">Create new product (Admin).</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="products-management-POSTapi-products--product_id-">
-                                <a href="#products-management-POSTapi-products--product_id-">Update specific product (Admin)</a>
+                                                                                <li class="tocify-item level-2" data-unique="products-management-PUTapi-products--product_id-">
+                                <a href="#products-management-PUTapi-products--product_id-">Update specific product (Admin)</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="products-management-DELETEapi-products--product_id-">
                                 <a href="#products-management-DELETEapi-products--product_id-">Delete product (Admin)</a>
@@ -125,26 +179,26 @@
                     <a href="#user-management">User management</a>
                 </li>
                                     <ul id="tocify-subheader-user-management" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="user-management-POSTapi-users-login">
-                                <a href="#user-management-POSTapi-users-login">User login</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-management-POSTapi-users-signup">
-                                <a href="#user-management-POSTapi-users-signup">User sign up (Create new account)</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-management-POSTapi-users-request-otp-code">
-                                <a href="#user-management-POSTapi-users-request-otp-code">Request OTP code to reset password</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-management-POSTapi-users-reset-password">
-                                <a href="#user-management-POSTapi-users-reset-password">Reset password</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-management-GETapi-users">
+                                                    <li class="tocify-item level-2" data-unique="user-management-GETapi-users">
                                 <a href="#user-management-GETapi-users">Get all users (Just admin can do this request)</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-management-POSTapi-users-auth-login">
+                                <a href="#user-management-POSTapi-users-auth-login">User login</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-management-POSTapi-users-auth-signup">
+                                <a href="#user-management-POSTapi-users-auth-signup">User sign up (Create new account)</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-management-POSTapi-users-auth-request-otp-code">
+                                <a href="#user-management-POSTapi-users-auth-request-otp-code">Request OTP code to reset password</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="user-management-POSTapi-users-auth-reset-password">
+                                <a href="#user-management-POSTapi-users-auth-reset-password">Reset password</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="user-management-GETapi-users--user_id-">
                                 <a href="#user-management-GETapi-users--user_id-">Get specifc user info.</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="user-management-POSTapi-users--user_id-">
-                                <a href="#user-management-POSTapi-users--user_id-">Update user info</a>
+                                                                                <li class="tocify-item level-2" data-unique="user-management-PUTapi-users--user_id-">
+                                <a href="#user-management-PUTapi-users--user_id-">Update user info</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="user-management-DELETEapi-users--user_id-">
                                 <a href="#user-management-DELETEapi-users--user_id-">Delete user</a>
@@ -160,7 +214,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 31, 2025</li>
+        <li>Last updated: April 18, 2025</li>
     </ul>
 </div>
 
@@ -179,7 +233,773 @@ You can switch the language used with the tabs at the top right (or from the nav
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
 
-        <h1 id="categories-management">Categories management</h1>
+        <h1 id="ai-chat-bot">AI chat bot</h1>
+
+    <p>Chat actions with AI</p>
+
+                                <h2 id="ai-chat-bot-GETapi-users--user_id--chatbot">Get current user chat with AI</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-users--user_id--chatbot">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://maria-api-production.up.railway.app/api/users/laborum/chatbot" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/laborum/chatbot"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-users--user_id--chatbot">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-users--user_id--chatbot" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users--user_id--chatbot"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users--user_id--chatbot"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-users--user_id--chatbot" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users--user_id--chatbot">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-users--user_id--chatbot" data-method="GET"
+      data-path="api/users/{user_id}/chatbot"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users--user_id--chatbot', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users--user_id--chatbot"
+                    onclick="tryItOut('GETapi-users--user_id--chatbot');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users--user_id--chatbot"
+                    onclick="cancelTryOut('GETapi-users--user_id--chatbot');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users--user_id--chatbot"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users/{user_id}/chatbot</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-users--user_id--chatbot"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-users--user_id--chatbot"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="GETapi-users--user_id--chatbot"
+               value="laborum"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>laborum</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="ai-chat-bot-POSTapi-users--user_id--chatbot">Send new message for AI</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-users--user_id--chatbot">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://maria-api-production.up.railway.app/api/users/fuga/chatbot" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/fuga/chatbot"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-users--user_id--chatbot">
+</span>
+<span id="execution-results-POSTapi-users--user_id--chatbot" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users--user_id--chatbot"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users--user_id--chatbot"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-users--user_id--chatbot" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users--user_id--chatbot">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-users--user_id--chatbot" data-method="POST"
+      data-path="api/users/{user_id}/chatbot"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users--user_id--chatbot', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users--user_id--chatbot"
+                    onclick="tryItOut('POSTapi-users--user_id--chatbot');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users--user_id--chatbot"
+                    onclick="cancelTryOut('POSTapi-users--user_id--chatbot');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users--user_id--chatbot"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users/{user_id}/chatbot</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-users--user_id--chatbot"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-users--user_id--chatbot"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="POSTapi-users--user_id--chatbot"
+               value="fuga"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>fuga</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="ai-chat-bot-DELETEapi-users--user_id--chatbot">Delete chat with AI</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-users--user_id--chatbot">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "https://maria-api-production.up.railway.app/api/users/possimus/chatbot" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/possimus/chatbot"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-users--user_id--chatbot">
+</span>
+<span id="execution-results-DELETEapi-users--user_id--chatbot" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-users--user_id--chatbot"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-users--user_id--chatbot"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-users--user_id--chatbot" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-users--user_id--chatbot">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-users--user_id--chatbot" data-method="DELETE"
+      data-path="api/users/{user_id}/chatbot"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-users--user_id--chatbot', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-users--user_id--chatbot"
+                    onclick="tryItOut('DELETEapi-users--user_id--chatbot');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-users--user_id--chatbot"
+                    onclick="cancelTryOut('DELETEapi-users--user_id--chatbot');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-users--user_id--chatbot"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/users/{user_id}/chatbot</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-users--user_id--chatbot"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-users--user_id--chatbot"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="DELETEapi-users--user_id--chatbot"
+               value="possimus"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>possimus</code></p>
+            </div>
+                    </form>
+
+                <h1 id="cart-management">Cart management</h1>
+
+    <p>Cart actions</p>
+
+                                <h2 id="cart-management-GETapi-users--user_id--cart">Get user active cart (unchecked)</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-users--user_id--cart">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://maria-api-production.up.railway.app/api/users/quis/cart" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/quis/cart"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-users--user_id--cart">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-users--user_id--cart" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users--user_id--cart"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users--user_id--cart"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-users--user_id--cart" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users--user_id--cart">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-users--user_id--cart" data-method="GET"
+      data-path="api/users/{user_id}/cart"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users--user_id--cart', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users--user_id--cart"
+                    onclick="tryItOut('GETapi-users--user_id--cart');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users--user_id--cart"
+                    onclick="cancelTryOut('GETapi-users--user_id--cart');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users--user_id--cart"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users/{user_id}/cart</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-users--user_id--cart"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-users--user_id--cart"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="GETapi-users--user_id--cart"
+               value="quis"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>quis</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="cart-management-POSTapi-users--user_id--cart-add">Add new product to current user cart</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-users--user_id--cart-add">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://maria-api-production.up.railway.app/api/users/ratione/cart/add" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/ratione/cart/add"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-users--user_id--cart-add">
+</span>
+<span id="execution-results-POSTapi-users--user_id--cart-add" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users--user_id--cart-add"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users--user_id--cart-add"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-users--user_id--cart-add" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users--user_id--cart-add">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-users--user_id--cart-add" data-method="POST"
+      data-path="api/users/{user_id}/cart/add"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users--user_id--cart-add', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users--user_id--cart-add"
+                    onclick="tryItOut('POSTapi-users--user_id--cart-add');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users--user_id--cart-add"
+                    onclick="cancelTryOut('POSTapi-users--user_id--cart-add');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users--user_id--cart-add"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users/{user_id}/cart/add</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-users--user_id--cart-add"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-users--user_id--cart-add"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="POSTapi-users--user_id--cart-add"
+               value="ratione"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>ratione</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="cart-management-POSTapi-users--user_id--cart-remove">Remove product from cart</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-users--user_id--cart-remove">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://maria-api-production.up.railway.app/api/users/sunt/cart/remove" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/sunt/cart/remove"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-users--user_id--cart-remove">
+</span>
+<span id="execution-results-POSTapi-users--user_id--cart-remove" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users--user_id--cart-remove"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users--user_id--cart-remove"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-users--user_id--cart-remove" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users--user_id--cart-remove">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-users--user_id--cart-remove" data-method="POST"
+      data-path="api/users/{user_id}/cart/remove"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users--user_id--cart-remove', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users--user_id--cart-remove"
+                    onclick="tryItOut('POSTapi-users--user_id--cart-remove');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users--user_id--cart-remove"
+                    onclick="cancelTryOut('POSTapi-users--user_id--cart-remove');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users--user_id--cart-remove"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users/{user_id}/cart/remove</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-users--user_id--cart-remove"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-users--user_id--cart-remove"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="POSTapi-users--user_id--cart-remove"
+               value="sunt"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>sunt</code></p>
+            </div>
+                    </form>
+
+                <h1 id="categories-management">Categories management</h1>
 
     <p>APIs for managing categories</p>
 
@@ -237,96 +1057,84 @@ access-control-allow-origin: *
     &quot;data&quot;: {
         &quot;categories&quot;: [
             {
+                &quot;category_id&quot;: 1,
+                &quot;category_name&quot;: &quot;vel&quot;
+            },
+            {
                 &quot;category_id&quot;: 2,
-                &quot;category_name&quot;: &quot;porro&quot;
+                &quot;category_name&quot;: &quot;soluta&quot;
+            },
+            {
+                &quot;category_id&quot;: 3,
+                &quot;category_name&quot;: &quot;in&quot;
             },
             {
                 &quot;category_id&quot;: 4,
-                &quot;category_name&quot;: &quot;qui&quot;
-            },
-            {
-                &quot;category_id&quot;: 5,
-                &quot;category_name&quot;: &quot;nobis&quot;
-            },
-            {
-                &quot;category_id&quot;: 6,
-                &quot;category_name&quot;: &quot;eaque&quot;
-            },
-            {
-                &quot;category_id&quot;: 7,
-                &quot;category_name&quot;: &quot;dolore&quot;
-            },
-            {
-                &quot;category_id&quot;: 8,
                 &quot;category_name&quot;: &quot;numquam&quot;
             },
             {
-                &quot;category_id&quot;: 9,
-                &quot;category_name&quot;: &quot;et&quot;
-            },
-            {
-                &quot;category_id&quot;: 10,
-                &quot;category_name&quot;: &quot;consequuntur&quot;
-            },
-            {
-                &quot;category_id&quot;: 11,
-                &quot;category_name&quot;: &quot;non&quot;
-            },
-            {
-                &quot;category_id&quot;: 12,
+                &quot;category_id&quot;: 5,
                 &quot;category_name&quot;: &quot;asperiores&quot;
             },
             {
-                &quot;category_id&quot;: 13,
-                &quot;category_name&quot;: &quot;voluptatem&quot;
-            },
-            {
-                &quot;category_id&quot;: 14,
-                &quot;category_name&quot;: &quot;dolor&quot;
-            },
-            {
-                &quot;category_id&quot;: 15,
-                &quot;category_name&quot;: &quot;molestiae&quot;
-            },
-            {
-                &quot;category_id&quot;: 16,
-                &quot;category_name&quot;: &quot;aut&quot;
-            },
-            {
-                &quot;category_id&quot;: 17,
-                &quot;category_name&quot;: &quot;neque&quot;
-            },
-            {
-                &quot;category_id&quot;: 18,
-                &quot;category_name&quot;: &quot;non&quot;
-            },
-            {
-                &quot;category_id&quot;: 19,
-                &quot;category_name&quot;: &quot;consequatur&quot;
-            },
-            {
-                &quot;category_id&quot;: 20,
-                &quot;category_name&quot;: &quot;ipsam&quot;
-            },
-            {
-                &quot;category_id&quot;: 21,
+                &quot;category_id&quot;: 6,
                 &quot;category_name&quot;: &quot;et&quot;
             },
             {
-                &quot;category_id&quot;: 22,
-                &quot;category_name&quot;: &quot;accusamus&quot;
+                &quot;category_id&quot;: 7,
+                &quot;category_name&quot;: &quot;illo&quot;
             },
             {
-                &quot;category_id&quot;: 23,
-                &quot;category_name&quot;: &quot;accusamus&quot;
+                &quot;category_id&quot;: 8,
+                &quot;category_name&quot;: &quot;harum&quot;
             },
             {
-                &quot;category_id&quot;: 24,
-                &quot;category_name&quot;: &quot;voluptas&quot;
+                &quot;category_id&quot;: 9,
+                &quot;category_name&quot;: &quot;iusto&quot;
             },
             {
-                &quot;category_id&quot;: 25,
-                &quot;category_name&quot;: &quot;dolor&quot;
+                &quot;category_id&quot;: 10,
+                &quot;category_name&quot;: &quot;deserunt&quot;
+            },
+            {
+                &quot;category_id&quot;: 11,
+                &quot;category_name&quot;: &quot;ducimus&quot;
+            },
+            {
+                &quot;category_id&quot;: 12,
+                &quot;category_name&quot;: &quot;inventore&quot;
+            },
+            {
+                &quot;category_id&quot;: 13,
+                &quot;category_name&quot;: &quot;sapiente&quot;
+            },
+            {
+                &quot;category_id&quot;: 14,
+                &quot;category_name&quot;: &quot;ea&quot;
+            },
+            {
+                &quot;category_id&quot;: 15,
+                &quot;category_name&quot;: &quot;et&quot;
+            },
+            {
+                &quot;category_id&quot;: 16,
+                &quot;category_name&quot;: &quot;deleniti&quot;
+            },
+            {
+                &quot;category_id&quot;: 17,
+                &quot;category_name&quot;: &quot;expedita&quot;
+            },
+            {
+                &quot;category_id&quot;: 18,
+                &quot;category_name&quot;: &quot;reiciendis&quot;
+            },
+            {
+                &quot;category_id&quot;: 19,
+                &quot;category_name&quot;: &quot;et&quot;
+            },
+            {
+                &quot;category_id&quot;: 20,
+                &quot;category_name&quot;: &quot;iste&quot;
             }
         ]
     }
@@ -404,27 +1212,27 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="categories-management-GETapi-categories--category_id-">Get specific category info.</h2>
+                    <h2 id="categories-management-GETapi-categories--id-">Get specific category info.</h2>
 
 <p>
 </p>
 
 
 
-<span id="example-requests-GETapi-categories--category_id-">
+<span id="example-requests-GETapi-categories--id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://maria-api-production.up.railway.app/api/categories/2" \
+    --get "https://maria-api-production.up.railway.app/api/categories/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/categories/2"
+    "https://maria-api-production.up.railway.app/api/categories/1"
 );
 
 const headers = {
@@ -439,7 +1247,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-categories--category_id-">
+<span id="example-responses-GETapi-categories--id-">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -456,52 +1264,16 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;category_id&quot;: 2,
-        &quot;category_name&quot;: &quot;porro&quot;,
+        &quot;category_id&quot;: 1,
+        &quot;category_name&quot;: &quot;vel&quot;,
         &quot;products&quot;: [
             {
-                &quot;product_id&quot;: 19,
-                &quot;prodcut_name&quot;: &quot;repellendus&quot;,
-                &quot;cost&quot;: 88058,
-                &quot;description&quot;: &quot;Consequuntur voluptas et aspernatur sit. Magni qui doloremque possimus ut sequi. Totam a occaecati assumenda est. Veritatis voluptatum voluptatum earum quo. Placeat nihil a rem in.&quot;,
-                &quot;discount&quot;: 98.36,
-                &quot;category_id&quot;: 2,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 55,
-                &quot;prodcut_name&quot;: &quot;incidunt&quot;,
-                &quot;cost&quot;: 71021,
-                &quot;description&quot;: &quot;Nihil voluptates soluta maxime in sequi occaecati neque. Alias dolores earum est et molestiae omnis. Ut quis alias illum et libero. Qui sit ratione officiis consequatur commodi aut eum.&quot;,
-                &quot;discount&quot;: 74.39,
-                &quot;category_id&quot;: 2,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 79,
-                &quot;prodcut_name&quot;: &quot;facilis&quot;,
-                &quot;cost&quot;: 55844,
-                &quot;description&quot;: &quot;Similique ipsa qui et quia. Aut officia voluptates reprehenderit repellat eum quia illo.&quot;,
-                &quot;discount&quot;: 92.04,
-                &quot;category_id&quot;: 2,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 92,
-                &quot;prodcut_name&quot;: &quot;officiis&quot;,
-                &quot;cost&quot;: 36881,
-                &quot;description&quot;: &quot;Ratione ab qui harum eos. Totam et eveniet eaque et eaque saepe possimus cupiditate. Dolores molestiae sunt sed incidunt.&quot;,
-                &quot;discount&quot;: 86.85,
-                &quot;category_id&quot;: 2,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 99,
-                &quot;prodcut_name&quot;: &quot;et&quot;,
-                &quot;cost&quot;: 11633,
-                &quot;description&quot;: &quot;Sed laboriosam eaque nihil vel dicta. Eos aut officia rerum consectetur. Sint et est eveniet et qui beatae. Aut sed et laudantium voluptas et ut.&quot;,
-                &quot;discount&quot;: 56.77,
-                &quot;category_id&quot;: 2,
+                &quot;product_id&quot;: 18,
+                &quot;prodcut_name&quot;: &quot;soluta&quot;,
+                &quot;cost&quot;: 20948,
+                &quot;description&quot;: &quot;Enim ad consequatur unde. Beatae rem tempore earum ad hic. Voluptate et quis voluptatem velit.&quot;,
+                &quot;discount&quot;: 76,
+                &quot;category_id&quot;: 1,
                 &quot;product_image&quot;: null
             }
         ]
@@ -509,43 +1281,43 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-categories--category_id-" hidden>
+<span id="execution-results-GETapi-categories--id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-categories--category_id-"></span>:
+                id="execution-response-status-GETapi-categories--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-categories--category_id-"
+    <pre class="json"><code id="execution-response-content-GETapi-categories--id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-categories--category_id-" hidden>
+<span id="execution-error-GETapi-categories--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-categories--category_id-">
+    <pre><code id="execution-error-message-GETapi-categories--id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-categories--category_id-" data-method="GET"
-      data-path="api/categories/{category_id}"
+<form id="form-GETapi-categories--id-" data-method="GET"
+      data-path="api/categories/{id}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-categories--category_id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-categories--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-categories--category_id-"
-                    onclick="tryItOut('GETapi-categories--category_id-');">Try it out ⚡
+                    id="btn-tryout-GETapi-categories--id-"
+                    onclick="tryItOut('GETapi-categories--id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-categories--category_id-"
-                    onclick="cancelTryOut('GETapi-categories--category_id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-categories--id-"
+                    onclick="cancelTryOut('GETapi-categories--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-categories--category_id-"
+                    id="btn-executetryout-GETapi-categories--id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -553,7 +1325,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/categories/{category_id}</code></b>
+            <b><code>api/categories/{id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -561,7 +1333,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-categories--category_id-"
+                              name="Content-Type"                data-endpoint="GETapi-categories--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -572,7 +1344,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-categories--category_id-"
+                              name="Accept"                data-endpoint="GETapi-categories--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -580,15 +1352,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>category_id</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="category_id"                data-endpoint="GETapi-categories--category_id-"
-               value="2"
+               step="any"               name="id"                data-endpoint="GETapi-categories--id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>2</code></p>
+<p>The ID of the category. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -610,7 +1382,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"category_name\": \"qui\"
+    \"category_name\": \"provident\"
 }"
 </code></pre></div>
 
@@ -626,7 +1398,7 @@ const headers = {
 };
 
 let body = {
-    "category_name": "qui"
+    "category_name": "provident"
 };
 
 fetch(url, {
@@ -715,14 +1487,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category_name"                data-endpoint="POSTapi-categories"
-               value="qui"
+               value="provident"
                data-component="body">
     <br>
-<p>Example: <code>qui</code></p>
+<p>Example: <code>provident</code></p>
         </div>
         </form>
 
-                    <h2 id="categories-management-POSTapi-categories--category_id-">Update specific category info.(Admin)</h2>
+                    <h2 id="categories-management-PUTapi-categories--category_id-">Update specific category info.(Admin)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -730,21 +1502,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-POSTapi-categories--category_id-">
+<span id="example-requests-PUTapi-categories--category_id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "https://maria-api-production.up.railway.app/api/categories/2" \
+    <pre><code class="language-bash">curl --request PUT \
+    "https://maria-api-production.up.railway.app/api/categories/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+    --data "{
+    \"new_category_name\": \"perspiciatis\"
+}"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/categories/2"
+    "https://maria-api-production.up.railway.app/api/categories/1"
 );
 
 const headers = {
@@ -752,59 +1527,64 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "new_category_name": "perspiciatis"
+};
+
 fetch(url, {
-    method: "POST",
+    method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-POSTapi-categories--category_id-">
+<span id="example-responses-PUTapi-categories--category_id-">
 </span>
-<span id="execution-results-POSTapi-categories--category_id-" hidden>
+<span id="execution-results-PUTapi-categories--category_id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-categories--category_id-"></span>:
+                id="execution-response-status-PUTapi-categories--category_id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-categories--category_id-"
+    <pre class="json"><code id="execution-response-content-PUTapi-categories--category_id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-categories--category_id-" hidden>
+<span id="execution-error-PUTapi-categories--category_id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-categories--category_id-">
+    <pre><code id="execution-error-message-PUTapi-categories--category_id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-categories--category_id-" data-method="POST"
+<form id="form-PUTapi-categories--category_id-" data-method="PUT"
       data-path="api/categories/{category_id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-categories--category_id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-categories--category_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-categories--category_id-"
-                    onclick="tryItOut('POSTapi-categories--category_id-');">Try it out ⚡
+                    id="btn-tryout-PUTapi-categories--category_id-"
+                    onclick="tryItOut('PUTapi-categories--category_id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-categories--category_id-"
-                    onclick="cancelTryOut('POSTapi-categories--category_id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-PUTapi-categories--category_id-"
+                    onclick="cancelTryOut('PUTapi-categories--category_id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-categories--category_id-"
+                    id="btn-executetryout-PUTapi-categories--category_id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
             </button>
             </h3>
             <p>
-            <small class="badge badge-black">POST</small>
+            <small class="badge badge-darkblue">PUT</small>
             <b><code>api/categories/{category_id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
@@ -813,7 +1593,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-categories--category_id-"
+                              name="Content-Type"                data-endpoint="PUTapi-categories--category_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -824,7 +1604,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-categories--category_id-"
+                              name="Accept"                data-endpoint="PUTapi-categories--category_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -836,23 +1616,23 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="category_id"                data-endpoint="POSTapi-categories--category_id-"
-               value="2"
+               step="any"               name="category_id"                data-endpoint="PUTapi-categories--category_id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>2</code></p>
+<p>The ID of the category. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>new_category_name</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
                 <input type="text" style="display: none"
-                              name="new_category_name"                data-endpoint="POSTapi-categories--category_id-"
-               value=""
+                              name="new_category_name"                data-endpoint="PUTapi-categories--category_id-"
+               value="perspiciatis"
                data-component="body">
     <br>
-
+<p>Example: <code>perspiciatis</code></p>
         </div>
         </form>
 
@@ -870,14 +1650,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://maria-api-production.up.railway.app/api/categories/2" \
+    "https://maria-api-production.up.railway.app/api/categories/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/categories/2"
+    "https://maria-api-production.up.railway.app/api/categories/1"
 );
 
 const headers = {
@@ -970,10 +1750,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="category_id"                data-endpoint="DELETEapi-categories--category_id-"
-               value="2"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the category. Example: <code>2</code></p>
+<p>The ID of the category. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -981,7 +1761,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing orders</p>
 
-                                <h2 id="order-management-POSTapi-orders-make">Create new order</h2>
+                                <h2 id="order-management-GETapi-users--user_id--orders">Get all orders for the current user</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -989,20 +1769,305 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-POSTapi-orders-make">
+<span id="example-requests-GETapi-users--user_id--orders">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "https://maria-api-production.up.railway.app/api/orders/make" \
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://maria-api-production.up.railway.app/api/users/hic/orders" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/orders/make"
+    "https://maria-api-production.up.railway.app/api/users/hic/orders"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-users--user_id--orders">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-users--user_id--orders" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users--user_id--orders"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users--user_id--orders"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-users--user_id--orders" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users--user_id--orders">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-users--user_id--orders" data-method="GET"
+      data-path="api/users/{user_id}/orders"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users--user_id--orders', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users--user_id--orders"
+                    onclick="tryItOut('GETapi-users--user_id--orders');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users--user_id--orders"
+                    onclick="cancelTryOut('GETapi-users--user_id--orders');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users--user_id--orders"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users/{user_id}/orders</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-users--user_id--orders"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-users--user_id--orders"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="GETapi-users--user_id--orders"
+               value="hic"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>hic</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="order-management-GETapi-users--user_id--orders--order_id-">Get a specific order</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-users--user_id--orders--order_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://maria-api-production.up.railway.app/api/users/suscipit/orders/aut" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/suscipit/orders/aut"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-users--user_id--orders--order_id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-users--user_id--orders--order_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users--user_id--orders--order_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users--user_id--orders--order_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-users--user_id--orders--order_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users--user_id--orders--order_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-users--user_id--orders--order_id-" data-method="GET"
+      data-path="api/users/{user_id}/orders/{order_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users--user_id--orders--order_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users--user_id--orders--order_id-"
+                    onclick="tryItOut('GETapi-users--user_id--orders--order_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users--user_id--orders--order_id-"
+                    onclick="cancelTryOut('GETapi-users--user_id--orders--order_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users--user_id--orders--order_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users/{user_id}/orders/{order_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-users--user_id--orders--order_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-users--user_id--orders--order_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="GETapi-users--user_id--orders--order_id-"
+               value="suscipit"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>suscipit</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>order_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="order_id"                data-endpoint="GETapi-users--user_id--orders--order_id-"
+               value="aut"
+               data-component="url">
+    <br>
+<p>The ID of the order. Example: <code>aut</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="order-management-POSTapi-users--user_id--orders">Create new order</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-users--user_id--orders">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://maria-api-production.up.railway.app/api/users/voluptates/orders" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/voluptates/orders"
 );
 
 const headers = {
@@ -1017,45 +2082,45 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-POSTapi-orders-make">
+<span id="example-responses-POSTapi-users--user_id--orders">
 </span>
-<span id="execution-results-POSTapi-orders-make" hidden>
+<span id="execution-results-POSTapi-users--user_id--orders" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-orders-make"></span>:
+                id="execution-response-status-POSTapi-users--user_id--orders"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-orders-make"
+    <pre class="json"><code id="execution-response-content-POSTapi-users--user_id--orders"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-orders-make" hidden>
+<span id="execution-error-POSTapi-users--user_id--orders" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-orders-make">
+    <pre><code id="execution-error-message-POSTapi-users--user_id--orders">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-orders-make" data-method="POST"
-      data-path="api/orders/make"
+<form id="form-POSTapi-users--user_id--orders" data-method="POST"
+      data-path="api/users/{user_id}/orders"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-orders-make', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users--user_id--orders', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-orders-make"
-                    onclick="tryItOut('POSTapi-orders-make');">Try it out ⚡
+                    id="btn-tryout-POSTapi-users--user_id--orders"
+                    onclick="tryItOut('POSTapi-users--user_id--orders');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-orders-make"
-                    onclick="cancelTryOut('POSTapi-orders-make');" hidden>Cancel 🛑
+                    id="btn-canceltryout-POSTapi-users--user_id--orders"
+                    onclick="cancelTryOut('POSTapi-users--user_id--orders');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-orders-make"
+                    id="btn-executetryout-POSTapi-users--user_id--orders"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -1063,7 +2128,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
-            <b><code>api/orders/make</code></b>
+            <b><code>api/users/{user_id}/orders</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -1071,7 +2136,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-orders-make"
+                              name="Content-Type"                data-endpoint="POSTapi-users--user_id--orders"
                value="application/json"
                data-component="header">
     <br>
@@ -1082,7 +2147,408 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-orders-make"
+                              name="Accept"                data-endpoint="POSTapi-users--user_id--orders"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="POSTapi-users--user_id--orders"
+               value="voluptates"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>voluptates</code></p>
+            </div>
+                    </form>
+
+                <h1 id="payment-management">Payment management</h1>
+
+    <p>APIs for payments</p>
+
+                                <h2 id="payment-management-GETapi-users-payment-initiate--order_id-">Start payment for specific order</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-users-payment-initiate--order_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://maria-api-production.up.railway.app/api/users/payment/initiate/dignissimos" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/payment/initiate/dignissimos"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-users-payment-initiate--order_id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-users-payment-initiate--order_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users-payment-initiate--order_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users-payment-initiate--order_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-users-payment-initiate--order_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users-payment-initiate--order_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-users-payment-initiate--order_id-" data-method="GET"
+      data-path="api/users/payment/initiate/{order_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users-payment-initiate--order_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users-payment-initiate--order_id-"
+                    onclick="tryItOut('GETapi-users-payment-initiate--order_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users-payment-initiate--order_id-"
+                    onclick="cancelTryOut('GETapi-users-payment-initiate--order_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users-payment-initiate--order_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users/payment/initiate/{order_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-users-payment-initiate--order_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-users-payment-initiate--order_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>order_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="order_id"                data-endpoint="GETapi-users-payment-initiate--order_id-"
+               value="dignissimos"
+               data-component="url">
+    <br>
+<p>The ID of the order. Example: <code>dignissimos</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="payment-management-GETapi-users-payment-callback">GET api/users/payment/callback</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-users-payment-callback">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://maria-api-production.up.railway.app/api/users/payment/callback" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/payment/callback"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-users-payment-callback">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-users-payment-callback" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users-payment-callback"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users-payment-callback"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-users-payment-callback" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users-payment-callback">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-users-payment-callback" data-method="GET"
+      data-path="api/users/payment/callback"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users-payment-callback', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users-payment-callback"
+                    onclick="tryItOut('GETapi-users-payment-callback');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users-payment-callback"
+                    onclick="cancelTryOut('GETapi-users-payment-callback');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users-payment-callback"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users/payment/callback</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-users-payment-callback"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-users-payment-callback"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="payment-management-GETapi-users-payment-failed">GET api/users/payment/failed</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-users-payment-failed">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://maria-api-production.up.railway.app/api/users/payment/failed" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/payment/failed"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-users-payment-failed">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-users-payment-failed" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users-payment-failed"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users-payment-failed"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-users-payment-failed" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users-payment-failed">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-users-payment-failed" data-method="GET"
+      data-path="api/users/payment/failed"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users-payment-failed', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users-payment-failed"
+                    onclick="tryItOut('GETapi-users-payment-failed');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users-payment-failed"
+                    onclick="cancelTryOut('GETapi-users-payment-failed');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users-payment-failed"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users/payment/failed</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-users-payment-failed"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-users-payment-failed"
                value="application/json"
                data-component="header">
     <br>
@@ -1148,841 +2614,472 @@ access-control-allow-origin: *
     &quot;data&quot;: {
         &quot;products&quot;: [
             {
+                &quot;product_id&quot;: 1,
+                &quot;prodcut_name&quot;: &quot;ratione&quot;,
+                &quot;cost&quot;: 37180,
+                &quot;description&quot;: &quot;Sequi voluptatem est reprehenderit labore veritatis hic. Cum officiis at adipisci dolores voluptatem corporis et. Cum ea molestias magnam in sequi est. Architecto minima rem est.&quot;,
+                &quot;discount&quot;: 65,
+                &quot;category_id&quot;: 14,
+                &quot;product_image&quot;: null
+            },
+            {
                 &quot;product_id&quot;: 2,
-                &quot;prodcut_name&quot;: &quot;cumque&quot;,
-                &quot;cost&quot;: 87379,
-                &quot;description&quot;: &quot;Tempore illo possimus sunt sed placeat sed. Commodi velit amet labore ratione eos modi sit ea. Quo dignissimos sit provident tempore voluptatem et ut.&quot;,
-                &quot;discount&quot;: 35.07,
-                &quot;category_id&quot;: 8,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 3,
-                &quot;prodcut_name&quot;: &quot;blanditiis&quot;,
-                &quot;cost&quot;: 32494,
-                &quot;description&quot;: &quot;Aut praesentium esse consequatur aut illo sed velit. Sequi at et aut ea qui et. Est velit pariatur non dolor quae ex voluptas dolorem. Quis ipsam sunt saepe vel aut minima repellat dolores.&quot;,
-                &quot;discount&quot;: 57.41,
-                &quot;category_id&quot;: 17,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 4,
-                &quot;prodcut_name&quot;: &quot;dolores&quot;,
-                &quot;cost&quot;: 88065,
-                &quot;description&quot;: &quot;Numquam sapiente necessitatibus dolores vero et officiis et. Dolor doloribus sint cumque ipsa alias. Deserunt ut eaque est qui quia et. Temporibus et asperiores vel sint.&quot;,
-                &quot;discount&quot;: 13.78,
-                &quot;category_id&quot;: 20,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 5,
-                &quot;prodcut_name&quot;: &quot;tempore&quot;,
-                &quot;cost&quot;: 89181,
-                &quot;description&quot;: &quot;Sunt sapiente quia ut et optio. Corporis earum omnis enim similique voluptatem nulla. Ut et quo et voluptatum doloribus. Atque quis commodi exercitationem placeat corporis incidunt.&quot;,
-                &quot;discount&quot;: 64.75,
+                &quot;prodcut_name&quot;: &quot;vel&quot;,
+                &quot;cost&quot;: 68872,
+                &quot;description&quot;: &quot;Voluptas quia illum assumenda voluptas et ut. Ut ut dolor qui pariatur in. Adipisci perferendis aut eos vel. Aut quis fugiat vero. Velit nobis quaerat labore.&quot;,
+                &quot;discount&quot;: 29,
                 &quot;category_id&quot;: 4,
                 &quot;product_image&quot;: null
             },
             {
+                &quot;product_id&quot;: 3,
+                &quot;prodcut_name&quot;: &quot;laudantium&quot;,
+                &quot;cost&quot;: 25686,
+                &quot;description&quot;: &quot;Delectus qui tenetur odio iure excepturi. Quos est sapiente nemo quis.&quot;,
+                &quot;discount&quot;: 14,
+                &quot;category_id&quot;: 5,
+                &quot;product_image&quot;: null
+            },
+            {
+                &quot;product_id&quot;: 4,
+                &quot;prodcut_name&quot;: &quot;et&quot;,
+                &quot;cost&quot;: 25777,
+                &quot;description&quot;: &quot;Sed in beatae illo. Et et aut ut consectetur.&quot;,
+                &quot;discount&quot;: 13,
+                &quot;category_id&quot;: 11,
+                &quot;product_image&quot;: null
+            },
+            {
+                &quot;product_id&quot;: 5,
+                &quot;prodcut_name&quot;: &quot;ipsam&quot;,
+                &quot;cost&quot;: 28515,
+                &quot;description&quot;: &quot;Dolor dolores placeat et similique perspiciatis porro recusandae qui. Natus sit doloribus ad. Rerum maiores itaque autem et vel aspernatur voluptatibus.&quot;,
+                &quot;discount&quot;: 55,
+                &quot;category_id&quot;: 11,
+                &quot;product_image&quot;: null
+            },
+            {
                 &quot;product_id&quot;: 6,
-                &quot;prodcut_name&quot;: &quot;exercitationem&quot;,
-                &quot;cost&quot;: 89814,
-                &quot;description&quot;: &quot;Incidunt est illo et possimus debitis sit quisquam. Sit recusandae numquam quo reprehenderit illum enim eos. Voluptate asperiores iste ut quis ipsam.&quot;,
-                &quot;discount&quot;: 43.37,
-                &quot;category_id&quot;: 6,
+                &quot;prodcut_name&quot;: &quot;quas&quot;,
+                &quot;cost&quot;: 46046,
+                &quot;description&quot;: &quot;Atque ab quo soluta molestiae. Molestiae consequatur nostrum corrupti repudiandae. Nam incidunt enim quasi sed. Corrupti laboriosam consectetur enim dolores sapiente voluptatem vitae.&quot;,
+                &quot;discount&quot;: 98,
+                &quot;category_id&quot;: 7,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 7,
-                &quot;prodcut_name&quot;: &quot;voluptate&quot;,
-                &quot;cost&quot;: 15386,
-                &quot;description&quot;: &quot;Et iste quia sunt vero rerum. Non expedita facere voluptatem. In in eius dolore excepturi molestiae et consequuntur. Et architecto rerum tenetur velit. Quia recusandae labore ea sit atque.&quot;,
-                &quot;discount&quot;: 8.39,
-                &quot;category_id&quot;: 25,
+                &quot;prodcut_name&quot;: &quot;autem&quot;,
+                &quot;cost&quot;: 84937,
+                &quot;description&quot;: &quot;Voluptatem ea eaque vel pariatur necessitatibus et aspernatur facilis. Sunt a molestiae voluptas sit et.&quot;,
+                &quot;discount&quot;: 63,
+                &quot;category_id&quot;: 2,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 8,
                 &quot;prodcut_name&quot;: &quot;et&quot;,
-                &quot;cost&quot;: 28771,
-                &quot;description&quot;: &quot;Et quia velit commodi non et possimus hic. Incidunt ducimus doloremque odio sed est ab possimus. Et suscipit facilis atque consequatur ipsum sed.&quot;,
-                &quot;discount&quot;: 45.56,
-                &quot;category_id&quot;: 25,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 9,
-                &quot;prodcut_name&quot;: &quot;perspiciatis&quot;,
-                &quot;cost&quot;: 72095,
-                &quot;description&quot;: &quot;Fuga molestiae veniam nostrum voluptas. Impedit eius ut blanditiis fugit earum magnam. Voluptates temporibus enim ratione quia molestiae. Non adipisci velit molestiae sapiente magni fugiat.&quot;,
-                &quot;discount&quot;: 86.36,
-                &quot;category_id&quot;: 23,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 10,
-                &quot;prodcut_name&quot;: &quot;inventore&quot;,
-                &quot;cost&quot;: 25080,
-                &quot;description&quot;: &quot;Accusantium consectetur beatae molestiae blanditiis. Iure rerum ea consectetur et repudiandae sit doloremque. Exercitationem voluptatem non ad sed quis tempore.&quot;,
-                &quot;discount&quot;: 27.26,
-                &quot;category_id&quot;: 19,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 11,
-                &quot;prodcut_name&quot;: &quot;totam&quot;,
-                &quot;cost&quot;: 65194,
-                &quot;description&quot;: &quot;Veniam ut saepe libero fugiat. Voluptatum esse perspiciatis quam recusandae alias placeat. Placeat ut aut ad perferendis. Non neque corporis porro quas error ut aliquid odit.&quot;,
-                &quot;discount&quot;: 82.83,
+                &quot;cost&quot;: 93636,
+                &quot;description&quot;: &quot;Dolore nihil ratione sed hic cupiditate eius laudantium. Aut id nemo qui quia excepturi est est.&quot;,
+                &quot;discount&quot;: 3,
                 &quot;category_id&quot;: 15,
                 &quot;product_image&quot;: null
             },
             {
+                &quot;product_id&quot;: 9,
+                &quot;prodcut_name&quot;: &quot;qui&quot;,
+                &quot;cost&quot;: 30805,
+                &quot;description&quot;: &quot;Corrupti ab qui eos aut dolor ut tempore. Praesentium qui doloremque qui dolores eligendi. Molestias dicta est quia non aut.&quot;,
+                &quot;discount&quot;: 67,
+                &quot;category_id&quot;: 9,
+                &quot;product_image&quot;: null
+            },
+            {
+                &quot;product_id&quot;: 10,
+                &quot;prodcut_name&quot;: &quot;voluptatem&quot;,
+                &quot;cost&quot;: 6302,
+                &quot;description&quot;: &quot;Dolores velit eos id repudiandae dolore reiciendis. Dolore est possimus non et est. Id sit culpa quo reiciendis commodi voluptatibus rerum.&quot;,
+                &quot;discount&quot;: 92,
+                &quot;category_id&quot;: 8,
+                &quot;product_image&quot;: null
+            },
+            {
+                &quot;product_id&quot;: 11,
+                &quot;prodcut_name&quot;: &quot;similique&quot;,
+                &quot;cost&quot;: 70658,
+                &quot;description&quot;: &quot;Quo non doloribus qui non. Necessitatibus dolor quibusdam repudiandae nesciunt cum blanditiis quisquam. Quia error delectus consectetur officia ullam ut aut ab.&quot;,
+                &quot;discount&quot;: 99,
+                &quot;category_id&quot;: 19,
+                &quot;product_image&quot;: null
+            },
+            {
+                &quot;product_id&quot;: 12,
+                &quot;prodcut_name&quot;: &quot;eveniet&quot;,
+                &quot;cost&quot;: 70829,
+                &quot;description&quot;: &quot;Amet nihil vel beatae fugiat amet. Id ipsa ut voluptatem et odit similique harum.&quot;,
+                &quot;discount&quot;: 58,
+                &quot;category_id&quot;: 9,
+                &quot;product_image&quot;: null
+            },
+            {
                 &quot;product_id&quot;: 13,
-                &quot;prodcut_name&quot;: &quot;cupiditate&quot;,
-                &quot;cost&quot;: 87557,
-                &quot;description&quot;: &quot;Numquam excepturi harum distinctio similique. Dolorem ab voluptate accusamus molestiae voluptatem eos. Ut ea quibusdam consectetur omnis ex dolores voluptatem.&quot;,
-                &quot;discount&quot;: 41.45,
+                &quot;prodcut_name&quot;: &quot;nemo&quot;,
+                &quot;cost&quot;: 43800,
+                &quot;description&quot;: &quot;In molestias voluptatem ut. Non nam aliquam quasi deleniti occaecati est quia. Ipsa quia consectetur libero. Nulla unde est ullam eum dignissimos molestiae sint porro.&quot;,
+                &quot;discount&quot;: 78,
+                &quot;category_id&quot;: 6,
+                &quot;product_image&quot;: null
+            },
+            {
+                &quot;product_id&quot;: 14,
+                &quot;prodcut_name&quot;: &quot;quod&quot;,
+                &quot;cost&quot;: 18891,
+                &quot;description&quot;: &quot;Praesentium ut sed sunt libero saepe. Ex quasi eius nostrum quia corrupti in. Labore impedit eius velit.&quot;,
+                &quot;discount&quot;: 78,
                 &quot;category_id&quot;: 10,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 15,
-                &quot;prodcut_name&quot;: &quot;eveniet&quot;,
-                &quot;cost&quot;: 74415,
-                &quot;description&quot;: &quot;Vero aut et possimus consequuntur ad doloribus. Harum voluptas et reiciendis porro molestiae ipsam. Temporibus molestias nihil inventore aperiam nihil quae.&quot;,
-                &quot;discount&quot;: 57.89,
-                &quot;category_id&quot;: 14,
+                &quot;prodcut_name&quot;: &quot;veniam&quot;,
+                &quot;cost&quot;: 55591,
+                &quot;description&quot;: &quot;Saepe voluptate beatae sit magnam. Ad eligendi culpa animi explicabo. Amet dolorem non modi qui consequatur. Enim sit quia unde quos velit cum. Alias dolorem rerum sit nulla.&quot;,
+                &quot;discount&quot;: 54,
+                &quot;category_id&quot;: 15,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 16,
-                &quot;prodcut_name&quot;: &quot;sit&quot;,
-                &quot;cost&quot;: 77296,
-                &quot;description&quot;: &quot;Vitae molestias odit accusantium adipisci. Est alias voluptas et id ipsam veritatis voluptates maiores. Explicabo illo omnis dolor occaecati laboriosam officia.&quot;,
-                &quot;discount&quot;: 51.66,
-                &quot;category_id&quot;: 6,
+                &quot;prodcut_name&quot;: &quot;et&quot;,
+                &quot;cost&quot;: 84462,
+                &quot;description&quot;: &quot;Incidunt ut recusandae magni saepe provident officiis. Minus similique id et nihil consequatur qui.&quot;,
+                &quot;discount&quot;: 65,
+                &quot;category_id&quot;: 19,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 17,
-                &quot;prodcut_name&quot;: &quot;est&quot;,
-                &quot;cost&quot;: 31668,
-                &quot;description&quot;: &quot;Animi dolor porro labore nihil. Perspiciatis qui laborum sunt vitae itaque. Id enim est autem aut quisquam accusamus minima error.&quot;,
-                &quot;discount&quot;: 13.47,
-                &quot;category_id&quot;: 8,
+                &quot;prodcut_name&quot;: &quot;labore&quot;,
+                &quot;cost&quot;: 16904,
+                &quot;description&quot;: &quot;Qui assumenda aut voluptas voluptas eius sequi. Ipsam non omnis perferendis soluta ut sed placeat. Omnis id recusandae dolores autem aliquam qui neque.&quot;,
+                &quot;discount&quot;: 63,
+                &quot;category_id&quot;: 18,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 18,
-                &quot;prodcut_name&quot;: &quot;laborum&quot;,
-                &quot;cost&quot;: 71426,
-                &quot;description&quot;: &quot;Quis porro quia explicabo. Deleniti dolorem non dolores non cumque et a voluptas. Quia ipsa laboriosam optio sint et quia.&quot;,
-                &quot;discount&quot;: 53.28,
-                &quot;category_id&quot;: 14,
+                &quot;prodcut_name&quot;: &quot;soluta&quot;,
+                &quot;cost&quot;: 20948,
+                &quot;description&quot;: &quot;Enim ad consequatur unde. Beatae rem tempore earum ad hic. Voluptate et quis voluptatem velit.&quot;,
+                &quot;discount&quot;: 76,
+                &quot;category_id&quot;: 1,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 19,
-                &quot;prodcut_name&quot;: &quot;repellendus&quot;,
-                &quot;cost&quot;: 88058,
-                &quot;description&quot;: &quot;Consequuntur voluptas et aspernatur sit. Magni qui doloremque possimus ut sequi. Totam a occaecati assumenda est. Veritatis voluptatum voluptatum earum quo. Placeat nihil a rem in.&quot;,
-                &quot;discount&quot;: 98.36,
-                &quot;category_id&quot;: 2,
+                &quot;prodcut_name&quot;: &quot;totam&quot;,
+                &quot;cost&quot;: 24788,
+                &quot;description&quot;: &quot;Repellat atque eos doloribus quod ut. Modi eligendi dignissimos quae sunt in. Nobis dolorem aut beatae beatae consectetur odit temporibus.&quot;,
+                &quot;discount&quot;: 48,
+                &quot;category_id&quot;: 9,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 20,
-                &quot;prodcut_name&quot;: &quot;tenetur&quot;,
-                &quot;cost&quot;: 93582,
-                &quot;description&quot;: &quot;Quia nostrum mollitia quisquam in voluptates consequatur. Iure in odit recusandae qui. Sint fugit quibusdam expedita rerum impedit aperiam.&quot;,
-                &quot;discount&quot;: 15.53,
+                &quot;prodcut_name&quot;: &quot;ad&quot;,
+                &quot;cost&quot;: 1034,
+                &quot;description&quot;: &quot;Provident beatae atque voluptatem non. Quas expedita voluptatum atque voluptas iure recusandae molestiae sed. Enim enim pariatur a.&quot;,
+                &quot;discount&quot;: 23,
                 &quot;category_id&quot;: 15,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 21,
-                &quot;prodcut_name&quot;: &quot;provident&quot;,
-                &quot;cost&quot;: 92100,
-                &quot;description&quot;: &quot;Numquam nobis molestiae aut nam quisquam quia. Hic incidunt et et quis molestias temporibus ipsa. Commodi laborum illo blanditiis adipisci.&quot;,
-                &quot;discount&quot;: 22.65,
-                &quot;category_id&quot;: 17,
+                &quot;prodcut_name&quot;: &quot;eligendi&quot;,
+                &quot;cost&quot;: 58581,
+                &quot;description&quot;: &quot;Id fugiat maxime fugiat qui dicta aut. Impedit eveniet amet natus aspernatur. Est neque voluptatem voluptas sit. Minima illo iusto quos facere.&quot;,
+                &quot;discount&quot;: 87,
+                &quot;category_id&quot;: 12,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 22,
-                &quot;prodcut_name&quot;: &quot;nemo&quot;,
-                &quot;cost&quot;: 97265,
-                &quot;description&quot;: &quot;Aspernatur voluptatibus qui officia illo aut. Commodi delectus aut cum non. Non quo amet eaque dignissimos cum aperiam ut.&quot;,
-                &quot;discount&quot;: 32.68,
-                &quot;category_id&quot;: 24,
+                &quot;prodcut_name&quot;: &quot;accusantium&quot;,
+                &quot;cost&quot;: 95336,
+                &quot;description&quot;: &quot;Quae cum doloremque cupiditate aliquam. Nisi sit animi pariatur veritatis ut minus est. Et explicabo delectus rerum.&quot;,
+                &quot;discount&quot;: 44,
+                &quot;category_id&quot;: 18,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 23,
-                &quot;prodcut_name&quot;: &quot;reiciendis&quot;,
-                &quot;cost&quot;: 29395,
-                &quot;description&quot;: &quot;Nobis maiores sequi corporis autem ut est. Porro explicabo totam numquam voluptates voluptas. Odio ipsam officia ipsa deserunt. Perspiciatis et doloremque inventore asperiores.&quot;,
-                &quot;discount&quot;: 56.15,
-                &quot;category_id&quot;: 23,
+                &quot;prodcut_name&quot;: &quot;inventore&quot;,
+                &quot;cost&quot;: 43493,
+                &quot;description&quot;: &quot;Impedit voluptate architecto soluta corporis. Odit ut quam ut ex et non. Quia aut reprehenderit tempore aperiam quis aut in commodi.&quot;,
+                &quot;discount&quot;: 79,
+                &quot;category_id&quot;: 13,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 24,
                 &quot;prodcut_name&quot;: &quot;aperiam&quot;,
-                &quot;cost&quot;: 24409,
-                &quot;description&quot;: &quot;Ea fuga nulla suscipit quo. Velit possimus veritatis sapiente. Ipsam eaque dolores hic ea et libero.&quot;,
-                &quot;discount&quot;: 86.12,
-                &quot;category_id&quot;: 14,
+                &quot;cost&quot;: 44894,
+                &quot;description&quot;: &quot;Explicabo pariatur soluta occaecati illum aut fugit voluptatem. Et adipisci amet rerum aliquid dolorum. Molestiae sapiente modi aut repellendus sapiente placeat.&quot;,
+                &quot;discount&quot;: 17,
+                &quot;category_id&quot;: 16,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 25,
-                &quot;prodcut_name&quot;: &quot;animi&quot;,
-                &quot;cost&quot;: 58011,
-                &quot;description&quot;: &quot;Fugiat cum dolores labore. Inventore odio rem aliquam. Voluptatem debitis accusamus eius quia. Hic aut alias rerum est.&quot;,
-                &quot;discount&quot;: 82.18,
-                &quot;category_id&quot;: 12,
+                &quot;prodcut_name&quot;: &quot;ex&quot;,
+                &quot;cost&quot;: 2234,
+                &quot;description&quot;: &quot;Unde temporibus eos ut non. Aut vero est omnis maxime deserunt aspernatur quod. Excepturi possimus molestiae recusandae id beatae modi id. Qui atque consequatur ut.&quot;,
+                &quot;discount&quot;: 65,
+                &quot;category_id&quot;: 13,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 26,
-                &quot;prodcut_name&quot;: &quot;ut&quot;,
-                &quot;cost&quot;: 58495,
-                &quot;description&quot;: &quot;Dolores rerum impedit aut maxime non et. Reprehenderit nemo deserunt et voluptas voluptatem dolore aliquam. Quo iste aut cum. Nulla quia voluptates officiis dolor veritatis.&quot;,
-                &quot;discount&quot;: 64.24,
-                &quot;category_id&quot;: 7,
+                &quot;prodcut_name&quot;: &quot;nemo&quot;,
+                &quot;cost&quot;: 70224,
+                &quot;description&quot;: &quot;A saepe ducimus deleniti nihil. Voluptatem harum at deserunt fugit quo deleniti deserunt rem. Aut et laboriosam non expedita ea odio omnis et.&quot;,
+                &quot;discount&quot;: 71,
+                &quot;category_id&quot;: 4,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 27,
-                &quot;prodcut_name&quot;: &quot;voluptatem&quot;,
-                &quot;cost&quot;: 50503,
-                &quot;description&quot;: &quot;Reiciendis illum iste dolores molestiae aspernatur facere eveniet. Quasi voluptatem totam aut sed saepe. Dolorum error ut ab occaecati minima dolorum dolores repellat.&quot;,
-                &quot;discount&quot;: 46.76,
-                &quot;category_id&quot;: 15,
+                &quot;prodcut_name&quot;: &quot;quibusdam&quot;,
+                &quot;cost&quot;: 99077,
+                &quot;description&quot;: &quot;Voluptas quaerat aut expedita quasi et cum cupiditate. Aut praesentium qui culpa enim est. Nihil vel ea illum dolor. Ut aperiam minus ratione placeat ipsam exercitationem reprehenderit.&quot;,
+                &quot;discount&quot;: 65,
+                &quot;category_id&quot;: 8,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 28,
-                &quot;prodcut_name&quot;: &quot;expedita&quot;,
-                &quot;cost&quot;: 99117,
-                &quot;description&quot;: &quot;Corporis et delectus doloribus et ut. Et ex voluptatem perferendis suscipit. Doloribus aut hic fugit vero neque velit enim. Maiores corporis suscipit temporibus deleniti.&quot;,
-                &quot;discount&quot;: 40.71,
-                &quot;category_id&quot;: 13,
+                &quot;prodcut_name&quot;: &quot;quo&quot;,
+                &quot;cost&quot;: 91640,
+                &quot;description&quot;: &quot;Fugiat dolorum adipisci esse quo qui. Vitae exercitationem quia quia quia. Qui qui corrupti et quis recusandae aut sint. Et molestiae et qui impedit. Ipsa excepturi voluptatem animi.&quot;,
+                &quot;discount&quot;: 60,
+                &quot;category_id&quot;: 5,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 29,
-                &quot;prodcut_name&quot;: &quot;earum&quot;,
-                &quot;cost&quot;: 89071,
-                &quot;description&quot;: &quot;Voluptatem dolorem ea suscipit ut dicta. Voluptatum quia at officia natus eum. Adipisci est amet odit nulla voluptas. Ut qui occaecati quo perferendis suscipit sit et.&quot;,
-                &quot;discount&quot;: 28.78,
-                &quot;category_id&quot;: 23,
+                &quot;prodcut_name&quot;: &quot;nesciunt&quot;,
+                &quot;cost&quot;: 38041,
+                &quot;description&quot;: &quot;Voluptatem autem architecto harum. Sit assumenda qui explicabo similique id enim. Enim eaque aperiam dolores accusantium temporibus modi corrupti.&quot;,
+                &quot;discount&quot;: 69,
+                &quot;category_id&quot;: 6,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 30,
-                &quot;prodcut_name&quot;: &quot;aut&quot;,
-                &quot;cost&quot;: 76063,
-                &quot;description&quot;: &quot;Vero exercitationem soluta ut et. Qui iusto in sed qui reiciendis. Debitis qui ipsam est et beatae. Quis et ab et nesciunt numquam.&quot;,
-                &quot;discount&quot;: 66.01,
-                &quot;category_id&quot;: 5,
+                &quot;prodcut_name&quot;: &quot;laudantium&quot;,
+                &quot;cost&quot;: 51344,
+                &quot;description&quot;: &quot;Molestiae praesentium sunt adipisci ut architecto cum. Dolor aut non eum quia culpa. Dolores reiciendis tempore consectetur eaque et voluptatem deleniti.&quot;,
+                &quot;discount&quot;: 82,
+                &quot;category_id&quot;: 2,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 31,
-                &quot;prodcut_name&quot;: &quot;harum&quot;,
-                &quot;cost&quot;: 9644,
-                &quot;description&quot;: &quot;Omnis ipsa cum porro. Perspiciatis ut dolorum totam quia dignissimos quia. Quo odit quia in eum nobis nisi quia vitae. A voluptatum recusandae dolores quae quibusdam reprehenderit.&quot;,
-                &quot;discount&quot;: 52.59,
-                &quot;category_id&quot;: 15,
+                &quot;prodcut_name&quot;: &quot;in&quot;,
+                &quot;cost&quot;: 1298,
+                &quot;description&quot;: &quot;Aspernatur et enim quam. Voluptatem illum a quis ut. Dolor nostrum voluptatem repellendus velit eum et.&quot;,
+                &quot;discount&quot;: 80,
+                &quot;category_id&quot;: 5,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 32,
-                &quot;prodcut_name&quot;: &quot;molestiae&quot;,
-                &quot;cost&quot;: 82218,
-                &quot;description&quot;: &quot;Tenetur quasi ut alias odio voluptas ut veritatis. Enim ut ut cumque molestias. Et qui magnam molestias non asperiores.&quot;,
-                &quot;discount&quot;: 30.82,
-                &quot;category_id&quot;: 5,
+                &quot;prodcut_name&quot;: &quot;necessitatibus&quot;,
+                &quot;cost&quot;: 2314,
+                &quot;description&quot;: &quot;Qui velit ipsum velit porro eveniet et. Reiciendis aperiam et et quos ut tenetur. Laborum sint deleniti maxime eaque.&quot;,
+                &quot;discount&quot;: 20,
+                &quot;category_id&quot;: 18,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 33,
-                &quot;prodcut_name&quot;: &quot;ducimus&quot;,
-                &quot;cost&quot;: 62701,
-                &quot;description&quot;: &quot;Corporis voluptatem et doloribus. Maiores vero molestiae quod sed et. Aspernatur earum rerum iure eius corporis. Dicta quo tenetur minus ipsum vitae.&quot;,
-                &quot;discount&quot;: 38.41,
-                &quot;category_id&quot;: 13,
+                &quot;prodcut_name&quot;: &quot;et&quot;,
+                &quot;cost&quot;: 77295,
+                &quot;description&quot;: &quot;Fugiat quia modi libero incidunt ipsa sed. Quo in pariatur expedita officia natus dolores quo placeat. Odit incidunt nihil eaque excepturi.&quot;,
+                &quot;discount&quot;: 18,
+                &quot;category_id&quot;: 20,
                 &quot;product_image&quot;: null
             },
             {
                 &quot;product_id&quot;: 34,
-                &quot;prodcut_name&quot;: &quot;quis&quot;,
-                &quot;cost&quot;: 18320,
-                &quot;description&quot;: &quot;Ad consequatur dignissimos officia nesciunt. Aperiam alias ipsa minima laboriosam. Dolor voluptas autem est qui fugiat quasi tenetur.&quot;,
-                &quot;discount&quot;: 7.32,
-                &quot;category_id&quot;: 22,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 35,
-                &quot;prodcut_name&quot;: &quot;non&quot;,
-                &quot;cost&quot;: 96638,
-                &quot;description&quot;: &quot;Voluptates blanditiis sit officiis maiores. Quod ab animi provident commodi. Debitis incidunt veniam qui aut dignissimos amet harum pariatur.&quot;,
-                &quot;discount&quot;: 76.09,
-                &quot;category_id&quot;: 8,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 37,
-                &quot;prodcut_name&quot;: &quot;eum&quot;,
-                &quot;cost&quot;: 41757,
-                &quot;description&quot;: &quot;Facere totam culpa numquam. Voluptatem nostrum quo voluptate nostrum et non. In voluptatem ut vitae eos voluptatibus dicta impedit. Id qui totam facilis eum autem voluptate omnis aliquam.&quot;,
-                &quot;discount&quot;: 22.72,
-                &quot;category_id&quot;: 13,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 38,
-                &quot;prodcut_name&quot;: &quot;totam&quot;,
-                &quot;cost&quot;: 11173,
-                &quot;description&quot;: &quot;Praesentium est sint eos saepe et quis quo veniam. Porro molestiae neque suscipit assumenda. Qui qui laborum quibusdam dolorum itaque. Enim blanditiis incidunt iure eum voluptatem.&quot;,
-                &quot;discount&quot;: 33.87,
-                &quot;category_id&quot;: 20,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 39,
-                &quot;prodcut_name&quot;: &quot;accusamus&quot;,
-                &quot;cost&quot;: 44103,
-                &quot;description&quot;: &quot;Aliquam iste totam repudiandae ut repellat voluptatibus. Esse et aliquam consequatur qui aut est dicta. Inventore cum culpa est eum molestiae placeat mollitia. In eius quos at alias mollitia.&quot;,
-                &quot;discount&quot;: 16.76,
-                &quot;category_id&quot;: 19,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 40,
-                &quot;prodcut_name&quot;: &quot;cupiditate&quot;,
-                &quot;cost&quot;: 62967,
-                &quot;description&quot;: &quot;Nostrum deleniti dolore ducimus dolore sint. Aliquid hic consequuntur unde ipsam. Illo magni labore ab natus magni. Maiores atque eius dolorem.&quot;,
-                &quot;discount&quot;: 29.12,
-                &quot;category_id&quot;: 7,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 41,
-                &quot;prodcut_name&quot;: &quot;aut&quot;,
-                &quot;cost&quot;: 84004,
-                &quot;description&quot;: &quot;Placeat aperiam nulla temporibus iusto labore iure. Voluptas voluptatum laudantium qui nobis quia.&quot;,
-                &quot;discount&quot;: 22.88,
-                &quot;category_id&quot;: 18,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 42,
-                &quot;prodcut_name&quot;: &quot;impedit&quot;,
-                &quot;cost&quot;: 5889,
-                &quot;description&quot;: &quot;Voluptatem et voluptas cumque ut. Esse impedit sit consequatur nemo. Asperiores et reiciendis aliquid autem modi autem.&quot;,
-                &quot;discount&quot;: 5.37,
-                &quot;category_id&quot;: 25,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 45,
-                &quot;prodcut_name&quot;: &quot;quas&quot;,
-                &quot;cost&quot;: 2433,
-                &quot;description&quot;: &quot;Molestiae consectetur non magnam sed aperiam ipsum eaque. Reprehenderit nam qui facilis ducimus sed.&quot;,
-                &quot;discount&quot;: 84.48,
-                &quot;category_id&quot;: 8,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 46,
-                &quot;prodcut_name&quot;: &quot;velit&quot;,
-                &quot;cost&quot;: 86586,
-                &quot;description&quot;: &quot;Molestiae facere laudantium temporibus et nobis fugit aut. Sed sunt velit dolores placeat nihil. Numquam dolorem voluptatibus quaerat provident itaque enim qui blanditiis.&quot;,
-                &quot;discount&quot;: 89.44,
-                &quot;category_id&quot;: 11,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 48,
-                &quot;prodcut_name&quot;: &quot;molestiae&quot;,
-                &quot;cost&quot;: 18596,
-                &quot;description&quot;: &quot;Molestias tempora deserunt dolores earum. Deleniti libero ab perspiciatis soluta dolor vel. Veritatis iure facere ducimus consectetur temporibus autem fugit.&quot;,
-                &quot;discount&quot;: 15.09,
-                &quot;category_id&quot;: 4,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 49,
-                &quot;prodcut_name&quot;: &quot;vitae&quot;,
-                &quot;cost&quot;: 62036,
-                &quot;description&quot;: &quot;Iusto esse veritatis unde soluta ut veritatis sequi. Vel expedita necessitatibus eos reiciendis sed dignissimos ad. Nihil voluptas et sit est aut excepturi et. Vel maxime rem autem similique.&quot;,
-                &quot;discount&quot;: 98.88,
-                &quot;category_id&quot;: 5,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 50,
-                &quot;prodcut_name&quot;: &quot;et&quot;,
-                &quot;cost&quot;: 88349,
-                &quot;description&quot;: &quot;Eum et repudiandae aut voluptatem quibusdam vel. Voluptatum sunt repudiandae est dolorem inventore voluptatibus. Odit qui et asperiores placeat.&quot;,
-                &quot;discount&quot;: 94.83,
-                &quot;category_id&quot;: 5,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 51,
-                &quot;prodcut_name&quot;: &quot;architecto&quot;,
-                &quot;cost&quot;: 60087,
-                &quot;description&quot;: &quot;Expedita enim nesciunt nihil. Velit sunt sit porro ullam in ipsam quis. Voluptas eum inventore nulla. Amet ullam omnis omnis reiciendis.&quot;,
-                &quot;discount&quot;: 55.6,
-                &quot;category_id&quot;: 23,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 52,
                 &quot;prodcut_name&quot;: &quot;consequatur&quot;,
-                &quot;cost&quot;: 43897,
-                &quot;description&quot;: &quot;Est illo ab est dolores. Perspiciatis nobis dolorem voluptas fugit dolorem corporis sed maiores. Officiis recusandae commodi in autem. Vel voluptatem quo dolores et.&quot;,
-                &quot;discount&quot;: 10.01,
-                &quot;category_id&quot;: 20,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 53,
-                &quot;prodcut_name&quot;: &quot;velit&quot;,
-                &quot;cost&quot;: 28489,
-                &quot;description&quot;: &quot;Laudantium est aut et rerum eius placeat provident. Sint illum veniam illum nam. Commodi soluta omnis odio est illum.&quot;,
-                &quot;discount&quot;: 19.93,
-                &quot;category_id&quot;: 7,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 54,
-                &quot;prodcut_name&quot;: &quot;aut&quot;,
-                &quot;cost&quot;: 31499,
-                &quot;description&quot;: &quot;Sunt tempora eligendi beatae et aut. Sit modi possimus dignissimos corrupti consequatur voluptatem aperiam autem. Eius ullam error officiis sequi. Omnis placeat dicta placeat harum distinctio.&quot;,
-                &quot;discount&quot;: 82.99,
-                &quot;category_id&quot;: 15,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 55,
-                &quot;prodcut_name&quot;: &quot;incidunt&quot;,
-                &quot;cost&quot;: 71021,
-                &quot;description&quot;: &quot;Nihil voluptates soluta maxime in sequi occaecati neque. Alias dolores earum est et molestiae omnis. Ut quis alias illum et libero. Qui sit ratione officiis consequatur commodi aut eum.&quot;,
-                &quot;discount&quot;: 74.39,
-                &quot;category_id&quot;: 2,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 56,
-                &quot;prodcut_name&quot;: &quot;et&quot;,
-                &quot;cost&quot;: 64731,
-                &quot;description&quot;: &quot;Autem et voluptatem in. Aut vitae tempora quidem eligendi aut id non. Dolor vel molestias assumenda sequi praesentium omnis porro.&quot;,
-                &quot;discount&quot;: 86.61,
-                &quot;category_id&quot;: 4,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 57,
-                &quot;prodcut_name&quot;: &quot;dolore&quot;,
-                &quot;cost&quot;: 60186,
-                &quot;description&quot;: &quot;Quia accusamus porro numquam error. Ab odit fugiat id id. Voluptates omnis itaque sed.&quot;,
-                &quot;discount&quot;: 24.07,
-                &quot;category_id&quot;: 18,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 58,
-                &quot;prodcut_name&quot;: &quot;id&quot;,
-                &quot;cost&quot;: 12611,
-                &quot;description&quot;: &quot;Aut nobis autem velit vel at iusto. Occaecati eos illum ipsum voluptatem. Numquam rem numquam rem autem doloremque. Nam alias natus vel sunt.&quot;,
-                &quot;discount&quot;: 89.62,
-                &quot;category_id&quot;: 8,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 59,
-                &quot;prodcut_name&quot;: &quot;sequi&quot;,
-                &quot;cost&quot;: 31327,
-                &quot;description&quot;: &quot;Recusandae ut et est numquam quia. Autem maxime voluptas quo ratione quibusdam voluptatibus. Dolores nulla nostrum similique ea at.&quot;,
-                &quot;discount&quot;: 5.97,
-                &quot;category_id&quot;: 21,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 60,
-                &quot;prodcut_name&quot;: &quot;iure&quot;,
-                &quot;cost&quot;: 23534,
-                &quot;description&quot;: &quot;Dignissimos sunt adipisci molestiae dolores non aut. Dolor veniam eveniet quia neque eos nam quia. Eligendi ex placeat debitis.&quot;,
-                &quot;discount&quot;: 55.36,
-                &quot;category_id&quot;: 4,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 62,
-                &quot;prodcut_name&quot;: &quot;quisquam&quot;,
-                &quot;cost&quot;: 75925,
-                &quot;description&quot;: &quot;Provident praesentium animi id eius repellendus. Magni quos perferendis nesciunt quia. Et aut eius ipsa et aut voluptatem voluptates consequatur. Ad quae est culpa omnis amet iste.&quot;,
-                &quot;discount&quot;: 15.27,
-                &quot;category_id&quot;: 5,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 63,
-                &quot;prodcut_name&quot;: &quot;consequuntur&quot;,
-                &quot;cost&quot;: 74625,
-                &quot;description&quot;: &quot;Qui voluptatem ut autem ratione et. Reprehenderit pariatur omnis tempore et et et aliquam. Voluptatem et blanditiis ad debitis. Distinctio delectus magni est rem blanditiis molestiae minima esse.&quot;,
-                &quot;discount&quot;: 80.61,
-                &quot;category_id&quot;: 12,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 64,
-                &quot;prodcut_name&quot;: &quot;vel&quot;,
-                &quot;cost&quot;: 46335,
-                &quot;description&quot;: &quot;Qui officiis velit iusto necessitatibus fugiat adipisci enim. Et pariatur aut modi temporibus adipisci pariatur id officia. Accusantium omnis alias ducimus earum quas deserunt.&quot;,
-                &quot;discount&quot;: 39.6,
+                &quot;cost&quot;: 41274,
+                &quot;description&quot;: &quot;Soluta ipsum velit corrupti sunt quis nostrum sint sed. Qui occaecati natus veritatis suscipit illum molestias.&quot;,
+                &quot;discount&quot;: 37,
                 &quot;category_id&quot;: 14,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 65,
-                &quot;prodcut_name&quot;: &quot;et&quot;,
-                &quot;cost&quot;: 94390,
-                &quot;description&quot;: &quot;Dicta error et in blanditiis sapiente nihil. Quos ullam omnis molestiae voluptas modi. Natus odio velit velit nobis ut libero. Dolore totam blanditiis blanditiis deserunt.&quot;,
-                &quot;discount&quot;: 4.34,
-                &quot;category_id&quot;: 5,
+                &quot;product_id&quot;: 35,
+                &quot;prodcut_name&quot;: &quot;occaecati&quot;,
+                &quot;cost&quot;: 94045,
+                &quot;description&quot;: &quot;Facere voluptatem quas recusandae debitis voluptatum nisi. Neque vitae dolorem cum molestiae. Voluptatem consequuntur est ut corrupti possimus quod. Repudiandae ipsam earum veritatis.&quot;,
+                &quot;discount&quot;: 4,
+                &quot;category_id&quot;: 15,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 66,
-                &quot;prodcut_name&quot;: &quot;optio&quot;,
-                &quot;cost&quot;: 49552,
-                &quot;description&quot;: &quot;Dolores excepturi fuga aut quo qui molestiae atque sed. Modi qui corrupti dolorem voluptatibus a facere repellendus. Eos recusandae unde amet sed iste molestias.&quot;,
-                &quot;discount&quot;: 73.46,
-                &quot;category_id&quot;: 6,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 67,
-                &quot;prodcut_name&quot;: &quot;autem&quot;,
-                &quot;cost&quot;: 47359,
-                &quot;description&quot;: &quot;Odit et voluptates unde cumque sequi. Quia ipsam ullam laborum omnis veritatis molestias. Cupiditate distinctio distinctio assumenda quo quia.&quot;,
-                &quot;discount&quot;: 35.66,
-                &quot;category_id&quot;: 16,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 68,
-                &quot;prodcut_name&quot;: &quot;quia&quot;,
-                &quot;cost&quot;: 43435,
-                &quot;description&quot;: &quot;Dignissimos eum at quos tenetur rerum adipisci. Doloribus occaecati qui nesciunt vitae sit. Consequatur quae sit temporibus animi ut. Culpa est ut expedita eos quo atque qui.&quot;,
-                &quot;discount&quot;: 4.2,
-                &quot;category_id&quot;: 5,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 69,
-                &quot;prodcut_name&quot;: &quot;earum&quot;,
-                &quot;cost&quot;: 70176,
-                &quot;description&quot;: &quot;Quae dicta blanditiis debitis delectus qui quo. Nulla sequi ducimus ipsam possimus et iure. Et soluta voluptas necessitatibus non suscipit esse aut. Optio natus placeat iste nemo est nihil nihil.&quot;,
-                &quot;discount&quot;: 57.5,
-                &quot;category_id&quot;: 10,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 70,
-                &quot;prodcut_name&quot;: &quot;dolorem&quot;,
-                &quot;cost&quot;: 99158,
-                &quot;description&quot;: &quot;Molestias temporibus quia quidem. Dicta et corrupti ut minima ut voluptas.&quot;,
-                &quot;discount&quot;: 28.55,
-                &quot;category_id&quot;: 10,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 71,
-                &quot;prodcut_name&quot;: &quot;nisi&quot;,
-                &quot;cost&quot;: 29422,
-                &quot;description&quot;: &quot;Voluptatum odit reprehenderit tenetur et quisquam. Possimus optio in dolor repellendus. Nisi molestiae earum ut modi atque.&quot;,
-                &quot;discount&quot;: 57.06,
-                &quot;category_id&quot;: 19,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 72,
-                &quot;prodcut_name&quot;: &quot;voluptatem&quot;,
-                &quot;cost&quot;: 46149,
-                &quot;description&quot;: &quot;Nesciunt aliquid molestias qui quisquam. Et aut reiciendis est ex et dolorem aspernatur. Sunt vel eum saepe consequatur sequi non consequuntur.&quot;,
-                &quot;discount&quot;: 55.31,
-                &quot;category_id&quot;: 5,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 73,
-                &quot;prodcut_name&quot;: &quot;distinctio&quot;,
-                &quot;cost&quot;: 47673,
-                &quot;description&quot;: &quot;Eius vero exercitationem inventore facilis nostrum. Nihil aspernatur non culpa. Dolor ut non excepturi voluptatum. Cupiditate temporibus ab asperiores fugit optio.&quot;,
-                &quot;discount&quot;: 97.85,
-                &quot;category_id&quot;: 11,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 74,
-                &quot;prodcut_name&quot;: &quot;incidunt&quot;,
-                &quot;cost&quot;: 76387,
-                &quot;description&quot;: &quot;Nihil et eaque sed quaerat ut. Ratione iure officia ut minus saepe beatae rerum. Rerum consequatur voluptates et cumque perspiciatis rerum. Eaque magnam dignissimos sunt dolore unde ea.&quot;,
-                &quot;discount&quot;: 78.93,
-                &quot;category_id&quot;: 25,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 75,
-                &quot;prodcut_name&quot;: &quot;possimus&quot;,
-                &quot;cost&quot;: 88098,
-                &quot;description&quot;: &quot;Deserunt autem vel inventore est nisi. Minima facere dignissimos sapiente. Sint quaerat iste sint ipsam quaerat.&quot;,
-                &quot;discount&quot;: 5.84,
-                &quot;category_id&quot;: 17,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 76,
-                &quot;prodcut_name&quot;: &quot;eum&quot;,
-                &quot;cost&quot;: 48622,
-                &quot;description&quot;: &quot;Quia quam omnis necessitatibus sed veritatis. Quod aliquid deserunt voluptatem dicta et fugit ut. Et ut aperiam est similique voluptatibus est voluptas.&quot;,
-                &quot;discount&quot;: 12.13,
+                &quot;product_id&quot;: 36,
+                &quot;prodcut_name&quot;: &quot;facere&quot;,
+                &quot;cost&quot;: 8654,
+                &quot;description&quot;: &quot;Veniam impedit omnis dolore at et eum. Officia aliquid consectetur esse aut nemo quasi eveniet. Qui dignissimos eius voluptas enim.&quot;,
+                &quot;discount&quot;: 69,
                 &quot;category_id&quot;: 4,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 77,
-                &quot;prodcut_name&quot;: &quot;illum&quot;,
-                &quot;cost&quot;: 90380,
-                &quot;description&quot;: &quot;Dolor quas nostrum ipsum eveniet. Consequatur dolor enim sed corrupti est. Dolores sunt vel qui quia officiis. Deleniti reiciendis quo possimus accusamus.&quot;,
-                &quot;discount&quot;: 78.33,
-                &quot;category_id&quot;: 10,
+                &quot;product_id&quot;: 37,
+                &quot;prodcut_name&quot;: &quot;consequuntur&quot;,
+                &quot;cost&quot;: 76182,
+                &quot;description&quot;: &quot;Sunt numquam quidem est officia illum. Consequatur minus quos esse explicabo. Voluptatem aut voluptatem laborum quo corporis doloribus.&quot;,
+                &quot;discount&quot;: 68,
+                &quot;category_id&quot;: 5,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 78,
-                &quot;prodcut_name&quot;: &quot;qui&quot;,
-                &quot;cost&quot;: 38437,
-                &quot;description&quot;: &quot;Et occaecati eum quos saepe fuga quos. Enim eligendi distinctio sequi architecto temporibus dolore error.&quot;,
-                &quot;discount&quot;: 75.09,
-                &quot;category_id&quot;: 13,
+                &quot;product_id&quot;: 38,
+                &quot;prodcut_name&quot;: &quot;aut&quot;,
+                &quot;cost&quot;: 1039,
+                &quot;description&quot;: &quot;At et aut ipsa vitae harum esse. Iure laborum voluptas saepe quaerat. Consequuntur alias voluptatum ducimus accusamus et nam placeat.&quot;,
+                &quot;discount&quot;: 44,
+                &quot;category_id&quot;: 8,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 79,
-                &quot;prodcut_name&quot;: &quot;facilis&quot;,
-                &quot;cost&quot;: 55844,
-                &quot;description&quot;: &quot;Similique ipsa qui et quia. Aut officia voluptates reprehenderit repellat eum quia illo.&quot;,
-                &quot;discount&quot;: 92.04,
-                &quot;category_id&quot;: 2,
+                &quot;product_id&quot;: 39,
+                &quot;prodcut_name&quot;: &quot;non&quot;,
+                &quot;cost&quot;: 86004,
+                &quot;description&quot;: &quot;Optio quis necessitatibus occaecati velit. Odio voluptatum nihil perspiciatis enim voluptas incidunt eligendi explicabo. Qui eum ut quidem voluptatem impedit veniam sequi quia.&quot;,
+                &quot;discount&quot;: 60,
+                &quot;category_id&quot;: 12,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 81,
-                &quot;prodcut_name&quot;: &quot;voluptas&quot;,
-                &quot;cost&quot;: 4260,
-                &quot;description&quot;: &quot;Dolorem eum error voluptatem et. Voluptatum delectus nobis totam et. Voluptas laboriosam veniam explicabo sint quia. Et unde dolorum beatae aspernatur tempora dolore.&quot;,
-                &quot;discount&quot;: 86.4,
-                &quot;category_id&quot;: 17,
+                &quot;product_id&quot;: 40,
+                &quot;prodcut_name&quot;: &quot;ad&quot;,
+                &quot;cost&quot;: 86095,
+                &quot;description&quot;: &quot;Aut neque sint est dolor fugit. Dicta nemo veritatis modi vitae ex natus. Omnis dolor ipsa cumque ipsam assumenda quod. Sed atque quaerat ipsam nihil enim voluptatem.&quot;,
+                &quot;discount&quot;: 87,
+                &quot;category_id&quot;: 8,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 82,
-                &quot;prodcut_name&quot;: &quot;suscipit&quot;,
-                &quot;cost&quot;: 77030,
-                &quot;description&quot;: &quot;Inventore et rerum vero qui sint non animi. Temporibus impedit aliquid aut veritatis. Qui ea dolores et magnam libero eum. Qui est eaque possimus qui dolor.&quot;,
-                &quot;discount&quot;: 74.48,
+                &quot;product_id&quot;: 41,
+                &quot;prodcut_name&quot;: &quot;mollitia&quot;,
+                &quot;cost&quot;: 61499,
+                &quot;description&quot;: &quot;Cumque pariatur consequatur sed. Sit voluptas officiis et eius rerum vel. Officia voluptatibus qui ipsam et dolore fugiat reiciendis nisi.&quot;,
+                &quot;discount&quot;: 94,
                 &quot;category_id&quot;: 20,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 83,
-                &quot;prodcut_name&quot;: &quot;et&quot;,
-                &quot;cost&quot;: 22025,
-                &quot;description&quot;: &quot;Debitis placeat nihil non. Ipsa atque consequatur sit. Velit numquam corrupti sed magnam dolore aperiam. Ducimus aliquid expedita aut et.&quot;,
-                &quot;discount&quot;: 28.48,
-                &quot;category_id&quot;: 16,
+                &quot;product_id&quot;: 42,
+                &quot;prodcut_name&quot;: &quot;qui&quot;,
+                &quot;cost&quot;: 45690,
+                &quot;description&quot;: &quot;Quam natus minima provident. Enim pariatur fugiat illo quasi omnis. Aut eum similique sint quas deleniti perferendis sunt architecto.&quot;,
+                &quot;discount&quot;: 87,
+                &quot;category_id&quot;: 15,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 84,
-                &quot;prodcut_name&quot;: &quot;perspiciatis&quot;,
-                &quot;cost&quot;: 56483,
-                &quot;description&quot;: &quot;Ipsa saepe eligendi nemo quis. Optio reiciendis quos pariatur voluptatem. Omnis dolorum vitae quos nostrum. Qui omnis blanditiis tempore temporibus voluptates.&quot;,
-                &quot;discount&quot;: 82.4,
-                &quot;category_id&quot;: 4,
+                &quot;product_id&quot;: 43,
+                &quot;prodcut_name&quot;: &quot;omnis&quot;,
+                &quot;cost&quot;: 69334,
+                &quot;description&quot;: &quot;Laboriosam dolorem esse atque et neque. Quia vel est nemo est temporibus maxime. Quibusdam non nam esse id cumque sunt a.&quot;,
+                &quot;discount&quot;: 35,
+                &quot;category_id&quot;: 12,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 85,
-                &quot;prodcut_name&quot;: &quot;doloremque&quot;,
-                &quot;cost&quot;: 3892,
-                &quot;description&quot;: &quot;Ea totam qui veniam atque voluptas. Voluptatem quo et voluptate et reiciendis quo. Aspernatur voluptatem maxime dolores enim doloribus veritatis. Nemo inventore doloribus autem et aut et.&quot;,
-                &quot;discount&quot;: 13.16,
-                &quot;category_id&quot;: 10,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 86,
-                &quot;prodcut_name&quot;: &quot;laborum&quot;,
-                &quot;cost&quot;: 37856,
-                &quot;description&quot;: &quot;Distinctio ratione omnis ipsa vero. Id rerum exercitationem quidem quod. Suscipit esse maxime magni totam tempore sit minus voluptatem. Ea qui hic qui.&quot;,
-                &quot;discount&quot;: 13.3,
+                &quot;product_id&quot;: 44,
+                &quot;prodcut_name&quot;: &quot;veniam&quot;,
+                &quot;cost&quot;: 60541,
+                &quot;description&quot;: &quot;Unde aut magni repellat magnam aut. Cupiditate distinctio iste unde dignissimos quis. Neque quasi et nobis qui excepturi id ut. Qui et sequi quod ut accusamus asperiores dolores.&quot;,
+                &quot;discount&quot;: 25,
                 &quot;category_id&quot;: 7,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 87,
-                &quot;prodcut_name&quot;: &quot;sint&quot;,
-                &quot;cost&quot;: 90102,
-                &quot;description&quot;: &quot;Unde dolor quidem eos veniam a. Impedit fugiat hic et cupiditate qui. Ut aut fuga esse atque iure consequatur.&quot;,
-                &quot;discount&quot;: 82.6,
-                &quot;category_id&quot;: 4,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 88,
-                &quot;prodcut_name&quot;: &quot;quo&quot;,
-                &quot;cost&quot;: 33522,
-                &quot;description&quot;: &quot;Dolor consectetur minima esse rerum voluptatem quisquam vel. Aspernatur aliquid labore dolor pariatur explicabo consequatur quia ratione. Magni omnis consectetur occaecati omnis nihil placeat sint.&quot;,
-                &quot;discount&quot;: 54.01,
+                &quot;product_id&quot;: 45,
+                &quot;prodcut_name&quot;: &quot;voluptatem&quot;,
+                &quot;cost&quot;: 5677,
+                &quot;description&quot;: &quot;Praesentium a pariatur nemo omnis natus doloribus et nemo. Necessitatibus voluptas rerum sint possimus. Tempore ducimus delectus sed tempore. Et odio ut illum ipsum sapiente.&quot;,
+                &quot;discount&quot;: 63,
                 &quot;category_id&quot;: 18,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 89,
-                &quot;prodcut_name&quot;: &quot;minima&quot;,
-                &quot;cost&quot;: 47025,
-                &quot;description&quot;: &quot;Sequi quod est nisi soluta nihil ea nam quos. Ex et beatae sunt cupiditate.&quot;,
-                &quot;discount&quot;: 41.05,
-                &quot;category_id&quot;: 6,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 90,
-                &quot;prodcut_name&quot;: &quot;exercitationem&quot;,
-                &quot;cost&quot;: 81819,
-                &quot;description&quot;: &quot;Ex sed voluptas rerum et autem sunt iure. Est natus ut adipisci ullam. Et minima porro et quaerat aut repudiandae vel.&quot;,
-                &quot;discount&quot;: 84.31,
-                &quot;category_id&quot;: 12,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 91,
-                &quot;prodcut_name&quot;: &quot;mollitia&quot;,
-                &quot;cost&quot;: 56280,
-                &quot;description&quot;: &quot;Ad reprehenderit cupiditate quae aperiam dolorem accusantium ratione a. Tempora tempora incidunt vel nihil quia est magnam.&quot;,
-                &quot;discount&quot;: 48.37,
-                &quot;category_id&quot;: 11,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 92,
-                &quot;prodcut_name&quot;: &quot;officiis&quot;,
-                &quot;cost&quot;: 36881,
-                &quot;description&quot;: &quot;Ratione ab qui harum eos. Totam et eveniet eaque et eaque saepe possimus cupiditate. Dolores molestiae sunt sed incidunt.&quot;,
-                &quot;discount&quot;: 86.85,
+                &quot;product_id&quot;: 46,
+                &quot;prodcut_name&quot;: &quot;necessitatibus&quot;,
+                &quot;cost&quot;: 51215,
+                &quot;description&quot;: &quot;Quia sint laboriosam soluta eum. Et qui velit illo aut. Esse eum vel dolores repellat sed est recusandae. Provident tenetur porro illum corrupti dicta et maxime. Aut debitis aut repudiandae.&quot;,
+                &quot;discount&quot;: 15,
                 &quot;category_id&quot;: 2,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 93,
-                &quot;prodcut_name&quot;: &quot;facilis&quot;,
-                &quot;cost&quot;: 12439,
-                &quot;description&quot;: &quot;Occaecati ipsum beatae omnis dolorum asperiores modi. Inventore provident et aperiam aut fuga et ut aut. Officiis mollitia voluptatem sequi.&quot;,
-                &quot;discount&quot;: 41.89,
-                &quot;category_id&quot;: 12,
+                &quot;product_id&quot;: 47,
+                &quot;prodcut_name&quot;: &quot;ex&quot;,
+                &quot;cost&quot;: 9749,
+                &quot;description&quot;: &quot;Atque ex velit nam esse veniam laborum aliquid. Distinctio consectetur veritatis eaque quia laudantium eveniet rerum veniam. Enim qui odit sed minima iure ab et.&quot;,
+                &quot;discount&quot;: 77,
+                &quot;category_id&quot;: 4,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 94,
-                &quot;prodcut_name&quot;: &quot;asperiores&quot;,
-                &quot;cost&quot;: 64656,
-                &quot;description&quot;: &quot;Et dolores quia ut. Minus et ad a soluta qui vel quidem.&quot;,
-                &quot;discount&quot;: 38.66,
-                &quot;category_id&quot;: 8,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 95,
-                &quot;prodcut_name&quot;: &quot;delectus&quot;,
-                &quot;cost&quot;: 99349,
-                &quot;description&quot;: &quot;Iusto amet quibusdam ab quae quod voluptatum. Consequatur voluptatem voluptatibus voluptas vero voluptatem et deserunt et. Totam sunt ea non maiores ea.&quot;,
-                &quot;discount&quot;: 54.88,
-                &quot;category_id&quot;: 12,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 96,
-                &quot;prodcut_name&quot;: &quot;ea&quot;,
-                &quot;cost&quot;: 1557,
-                &quot;description&quot;: &quot;Quis nisi dignissimos atque rem. Voluptatem totam expedita saepe sed sint. Voluptatem architecto quo iure voluptates ratione. Vel quo quo velit accusantium corporis.&quot;,
-                &quot;discount&quot;: 35.73,
-                &quot;category_id&quot;: 6,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 97,
-                &quot;prodcut_name&quot;: &quot;debitis&quot;,
-                &quot;cost&quot;: 39093,
-                &quot;description&quot;: &quot;Nisi non ea autem labore cupiditate ut. Tempore impedit nihil necessitatibus nihil sed.&quot;,
-                &quot;discount&quot;: 65.53,
-                &quot;category_id&quot;: 5,
-                &quot;product_image&quot;: null
-            },
-            {
-                &quot;product_id&quot;: 98,
+                &quot;product_id&quot;: 48,
                 &quot;prodcut_name&quot;: &quot;minima&quot;,
-                &quot;cost&quot;: 39917,
-                &quot;description&quot;: &quot;Fugiat et nulla similique distinctio iste sed. Maxime placeat at repellat ipsum minima quod. Odit ut inventore quia officia cumque architecto non.&quot;,
-                &quot;discount&quot;: 54.04,
-                &quot;category_id&quot;: 22,
+                &quot;cost&quot;: 85496,
+                &quot;description&quot;: &quot;Nemo consectetur molestiae rem eligendi. Rem ipsam quos ea suscipit in architecto aut.&quot;,
+                &quot;discount&quot;: 44,
+                &quot;category_id&quot;: 16,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 99,
-                &quot;prodcut_name&quot;: &quot;et&quot;,
-                &quot;cost&quot;: 11633,
-                &quot;description&quot;: &quot;Sed laboriosam eaque nihil vel dicta. Eos aut officia rerum consectetur. Sint et est eveniet et qui beatae. Aut sed et laudantium voluptas et ut.&quot;,
-                &quot;discount&quot;: 56.77,
-                &quot;category_id&quot;: 2,
+                &quot;product_id&quot;: 49,
+                &quot;prodcut_name&quot;: &quot;expedita&quot;,
+                &quot;cost&quot;: 49163,
+                &quot;description&quot;: &quot;Ab tenetur pariatur aut quia atque illo laudantium. Tempora sequi commodi est eum id dolores. Eaque expedita atque autem vero voluptatem.&quot;,
+                &quot;discount&quot;: 68,
+                &quot;category_id&quot;: 9,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 100,
-                &quot;prodcut_name&quot;: &quot;autem&quot;,
-                &quot;cost&quot;: 21066,
-                &quot;description&quot;: &quot;Repudiandae unde itaque in ullam. Porro sint alias vitae dolorem qui. Est non magnam dolorem. Architecto vero quam ea repudiandae.&quot;,
-                &quot;discount&quot;: 15.82,
-                &quot;category_id&quot;: 8,
+                &quot;product_id&quot;: 50,
+                &quot;prodcut_name&quot;: &quot;amet&quot;,
+                &quot;cost&quot;: 89090,
+                &quot;description&quot;: &quot;Et enim itaque perferendis deleniti dolor. Nihil cum totam omnis quisquam aut. Corrupti nostrum molestias saepe modi porro vel. Vero ea aut molestias consequatur qui soluta atque.&quot;,
+                &quot;discount&quot;: 11,
+                &quot;category_id&quot;: 9,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 102,
-                &quot;prodcut_name&quot;: &quot;kabbar hon hony kabbar&quot;,
-                &quot;cost&quot;: 2230,
-                &quot;description&quot;: &quot;This is kabbar&quot;,
+                &quot;product_id&quot;: 51,
+                &quot;prodcut_name&quot;: &quot;test product&quot;,
+                &quot;cost&quot;: 145,
+                &quot;description&quot;: &quot;This is a f new product&quot;,
                 &quot;discount&quot;: null,
-                &quot;category_id&quot;: 6,
+                &quot;category_id&quot;: 14,
                 &quot;product_image&quot;: null
             },
             {
-                &quot;product_id&quot;: 103,
-                &quot;prodcut_name&quot;: &quot;kabbar hon hony kabbar&quot;,
-                &quot;cost&quot;: 2230,
-                &quot;description&quot;: &quot;This is kabbar&quot;,
-                &quot;discount&quot;: 26.6,
+                &quot;product_id&quot;: 52,
+                &quot;prodcut_name&quot;: &quot;new name&quot;,
+                &quot;cost&quot;: 5151,
+                &quot;description&quot;: &quot;Something&quot;,
+                &quot;discount&quot;: null,
                 &quot;category_id&quot;: 10,
-                &quot;product_image&quot;: &quot;http://localhost/storage/images/products/1738314257_kabbar_hon_hony_kabbar.png&quot;
+                &quot;product_image&quot;: &quot;http://127.0.0.1:8000/storage/images/products/1744971720_new_name.jpg&quot;
             }
         ]
     }
@@ -2060,27 +3157,27 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="products-management-GETapi-products--product_id-">Get a specific product info .</h2>
+                    <h2 id="products-management-GETapi-products--id-">Get a specific product info .</h2>
 
 <p>
 </p>
 
 
 
-<span id="example-requests-GETapi-products--product_id-">
+<span id="example-requests-GETapi-products--id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://maria-api-production.up.railway.app/api/products/2" \
+    --get "https://maria-api-production.up.railway.app/api/products/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/products/2"
+    "https://maria-api-production.up.railway.app/api/products/1"
 );
 
 const headers = {
@@ -2095,7 +3192,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-products--product_id-">
+<span id="example-responses-GETapi-products--id-">
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
@@ -2112,54 +3209,54 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;product_id&quot;: 2,
-        &quot;prodcut_name&quot;: &quot;cumque&quot;,
-        &quot;cost&quot;: 87379,
-        &quot;description&quot;: &quot;Tempore illo possimus sunt sed placeat sed. Commodi velit amet labore ratione eos modi sit ea. Quo dignissimos sit provident tempore voluptatem et ut.&quot;,
-        &quot;discount&quot;: 35.07,
-        &quot;category_id&quot;: 8,
+        &quot;product_id&quot;: 1,
+        &quot;prodcut_name&quot;: &quot;ratione&quot;,
+        &quot;cost&quot;: 37180,
+        &quot;description&quot;: &quot;Sequi voluptatem est reprehenderit labore veritatis hic. Cum officiis at adipisci dolores voluptatem corporis et. Cum ea molestias magnam in sequi est. Architecto minima rem est.&quot;,
+        &quot;discount&quot;: 65,
+        &quot;category_id&quot;: 14,
         &quot;product_image&quot;: null
     }
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-products--product_id-" hidden>
+<span id="execution-results-GETapi-products--id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-products--product_id-"></span>:
+                id="execution-response-status-GETapi-products--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-products--product_id-"
+    <pre class="json"><code id="execution-response-content-GETapi-products--id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-products--product_id-" hidden>
+<span id="execution-error-GETapi-products--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-products--product_id-">
+    <pre><code id="execution-error-message-GETapi-products--id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-products--product_id-" data-method="GET"
-      data-path="api/products/{product_id}"
+<form id="form-GETapi-products--id-" data-method="GET"
+      data-path="api/products/{id}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-products--product_id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-products--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-products--product_id-"
-                    onclick="tryItOut('GETapi-products--product_id-');">Try it out ⚡
+                    id="btn-tryout-GETapi-products--id-"
+                    onclick="tryItOut('GETapi-products--id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-products--product_id-"
-                    onclick="cancelTryOut('GETapi-products--product_id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-products--id-"
+                    onclick="cancelTryOut('GETapi-products--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-products--product_id-"
+                    id="btn-executetryout-GETapi-products--id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
@@ -2167,7 +3264,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/products/{product_id}</code></b>
+            <b><code>api/products/{id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -2175,7 +3272,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-products--product_id-"
+                              name="Content-Type"                data-endpoint="GETapi-products--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -2186,7 +3283,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-products--product_id-"
+                              name="Accept"                data-endpoint="GETapi-products--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -2194,15 +3291,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>product_id</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="product_id"                data-endpoint="GETapi-products--product_id-"
-               value="2"
+               step="any"               name="id"                data-endpoint="GETapi-products--id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>2</code></p>
+<p>The ID of the product. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -2224,10 +3321,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"product_name\": \"quia\",
-    \"cost\": 2,
-    \"description\": \"accusamus\",
-    \"category_id\": \"a\"
+    \"product_name\": \"quo\",
+    \"cost\": 10,
+    \"description\": \"optio\",
+    \"category_id\": \"suscipit\"
 }"
 </code></pre></div>
 
@@ -2243,10 +3340,10 @@ const headers = {
 };
 
 let body = {
-    "product_name": "quia",
-    "cost": 2,
-    "description": "accusamus",
-    "category_id": "a"
+    "product_name": "quo",
+    "cost": 10,
+    "description": "optio",
+    "category_id": "suscipit"
 };
 
 fetch(url, {
@@ -2335,10 +3432,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="product_name"                data-endpoint="POSTapi-products"
-               value="quia"
+               value="quo"
                data-component="body">
     <br>
-<p>Example: <code>quia</code></p>
+<p>Example: <code>quo</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>cost</code></b>&nbsp;&nbsp;
@@ -2346,10 +3443,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="cost"                data-endpoint="POSTapi-products"
-               value="2"
+               value="10"
                data-component="body">
     <br>
-<p>Example: <code>2</code></p>
+<p>Example: <code>10</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -2357,10 +3454,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-products"
-               value="accusamus"
+               value="optio"
                data-component="body">
     <br>
-<p>Example: <code>accusamus</code></p>
+<p>Example: <code>optio</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>discount</code></b>&nbsp;&nbsp;
@@ -2379,10 +3476,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category_id"                data-endpoint="POSTapi-products"
-               value="a"
+               value="suscipit"
                data-component="body">
     <br>
-<p>Example: <code>a</code></p>
+<p>Example: <code>suscipit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>product_image</code></b>&nbsp;&nbsp;
@@ -2397,7 +3494,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="products-management-POSTapi-products--product_id-">Update specific product (Admin)</h2>
+                    <h2 id="products-management-PUTapi-products--product_id-">Update specific product (Admin)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2405,24 +3502,25 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-POSTapi-products--product_id-">
+<span id="example-requests-PUTapi-products--product_id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "https://maria-api-production.up.railway.app/api/products/2" \
+    <pre><code class="language-bash">curl --request PUT \
+    "https://maria-api-production.up.railway.app/api/products/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"new_cost\": 8
+    \"new_cost\": 17,
+    \"no_image\": \"true\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/products/2"
+    "https://maria-api-production.up.railway.app/api/products/1"
 );
 
 const headers = {
@@ -2431,63 +3529,64 @@ const headers = {
 };
 
 let body = {
-    "new_cost": 8
+    "new_cost": 17,
+    "no_image": "true"
 };
 
 fetch(url, {
-    method: "POST",
+    method: "PUT",
     headers,
     body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-POSTapi-products--product_id-">
+<span id="example-responses-PUTapi-products--product_id-">
 </span>
-<span id="execution-results-POSTapi-products--product_id-" hidden>
+<span id="execution-results-PUTapi-products--product_id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-products--product_id-"></span>:
+                id="execution-response-status-PUTapi-products--product_id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-products--product_id-"
+    <pre class="json"><code id="execution-response-content-PUTapi-products--product_id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-products--product_id-" hidden>
+<span id="execution-error-PUTapi-products--product_id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-products--product_id-">
+    <pre><code id="execution-error-message-PUTapi-products--product_id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-products--product_id-" data-method="POST"
+<form id="form-PUTapi-products--product_id-" data-method="PUT"
       data-path="api/products/{product_id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-products--product_id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-products--product_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-products--product_id-"
-                    onclick="tryItOut('POSTapi-products--product_id-');">Try it out ⚡
+                    id="btn-tryout-PUTapi-products--product_id-"
+                    onclick="tryItOut('PUTapi-products--product_id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-products--product_id-"
-                    onclick="cancelTryOut('POSTapi-products--product_id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-PUTapi-products--product_id-"
+                    onclick="cancelTryOut('PUTapi-products--product_id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-products--product_id-"
+                    id="btn-executetryout-PUTapi-products--product_id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
             </button>
             </h3>
             <p>
-            <small class="badge badge-black">POST</small>
+            <small class="badge badge-darkblue">PUT</small>
             <b><code>api/products/{product_id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
@@ -2496,7 +3595,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-products--product_id-"
+                              name="Content-Type"                data-endpoint="PUTapi-products--product_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -2507,7 +3606,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-products--product_id-"
+                              name="Accept"                data-endpoint="PUTapi-products--product_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -2519,11 +3618,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
  &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="product_id"                data-endpoint="POSTapi-products--product_id-"
-               value="2"
+               step="any"               name="product_id"                data-endpoint="PUTapi-products--product_id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>2</code></p>
+<p>The ID of the product. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2531,7 +3630,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="new_product_name"                data-endpoint="POSTapi-products--product_id-"
+                              name="new_product_name"                data-endpoint="PUTapi-products--product_id-"
                value=""
                data-component="body">
     <br>
@@ -2542,18 +3641,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>integer</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
-               step="any"               name="new_cost"                data-endpoint="POSTapi-products--product_id-"
-               value="8"
+               step="any"               name="new_cost"                data-endpoint="PUTapi-products--product_id-"
+               value="17"
                data-component="body">
     <br>
-<p>Example: <code>8</code></p>
+<p>Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>new_description</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="new_description"                data-endpoint="POSTapi-products--product_id-"
+                              name="new_description"                data-endpoint="PUTapi-products--product_id-"
                value=""
                data-component="body">
     <br>
@@ -2564,7 +3663,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="new_discount"                data-endpoint="POSTapi-products--product_id-"
+                              name="new_discount"                data-endpoint="PUTapi-products--product_id-"
                value=""
                data-component="body">
     <br>
@@ -2575,7 +3674,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="new_category_id"                data-endpoint="POSTapi-products--product_id-"
+                              name="new_category_id"                data-endpoint="PUTapi-products--product_id-"
                value=""
                data-component="body">
     <br>
@@ -2586,11 +3685,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="new_product_image"                data-endpoint="POSTapi-products--product_id-"
+                              name="new_product_image"                data-endpoint="PUTapi-products--product_id-"
                value=""
                data-component="body">
     <br>
 
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>no_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="no_image"                data-endpoint="PUTapi-products--product_id-"
+               value="true"
+               data-component="body">
+    <br>
+<p>Example: <code>true</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>true</code></li></ul>
         </div>
         </form>
 
@@ -2608,14 +3720,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://maria-api-production.up.railway.app/api/products/2" \
+    "https://maria-api-production.up.railway.app/api/products/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/products/2"
+    "https://maria-api-production.up.railway.app/api/products/1"
 );
 
 const headers = {
@@ -2708,10 +3820,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="product_id"                data-endpoint="DELETEapi-products--product_id-"
-               value="2"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>2</code></p>
+<p>The ID of the product. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -2719,567 +3831,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     <p>APIs for managing users</p>
 
-                                <h2 id="user-management-POSTapi-users-login">User login</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-users-login">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "https://maria-api-production.up.railway.app/api/users/login" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"email\": \"wdibbert@example.org\",
-    \"password\": \"dolor\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/users/login"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "email": "wdibbert@example.org",
-    "password": "dolor"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-users-login">
-</span>
-<span id="execution-results-POSTapi-users-login" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-users-login"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-users-login"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-users-login" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-users-login">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-users-login" data-method="POST"
-      data-path="api/users/login"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-login', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-users-login"
-                    onclick="tryItOut('POSTapi-users-login');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-users-login"
-                    onclick="cancelTryOut('POSTapi-users-login');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-users-login"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/users/login</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-users-login"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-users-login"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="email"                data-endpoint="POSTapi-users-login"
-               value="wdibbert@example.org"
-               data-component="body">
-    <br>
-<p>Must be a valid email address. The <code>email</code> of an existing record in the users table. Example: <code>wdibbert@example.org</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="password"                data-endpoint="POSTapi-users-login"
-               value="dolor"
-               data-component="body">
-    <br>
-<p>Example: <code>dolor</code></p>
-        </div>
-        </form>
-
-                    <h2 id="user-management-POSTapi-users-signup">User sign up (Create new account)</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-users-signup">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "https://maria-api-production.up.railway.app/api/users/signup" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"name\": \"facere\",
-    \"email\": \"lauren33@example.org\",
-    \"password\": \"officia\",
-    \"role\": \"admin\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/users/signup"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "name": "facere",
-    "email": "lauren33@example.org",
-    "password": "officia",
-    "role": "admin"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-users-signup">
-</span>
-<span id="execution-results-POSTapi-users-signup" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-users-signup"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-users-signup"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-users-signup" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-users-signup">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-users-signup" data-method="POST"
-      data-path="api/users/signup"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-signup', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-users-signup"
-                    onclick="tryItOut('POSTapi-users-signup');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-users-signup"
-                    onclick="cancelTryOut('POSTapi-users-signup');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-users-signup"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/users/signup</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-users-signup"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-users-signup"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="name"                data-endpoint="POSTapi-users-signup"
-               value="facere"
-               data-component="body">
-    <br>
-<p>Example: <code>facere</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="email"                data-endpoint="POSTapi-users-signup"
-               value="lauren33@example.org"
-               data-component="body">
-    <br>
-<p>Must be a valid email address. Example: <code>lauren33@example.org</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="password"                data-endpoint="POSTapi-users-signup"
-               value="officia"
-               data-component="body">
-    <br>
-<p>Example: <code>officia</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="role"                data-endpoint="POSTapi-users-signup"
-               value="admin"
-               data-component="body">
-    <br>
-<p>Example: <code>admin</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>user</code></li> <li><code>admin</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>profile_image</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-                              name="profile_image"                data-endpoint="POSTapi-users-signup"
-               value=""
-               data-component="body">
-    <br>
-
-        </div>
-        </form>
-
-                    <h2 id="user-management-POSTapi-users-request-otp-code">Request OTP code to reset password</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-users-request-otp-code">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "https://maria-api-production.up.railway.app/api/users/request-otp-code" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"email\": \"hillard31@example.org\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/users/request-otp-code"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "email": "hillard31@example.org"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-users-request-otp-code">
-</span>
-<span id="execution-results-POSTapi-users-request-otp-code" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-users-request-otp-code"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-users-request-otp-code"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-users-request-otp-code" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-users-request-otp-code">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-users-request-otp-code" data-method="POST"
-      data-path="api/users/request-otp-code"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-request-otp-code', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-users-request-otp-code"
-                    onclick="tryItOut('POSTapi-users-request-otp-code');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-users-request-otp-code"
-                    onclick="cancelTryOut('POSTapi-users-request-otp-code');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-users-request-otp-code"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/users/request-otp-code</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-users-request-otp-code"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-users-request-otp-code"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="email"                data-endpoint="POSTapi-users-request-otp-code"
-               value="hillard31@example.org"
-               data-component="body">
-    <br>
-<p>Must be a valid email address. The <code>email</code> of an existing record in the users table. Example: <code>hillard31@example.org</code></p>
-        </div>
-        </form>
-
-                    <h2 id="user-management-POSTapi-users-reset-password">Reset password</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-users-reset-password">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "https://maria-api-production.up.railway.app/api/users/reset-password" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/users/reset-password"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-users-reset-password">
-</span>
-<span id="execution-results-POSTapi-users-reset-password" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-users-reset-password"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-users-reset-password"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-users-reset-password" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-users-reset-password">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-users-reset-password" data-method="POST"
-      data-path="api/users/reset-password"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-reset-password', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-users-reset-password"
-                    onclick="tryItOut('POSTapi-users-reset-password');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-users-reset-password"
-                    onclick="cancelTryOut('POSTapi-users-reset-password');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-users-reset-password"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/users/reset-password</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-users-reset-password"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-users-reset-password"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="user-management-GETapi-users">Get all users (Just admin can do this request)</h2>
+                                <h2 id="user-management-GETapi-users">Get all users (Just admin can do this request)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -3404,6 +3956,626 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="user-management-POSTapi-users-auth-login">User login</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-users-auth-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://maria-api-production.up.railway.app/api/users/auth/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"pinkie94@example.net\",
+    \"password\": \"quo\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/auth/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "pinkie94@example.net",
+    "password": "quo"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-users-auth-login">
+</span>
+<span id="execution-results-POSTapi-users-auth-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users-auth-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users-auth-login"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-users-auth-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users-auth-login">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-users-auth-login" data-method="POST"
+      data-path="api/users/auth/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-auth-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users-auth-login"
+                    onclick="tryItOut('POSTapi-users-auth-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users-auth-login"
+                    onclick="cancelTryOut('POSTapi-users-auth-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users-auth-login"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users/auth/login</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-users-auth-login"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-users-auth-login"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-users-auth-login"
+               value="pinkie94@example.net"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. The <code>email</code> of an existing record in the users table. Example: <code>pinkie94@example.net</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTapi-users-auth-login"
+               value="quo"
+               data-component="body">
+    <br>
+<p>Example: <code>quo</code></p>
+        </div>
+        </form>
+
+                    <h2 id="user-management-POSTapi-users-auth-signup">User sign up (Create new account)</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-users-auth-signup">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://maria-api-production.up.railway.app/api/users/auth/signup" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"fuga\",
+    \"email\": \"mgreen@example.org\",
+    \"password\": \"sunt\",
+    \"role\": \"user\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/auth/signup"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "fuga",
+    "email": "mgreen@example.org",
+    "password": "sunt",
+    "role": "user"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-users-auth-signup">
+</span>
+<span id="execution-results-POSTapi-users-auth-signup" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users-auth-signup"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users-auth-signup"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-users-auth-signup" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users-auth-signup">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-users-auth-signup" data-method="POST"
+      data-path="api/users/auth/signup"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-auth-signup', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users-auth-signup"
+                    onclick="tryItOut('POSTapi-users-auth-signup');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users-auth-signup"
+                    onclick="cancelTryOut('POSTapi-users-auth-signup');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users-auth-signup"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users/auth/signup</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-users-auth-signup"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-users-auth-signup"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-users-auth-signup"
+               value="fuga"
+               data-component="body">
+    <br>
+<p>Example: <code>fuga</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-users-auth-signup"
+               value="mgreen@example.org"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Example: <code>mgreen@example.org</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="password"                data-endpoint="POSTapi-users-auth-signup"
+               value="sunt"
+               data-component="body">
+    <br>
+<p>Example: <code>sunt</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="role"                data-endpoint="POSTapi-users-auth-signup"
+               value="user"
+               data-component="body">
+    <br>
+<p>Example: <code>user</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>user</code></li> <li><code>admin</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>profile_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="profile_image"                data-endpoint="POSTapi-users-auth-signup"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+        </form>
+
+                    <h2 id="user-management-POSTapi-users-auth-request-otp-code">Request OTP code to reset password</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-users-auth-request-otp-code">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://maria-api-production.up.railway.app/api/users/auth/request-otp-code" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"estel.little@example.com\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/auth/request-otp-code"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "estel.little@example.com"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-users-auth-request-otp-code">
+</span>
+<span id="execution-results-POSTapi-users-auth-request-otp-code" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users-auth-request-otp-code"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users-auth-request-otp-code"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-users-auth-request-otp-code" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users-auth-request-otp-code">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-users-auth-request-otp-code" data-method="POST"
+      data-path="api/users/auth/request-otp-code"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-auth-request-otp-code', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users-auth-request-otp-code"
+                    onclick="tryItOut('POSTapi-users-auth-request-otp-code');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users-auth-request-otp-code"
+                    onclick="cancelTryOut('POSTapi-users-auth-request-otp-code');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users-auth-request-otp-code"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users/auth/request-otp-code</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-users-auth-request-otp-code"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-users-auth-request-otp-code"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-users-auth-request-otp-code"
+               value="estel.little@example.com"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. The <code>email</code> of an existing record in the users table. Example: <code>estel.little@example.com</code></p>
+        </div>
+        </form>
+
+                    <h2 id="user-management-POSTapi-users-auth-reset-password">Reset password</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-users-auth-reset-password">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://maria-api-production.up.railway.app/api/users/auth/reset-password" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"jose32@example.org\",
+    \"code\": \"accusamus\",
+    \"new_password\": \"velit\",
+    \"new_password_confirmation\": \"nihil\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://maria-api-production.up.railway.app/api/users/auth/reset-password"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "jose32@example.org",
+    "code": "accusamus",
+    "new_password": "velit",
+    "new_password_confirmation": "nihil"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-users-auth-reset-password">
+</span>
+<span id="execution-results-POSTapi-users-auth-reset-password" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users-auth-reset-password"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users-auth-reset-password"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-users-auth-reset-password" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users-auth-reset-password">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-users-auth-reset-password" data-method="POST"
+      data-path="api/users/auth/reset-password"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-auth-reset-password', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users-auth-reset-password"
+                    onclick="tryItOut('POSTapi-users-auth-reset-password');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users-auth-reset-password"
+                    onclick="cancelTryOut('POSTapi-users-auth-reset-password');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users-auth-reset-password"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users/auth/reset-password</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-users-auth-reset-password"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-users-auth-reset-password"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="email"                data-endpoint="POSTapi-users-auth-reset-password"
+               value="jose32@example.org"
+               data-component="body">
+    <br>
+<p>Must be a valid email address. Example: <code>jose32@example.org</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>code</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="code"                data-endpoint="POSTapi-users-auth-reset-password"
+               value="accusamus"
+               data-component="body">
+    <br>
+<p>Example: <code>accusamus</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>new_password</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="new_password"                data-endpoint="POSTapi-users-auth-reset-password"
+               value="velit"
+               data-component="body">
+    <br>
+<p>Example: <code>velit</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>new_password_confirmation</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="new_password_confirmation"                data-endpoint="POSTapi-users-auth-reset-password"
+               value="nihil"
+               data-component="body">
+    <br>
+<p>Example: <code>nihil</code></p>
+        </div>
+        </form>
+
                     <h2 id="user-management-GETapi-users--user_id-">Get specifc user info.</h2>
 
 <p>
@@ -3418,14 +4590,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://maria-api-production.up.railway.app/api/users/dignissimos" \
+    --get "https://maria-api-production.up.railway.app/api/users/est" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/users/dignissimos"
+    "https://maria-api-production.up.railway.app/api/users/est"
 );
 
 const headers = {
@@ -3534,14 +4706,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="GETapi-users--user_id-"
-               value="dignissimos"
+               value="est"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>dignissimos</code></p>
+<p>The ID of the user. Example: <code>est</code></p>
             </div>
                     </form>
 
-                    <h2 id="user-management-POSTapi-users--user_id-">Update user info</h2>
+                    <h2 id="user-management-PUTapi-users--user_id-">Update user info</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -3549,21 +4721,24 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-POSTapi-users--user_id-">
+<span id="example-requests-PUTapi-users--user_id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "https://maria-api-production.up.railway.app/api/users/laborum" \
+    <pre><code class="language-bash">curl --request PUT \
+    "https://maria-api-production.up.railway.app/api/users/voluptas" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
+    --data "{
+    \"no_image\": \"true\"
+}"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/users/laborum"
+    "https://maria-api-production.up.railway.app/api/users/voluptas"
 );
 
 const headers = {
@@ -3571,59 +4746,64 @@ const headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "no_image": "true"
+};
+
 fetch(url, {
-    method: "POST",
+    method: "PUT",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-POSTapi-users--user_id-">
+<span id="example-responses-PUTapi-users--user_id-">
 </span>
-<span id="execution-results-POSTapi-users--user_id-" hidden>
+<span id="execution-results-PUTapi-users--user_id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-users--user_id-"></span>:
+                id="execution-response-status-PUTapi-users--user_id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-users--user_id-"
+    <pre class="json"><code id="execution-response-content-PUTapi-users--user_id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-users--user_id-" hidden>
+<span id="execution-error-PUTapi-users--user_id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-users--user_id-">
+    <pre><code id="execution-error-message-PUTapi-users--user_id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-users--user_id-" data-method="POST"
+<form id="form-PUTapi-users--user_id-" data-method="PUT"
       data-path="api/users/{user_id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users--user_id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-users--user_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-users--user_id-"
-                    onclick="tryItOut('POSTapi-users--user_id-');">Try it out ⚡
+                    id="btn-tryout-PUTapi-users--user_id-"
+                    onclick="tryItOut('PUTapi-users--user_id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-users--user_id-"
-                    onclick="cancelTryOut('POSTapi-users--user_id-');" hidden>Cancel 🛑
+                    id="btn-canceltryout-PUTapi-users--user_id-"
+                    onclick="cancelTryOut('PUTapi-users--user_id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-users--user_id-"
+                    id="btn-executetryout-PUTapi-users--user_id-"
                     data-initial-text="Send Request 💥"
                     data-loading-text="⏱ Sending..."
                     hidden>Send Request 💥
             </button>
             </h3>
             <p>
-            <small class="badge badge-black">POST</small>
+            <small class="badge badge-darkblue">PUT</small>
             <b><code>api/users/{user_id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
@@ -3632,7 +4812,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-users--user_id-"
+                              name="Content-Type"                data-endpoint="PUTapi-users--user_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -3643,7 +4823,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-users--user_id-"
+                              name="Accept"                data-endpoint="PUTapi-users--user_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -3655,11 +4835,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="user_id"                data-endpoint="POSTapi-users--user_id-"
-               value="laborum"
+                              name="user_id"                data-endpoint="PUTapi-users--user_id-"
+               value="voluptas"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>laborum</code></p>
+<p>The ID of the user. Example: <code>voluptas</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -3667,22 +4847,35 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="user_new_name"                data-endpoint="POSTapi-users--user_id-"
+                              name="user_new_name"                data-endpoint="PUTapi-users--user_id-"
                value=""
                data-component="body">
     <br>
 
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>profile_image</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>new_profile_image</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
-                              name="profile_image"                data-endpoint="POSTapi-users--user_id-"
+                              name="new_profile_image"                data-endpoint="PUTapi-users--user_id-"
                value=""
                data-component="body">
     <br>
 
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>no_image</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="no_image"                data-endpoint="PUTapi-users--user_id-"
+               value="true"
+               data-component="body">
+    <br>
+<p>Example: <code>true</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>true</code></li></ul>
         </div>
         </form>
 
@@ -3700,14 +4893,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "https://maria-api-production.up.railway.app/api/users/ratione" \
+    "https://maria-api-production.up.railway.app/api/users/et" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://maria-api-production.up.railway.app/api/users/ratione"
+    "https://maria-api-production.up.railway.app/api/users/et"
 );
 
 const headers = {
@@ -3800,10 +4993,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="DELETEapi-users--user_id-"
-               value="ratione"
+               value="et"
                data-component="url">
     <br>
-<p>The ID of the user. Example: <code>ratione</code></p>
+<p>The ID of the user. Example: <code>et</code></p>
             </div>
                     </form>
 
