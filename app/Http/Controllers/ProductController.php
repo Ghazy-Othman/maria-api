@@ -53,7 +53,7 @@ class ProductController extends Controller
         $fixidProductName = str_replace(" ", '_', $validData['product_name']);
 
         $imageName = null;
-        if (array_key_exists('product_image', $validData) && $validData['product_image'] != null) {
+        if (isset($validData['product_image'])) {
             $imageName = time() . '_' . $fixidProductName . '.' . $validData['product_image']->getClientOriginalExtension();
         }
 
@@ -66,7 +66,7 @@ class ProductController extends Controller
             'product_name' => $validData['product_name'],
             'cost' => $validData['cost'],
             'description' => $validData['description'],
-            'discount' => array_key_exists('discount', $validData) ? $validData['discount'] : null,
+            'discount' => isset($validData['discount']) ? $validData['discount'] : null,
             'category_id' => $validData['category_id'],
             'product_image' => $imageName
         ];
@@ -109,47 +109,48 @@ class ProductController extends Controller
 
         $validData = $request->validated();
 
-        $fixidProductPreviousName = str_replace(" ", '_', $product->product_name);
-
-
         //
-        if (array_key_exists('new_product_name', $validData) && $validData['new_product_name'] != null) {
+        if (isset($validData['new_product_name'])) {
             $product->product_name = $validData['new_product_name'];
         }
 
-        if (array_key_exists('new_cost', $validData) && $validData['new_cost'] != null) {
+        if (isset($validData['new_cost'])) {
             $product->cost = $validData['new_cost'];
         }
 
-        if (array_key_exists('new_description', $validData) && $validData['new_description'] != null) {
+        if (isset($validData['new_description'])) {
             $product->description = $validData['new_description'];
         }
 
-        if (array_key_exists('new_discount', $validData) && $validData['new_discount'] != null) {
+        if (isset($validData['new_discount'])) {
             $product->discount = $validData['new_discount'];
         }
 
-        if (array_key_exists('new_category_id', $validData) && $validData['new_category_id'] != null) {
+        if (isset($validData['new_category_id'])) {
             $product->category_id = $validData['new_category_id'];
         }
+        if (isset($validData['no_image']) && $product->product_image != null) {
+            //
+            Storage::disk('public')->delete('images/products/' . $product->product_image);
+            $product->product_image = null;
+        }
 
-        $fixidProductNewName = str_replace(" ", '_', $product->product_name);
+        //
+        $product->save();
 
+        //
+        if (isset($validData['new_product_image'])) {
 
-        //Image can be null 
-        //Null value means the prodcut has no image
-        $imageName = null;
-        if (array_key_exists('new_product_image', $validData)) {
-
-            //Delete previous product image
+            //
             if ($product->product_image != null) {
-                Storage::disk('public')->delete('images/products/' . $fixidProductPreviousName);
+                Storage::disk('public')->delete('images/products/' . $product->product_image);
             }
-            //If new product image inserted
-            if ($validData['new_product_image'] != null) {
-                $imageName = time() . '_' . $fixidProductNewName . '.' . $validData['new_product_image']->getClientOriginalExtension();
-                Storage::disk('public')->put('images/products/' . $imageName, file_get_contents($validData['new_product_image']));
-            }
+
+            // Create new image, save it in storage
+            $fixid_product_name = str_replace(' ', '_', $product->product_name);
+            $imageName = time() . '_' . $fixid_product_name . '.' . $validData['new_product_image']->getClientOriginalExtension();
+            Storage::disk('public')->put('images/products/' . $imageName, file_get_contents($validData['new_product_image']));
+
             $product->product_image = $imageName;
         }
 
@@ -170,7 +171,7 @@ class ProductController extends Controller
             return CustomResponse::notFound("Product not found");
         }
         if ($product->product_image != null) {
-            Storage::disk('public')->delete('images/users/' . $product->product_image);
+            Storage::disk('public')->delete('images/prodcuts/' . $product->product_image);
         }
         $product->delete();
         return CustomResponse::deleted();

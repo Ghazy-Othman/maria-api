@@ -31,7 +31,7 @@ class CreateProductRequest extends FormRequest
             'description' => "required",
             'discount' => "sometimes|decimal:0,2",
             'category_id' => "required" , 
-            'product_image' => "sometimes|nullable|mimes:jpeg,png,jpg,svg" ,
+            'product_image' => "sometimes|mimes:jpeg,png,jpg,svg" ,
         ];
     }
 

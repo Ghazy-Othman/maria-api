@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Validation\Rule;
 
 class UpdateProductRequest extends FormRequest
 {
@@ -30,7 +31,8 @@ class UpdateProductRequest extends FormRequest
             'new_description' => "sometimes",
             'new_discount' => "sometimes|decimal:1,2",
             'new_category_id' => "sometimes" , 
-            'new_product_image' => "sometimes|nullable|mimes:jpeg,png,jpg,svg" ,
+            'new_product_image' => "sometimes|mimes:jpeg,png,jpg,svg" ,
+            'no_image' => 'sometimes|in:true'
         ];
     }
 
@@ -42,6 +44,7 @@ class UpdateProductRequest extends FormRequest
             'new_cost.integer' => "Cost have to be integer!!" , 
             'new_discount.integer' => "Discount have to be integer!!" , 
             'new_product_image.mimes' => "Please enter a valid image !!" , 
+            'no_image.in' => "Please enter true value for this field"
         ] ;
     }
 

@@ -29,8 +29,7 @@ class OrderController extends Controller
                 $query->where('status', $request->status);
             })
             ->orderBy('updated_at', 'desc')
-            ->paginate(10)
-            ->withQueryString();
+            ->get() ; 
 
         //
         return CustomResponse::ok($orders);
@@ -44,8 +43,13 @@ class OrderController extends Controller
     {
         //
         $cart = Cart::where(['user_id' => $user_id, 'status' => 'active'])->first();
+        if (!$cart) {
+            return CustomResponse::badRequest('No cart found ...!!!');
+        }
         $cart_items = $cart->items;
-
+        if (count($cart_items) == 0) {
+            return CustomResponse::badRequest('No cart items found..!!!');
+        }
         //
         $total_price = 0;
         foreach ($cart_items as $item) {
@@ -74,12 +78,14 @@ class OrderController extends Controller
      * Get a specific order 
      * @authenticated
      */
-    public function show(Order $order)
+    public function show($user_id, $order_id)
     {
-
-        //TODO : Make order resource
+        //
+        $order = Order::find($order_id);
+        $cart = Cart::where(['user_id' => $user_id, 'status' => 'checked_out'])->get()->last();
+        //
         $response['order'] = $order;
-        $response['order_items'] = Cart::find($order->cart_id)->items();
+        $response['order_items'] = $cart->items;
 
         return CustomResponse::ok($response);
     }

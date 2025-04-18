@@ -19,9 +19,9 @@ class PaymentController extends Controller
     }
 
 
-    public function initiate($orderId)
+    public function initiate($order_id)
     {
-        $order = Order::findOrFail($orderId);
+        $order = Order::findOrFail($order_id);
         $url = $this->payment_service->createPayment($order);
         return redirect($url);
     }

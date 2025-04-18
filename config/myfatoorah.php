@@ -35,6 +35,6 @@ return [
      * Set it to true to show the Apple Pay on the checkout page.
      * First, verify your domain with Apple Pay before you set it to true.
      * You can either follow the steps here: https://docs.myfatoorah.com/docs/apple-pay#verify-your-domain-with-apple-pay or contact the MyFatoorah support team (tech@myfatoorah.com).
-    */
+     */
     'register_apple_pay' => false
 ];

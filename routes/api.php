@@ -20,19 +20,19 @@ Route::prefix('users')->group(function () {
     Route::get('/', [UserController::class, 'index'])->middleware('auth:sanctum', 'isAdmin')->name('users.index');
 
     // Auth endpoints 
-    Route::post('/login', [UserController::class, 'login'])->name('users.login');
-    Route::post('/signup', [UserController::class, 'signup'])->name('users.signup');
-    Route::post('/request-otp-code', [UserController::class, 'requestOtpCode'])->name('users.requestOtp');
+    Route::post('/auth/login', [UserController::class, 'login'])->name('users.login'); 
+    Route::post('/auth/signup', [UserController::class, 'signup'])->name('users.signup'); 
 
     // Password reset 
-    Route::post('/reset-password', [UserController::class, 'resetPassword']);
+    Route::post('/auth/request-otp-code', [UserController::class, 'requestOtpCode'])->name('users.requestOtp');
+    Route::post('/auth/reset-password', [UserController::class, 'resetPassword']);
 
     // User-specific routes with currentUser middleware
     Route::middleware(['auth:sanctum', 'currentUser'])->group(function () {
 
         // User info
         Route::get('/{user_id}', [UserController::class, 'show']);
-        Route::post('/{user_id}', [UserController::class, 'update']);
+        Route::put('/{user_id}', [UserController::class, 'update']);
         Route::delete('/{user_id}', [UserController::class, 'destroy']);
 
         // User cart
@@ -44,20 +44,18 @@ Route::prefix('users')->group(function () {
         Route::get('/{user_id}/orders', [OrderController::class, 'index']);
         Route::get('/{user_id}/orders/{order_id}', [OrderController::class, 'show']);
         Route::post('/{user_id}/orders/', [OrderController::class, 'store']);
-
+        
         // Payment
-        Route::get('/{user_id}/payment/initiate/{orderId}', [PaymentController::class, 'initiate'])->name('payment.initiate');
-        Route::get('/{user_id}/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
-        Route::get('/{user_id}/payment/failed', [PaymentController::class, 'failed'])->name('payment.failed');
-
+        Route::get('/payment/initiate/{order_id}', [PaymentController::class, 'initiate'])->name('payment.initiate');
+        Route::get('/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
+        Route::get('/payment/failed', [PaymentController::class, 'failed'])->name('payment.failed');
+        
+        // AI Chatbot
+        Route::get('/{user_id}/chatbot', [ChatbotController::class, 'show']);
+        Route::post('/{user_id}/chatbot', [ChatbotController::class, 'sendMessage']);
+        Route::delete('/{user_id}/chatbot', [ChatbotController::class, 'deleteChat']);
     });
-    
-    // AI Chatbot
-    Route::get('/{user_id}/chat' , [ChatbotController::class , 'show']) ;
-    Route::post('/{user_id}/chat' , [ChatbotController::class , 'sendMessage']) ;
-    Route::delete('/{user_id}/chat' , [ChatbotController::class , 'deleteChat']) ;
-       
-    
+
 });
 
 
@@ -69,14 +67,14 @@ Route::apiResource('categories', CategoryController::class)->only(['index', 'sho
 Route::apiResource('products', ProductController::class)->only(['index', 'show']); // Public routes
 
 Route::middleware(['auth:sanctum', 'isAdmin'])->group(function () {
-    Route::apiResource('categories', CategoryController::class)->except(['index', 'show']);
-    Route::apiResource('products', ProductController::class)->except(['index', 'show']);
+    //
+    Route::post('/categories', [CategoryController::class, 'store']);
+    Route::put('/categories/{category_id}', [CategoryController::class, 'update']);
+    Route::delete('/categories/{category_id}', [CategoryController::class, 'destroy']);
+
+    //
+    Route::post('/products', [ProductController::class, 'store']);
+    Route::put('/products/{product_id}', [ProductController::class, 'update']);
+    Route::delete('/products/{product_id}', [ProductController::class, 'destroy']);
+
 });
-
-
-Route::get('/chatbot' , [ChatbotController::class, 'chat']) ; 
-
-//===============================================
-//                 AI Chatbot
-//===============================================
-Route::get('/chatbot' , [ChatbotController::class, 'get_initial_info']) ; 

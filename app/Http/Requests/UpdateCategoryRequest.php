@@ -25,7 +25,7 @@ class UpdateCategoryRequest extends FormRequest
     {
         return [
             //
-            'new_category_name' => 'sometimes' 
+            'new_category_name' => 'required' 
         ];
     }
 

@@ -25,7 +25,8 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             "user_new_name" => 'sometimes' ,
-            'profile_image' => 'sometimes|nullable|mimes:jpeg,png,jpg,svg'
+            'new_profile_image' => 'sometimes|mimes:jpeg,png,jpg,svg',
+            'no_image' => 'sometimes|in:true'
         ];
     }
 
@@ -34,7 +35,8 @@ class UpdateUserRequest extends FormRequest
     public function messages() : array
     {
         return [
-            'profile_image.mimes' => "Please enter a valid image !!!" 
+            'new_profile_image.mimes' => "Please enter a valid image !!!" ,
+            'no_image.in' => "Please enter true value !!"
         ] ;
     }
 

@@ -90,13 +90,13 @@ class ChatbotController extends Controller
 
     public function get_initial_info()
     {
-        // Test with fake data
+        ///TODO : Test with fake data
         $products = json_decode(file_get_contents(base_path('/data.json')));
         $products = $products->honey_types;
 
         $initial_data = [];
         $initial_data[] = Content::parse(
-            'Read this products information, each product will be in JSON formate with 
+            'Read this honey products information, each product will be in JSON formate with 
         : name , description and cost',
             Role::USER
         );

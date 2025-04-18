@@ -63,30 +63,40 @@ class   UserController extends Controller
 
         $validData = $request->validated();
 
-        //Image can be null 
-        //Null value means user don't want a profile image
-        $imageName = null;
-        if (array_key_exists('profile_image', $validData)) {
+        //
+        if (isset($validData['user_new_name'])) {
+            $user->name = $validData['user_new_name'];
+        }
 
-            //Delete user previous profile image
+        // Delete current image 
+        if (isset($validData['no_image']) && $user->profile_image != null) {
+            Storage::disk('public')->delete('images/users/' . $user->profile_image);
+            $user->profile_image = null;
+        }
+
+        //
+        $user->save();
+
+        //
+        if (isset($validData['new_profile_image'])) {
+
+            // Delete user previous profile image
             if ($user->profile_image != null) {
                 Storage::disk('public')->delete('images/users/' . $user->profile_image);
             }
 
-            //If user insert new profile image 
-            if ($validData['profile_image'] != null) {
-                $imageName = time() . '_' . $user->name . '.' . $validData['profile_image']->getClientOriginalExtension();
-                Storage::disk('public')->put('images/users/' . $imageName, file_get_contents($validData['profile_image']));
-            }
+            $fixid_user_name =  str_replace(' ', '_', $user->name);
+            $imageName = time() . '_' . $fixid_user_name . '.' . $validData['new_profile_image']->getClientOriginalExtension();
+            Storage::disk('public')->put('images/users/' . $imageName, file_get_contents($validData['new_profile_image']));
+
             $user->profile_image = $imageName;
         }
 
-        if (array_key_exists('user_new_name', $validData) &&  $validData['user_new_name'] != null) {
-            $user->name = $validData['user_new_name'];
-        }
-
+        //
         $user->save();
-        return CustomResponse::ok(['data' => new UserResource($user)]);
+
+        //
+        return CustomResponse::ok(new UserResource($user));
     }
 
 
@@ -106,7 +116,7 @@ class   UserController extends Controller
 
         if (auth()->attempt($credentials)) {
 
-            $user = User::find(Auth::user()->user_id); 
+            $user = User::find(Auth::user()->user_id);
             $user->tokens()->delete();
 
             $success['msg'] = "Login successed";
@@ -130,8 +140,10 @@ class   UserController extends Controller
 
         //Image can be null 
         $imageName = null;
-        if (array_key_exists('profile_image', $validData) && $validData['profile_image'] != null) {
-            $imageName = time() . '_' . $validData['name'] . '.' . $validData['profile_image']->getClientOriginalExtension();
+        if (isset($validData['profile_image'])) {
+            //
+            $fixid_user_name =  str_replace(' ', '_', $validData['name']);
+            $imageName = time() . '_' . $fixid_user_name . '.' . $validData['profile_image']->getClientOriginalExtension();
         }
 
         $credentials = [
@@ -179,37 +191,38 @@ class   UserController extends Controller
     /**
      * Request OTP code to reset password 
      */
-    public function requestOTPCode(OtpCodeRequest $request) { 
-        
-        $validData = $request->validated() ; 
+    public function requestOTPCode(OtpCodeRequest $request)
+    {
 
-        $user = User::where('email' , $validData['email'])->first() ; 
+        $validData = $request->validated();
 
-        $user->notify(new OTPRequestNotification()) ;
+        $user = User::where('email', $validData['email'])->first();
 
-        return CustomResponse::ok(['msg' => 'OTP code has been sent successfully ']) ; 
+        $user->notify(new OTPRequestNotification());
 
+        return CustomResponse::ok(['msg' => 'OTP code has been sent successfully ']);
     }
 
 
     /**
      * Reset password
      */
-    public function resetPassword(ResetPasswordRequest $request) { 
-         
-        $validData = $request->validated() ; 
+    public function resetPassword(ResetPasswordRequest $request)
+    {
 
-        $result = (new Otp)->validate($validData['email'] , $validData['code']);
+        $validData = $request->validated();
 
-        if($result->status) { 
+        $result = (new Otp)->validate($validData['email'], $validData['code']);
+
+        if ($result->status) {
             // Update password 
-            $user = User::where('email' , $validData['email'])->first() ; 
-            $user->password = Hash::make($validData['new_password']) ; 
-            $user->save() ; 
-            return CustomResponse::ok(["msg" => "Password updated successfully"]) ; 
+            $user = User::where('email', $validData['email'])->first();
+            $user->password = Hash::make($validData['new_password']);
+            $user->save();
+            return CustomResponse::ok(["msg" => "Password updated successfully"]);
         }
-        
+
         // Failed to update password (OTP expired or not valid)
-        return CustomResponse::badRequest($result->message) ; 
+        return CustomResponse::badRequest($result->message);
     }
 }
