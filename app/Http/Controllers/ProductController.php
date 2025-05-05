@@ -25,20 +25,23 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         // Add more filtering if needed
-        $prodcuts = Product::when($request->category_id, function ($query) use ($request) {
-            return $query->where("category_id", $request->category_id);
+        $products = Product::when($request->category_id, function ($query) use ($request) {
+            $query->where("category_id", $request->category_id);
         })
             ->when($request->costFrom, function ($query) use ($request) {
-                return $query->where('cost', '>=', $request->costFrom);
+                $query->where('cost', '>=', $request->costFrom * 100);
             })
             ->when($request->costTo, function ($query) use ($request) {
-                return $query->where('cost', '<=', $request->costTo);
+                $query->where('cost', '<=', $request->costTo * 100);
+            })
+            ->when($request->sortBy , function($query) use ($request) {
+                $query->orderBy($request->sortBy) ;
             })
             ->paginate(10)
             ->withQueryString();
 
         //
-        return CustomResponse::ok(new ProductCollection(Product::all()));
+        return CustomResponse::ok($products);
     }
 
 
