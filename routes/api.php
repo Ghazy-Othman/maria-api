@@ -46,9 +46,9 @@ Route::prefix('users')->group(function () {
         Route::post('/{user_id}/orders/', [OrderController::class, 'store']);
         
         // Payment
-        Route::get('/payment/initiate/{order_id}', [PaymentController::class, 'initiate'])->name('payment.initiate');
-        Route::get('/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
-        Route::get('/payment/failed', [PaymentController::class, 'failed'])->name('payment.failed');
+        Route::get('/payment/initiate/{order_id}', [PaymentController::class, 'initiate'])->name('payment.initiate')->withoutMiddleware(['auth:sanctum', 'currentUser']);
+        Route::get('/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback')->withoutMiddleware(['auth:sanctum', 'currentUser']);
+        //Route::get('/payment/failed', [PaymentController::class, 'failed'])->name('payment.failed')->withoutMiddleware(['auth:sanctum', 'currentUser']);
         
         // AI Chatbot
         Route::get('/{user_id}/chatbot', [ChatbotController::class, 'show']);
@@ -62,7 +62,7 @@ Route::prefix('users')->group(function () {
 //===============================================
 //            Categories & Prodcuts
 //===============================================
-
+    
 Route::apiResource('categories', CategoryController::class)->only(['index', 'show']); // Public routes
 Route::apiResource('products', ProductController::class)->only(['index', 'show']); // Public routes
 

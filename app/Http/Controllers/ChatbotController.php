@@ -112,7 +112,7 @@ class ChatbotController extends Controller
 
     public function get_initial_info()
     {
-        ///TODO : Test with fake data
+        // ///TODO : Test with fake data
         $products = json_decode(file_get_contents(base_path('/data.json')));
         $products = $products->honey_types;
 
