@@ -20,9 +20,5 @@ Route::get('/public_docs', function () {
 Route::get('/', function () {
     return "<h1>
 API for Maria Honey Company
-</h1>
-<br>
-<h1>
-Developed By : Ghazy 👾
 </h1>";
 });

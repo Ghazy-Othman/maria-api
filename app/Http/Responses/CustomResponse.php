@@ -31,7 +31,7 @@ class CustomResponse implements Responsable
             data: $payLoad,
             status: $this->httpCode,
             ///TODO : Add option : JSON_UNESCAPED_UNICODE
-        );
+        )->withHeaders(["Access-Control-Allow-Origin" => "*"]);
     }
 
 
