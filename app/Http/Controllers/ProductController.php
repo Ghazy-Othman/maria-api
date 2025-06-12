@@ -34,14 +34,18 @@ class ProductController extends Controller
             ->when($request->costTo, function ($query) use ($request) {
                 $query->where('cost', '<=', $request->costTo * 100);
             })
-            ->when($request->sortBy , function($query) use ($request) {
-                $query->orderBy($request->sortBy) ;
-            })
-            ->paginate(10)
-            ->withQueryString();
+            ->when($request->sortBy, function ($query) use ($request) {
+                $query->orderBy($request->sortBy);
+            })->get();
+        // ->paginate(10)
+        // ->withQueryString();
 
+        $response = [
+            'products' => new ProductCollection($products),
+            'categories' => Category::all()
+        ];
         //
-        return CustomResponse::ok($products);
+        return CustomResponse::ok($response);
     }
 
 

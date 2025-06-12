@@ -30,4 +30,5 @@ class CartItem extends Model
             set: fn($value) => $value * 100,
         );
     }
+    
 }

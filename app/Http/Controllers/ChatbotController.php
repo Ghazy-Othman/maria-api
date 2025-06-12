@@ -112,9 +112,9 @@ class ChatbotController extends Controller
 
     public function get_initial_info()
     {
-        // ///TODO : Test with fake data
-        $products = json_decode(file_get_contents(base_path('/data.json')));
-        $products = $products->honey_types;
+        // // ///TODO : Test with fake data
+        // $products = json_decode(file_get_contents(base_path('/data.json')));
+        // $products = $products->honey_types;
 
         $initial_data = [];
         $initial_data[] = Content::parse(
@@ -123,12 +123,12 @@ class ChatbotController extends Controller
             Role::USER
         );
 
-        // $products = Product::get([
-        //     'product_name',
-        //     'cost',
-        //     'description',
-        //     'discount',
-        // ])->toArray();
+        $products = Product::get([
+            'product_name',
+            'cost',
+            'description',
+            'discount',
+        ])->toArray();
 
         foreach ($products as $product) {
             $initial_data[] = Content::parse(json_encode($product), Role::USER);

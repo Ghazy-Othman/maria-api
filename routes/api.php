@@ -46,8 +46,8 @@ Route::prefix('users')->group(function () {
         Route::post('/{user_id}/orders/', [OrderController::class, 'store']);
         
         // Payment
-        Route::get('/payment/initiate/{order_id}', [PaymentController::class, 'initiate'])->name('payment.initiate')->withoutMiddleware(['auth:sanctum', 'currentUser']);
-        Route::get('/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback')->withoutMiddleware(['auth:sanctum', 'currentUser']);
+        // Route::get('/payment/initiate/{order_id}', [PaymentController::class, 'initiate'])->name('payment.initiate')->withoutMiddleware(['auth:sanctum', 'currentUser']);
+        // Route::get('/payment/callback', [PaymentController::class, 'callback'])->name('payment.callback')->withoutMiddleware(['auth:sanctum', 'currentUser']);
         //Route::get('/payment/failed', [PaymentController::class, 'failed'])->name('payment.failed')->withoutMiddleware(['auth:sanctum', 'currentUser']);
         
         // AI Chatbot

@@ -27,7 +27,7 @@ class CartController extends Controller
 
         //
         $success['cart'] = new CartResource($cart);
-
+        $success['user_name'] = User::find($user_id)->name ; 
         //
         return CustomResponse::ok($success);
     }
